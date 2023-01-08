@@ -1,0 +1,103 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: "a";
+	src: url("chilgok.ttf");/* 폰트 칠곡체 */
+}
+
+*{
+	margin: 0; /* 외부공간 */
+	padding:0; /* 내부공간 */
+}
+/* 화면 전체 렙 */
+.wrapper{
+	width: 100%;
+}
+/* content 랩 */
+.wrap{
+	width : 1500px;
+	margin: auto;
+}
+/* 홈페이지 기능 네비 */ 
+.top_gnb_area{
+	font-family : "a";
+	width: 100%;
+    height: 50px;
+    background-color: pink;
+}
+/* 로고, 검색, 로그인 */
+.top_area{
+	font-family : "a";
+	width: 100%;
+    height: 150px;
+    /* background-color: #f7f0b9; */
+}
+/* 로고 영역 */
+.logo_area{
+	font-family : "a";
+	width: 25%;
+	height: 100%;
+	background-color: red;
+	float:left;
+}
+/* 검색 박스 영역 */
+.search_area{
+	font-family : "a";
+	width: 50%;
+	height: 100%;
+	background-color: blue;
+	float:left;	
+}
+/* 로그인 버튼 영역 */
+.login_area{
+	font-family : "a";
+	width: 25%;
+	height: 100%;
+	display: inline-block;	
+	text-align: center;		
+}
+.login_button{
+	font-family : "a";
+	height: 50%;
+    background-color: #D4DFE6;
+    margin-top: 30px;
+    line-height: 77px;
+    font-size: 40px;
+    font-weight: 900;
+    border-radius: 10px;
+    cursor: pointer;	
+}
+.login_area>span{
+	margin-top: 10px;
+    font-weight: 900;
+    display: inline-block;
+}
+
+/* 제품 목록 네비 */
+.navi_bar_area{
+	font-family : "a";
+	width: 100%;
+    height: 70px;
+    background-color: purple;
+}
+
+/* 쇼핑몰 메인 제품 목록  */
+.content_area{
+	font-family : "a";
+	width: 100%;
+    background-color: green;
+    height: 1000px;
+}
+
+/* 홈페이지 하단 목록  */
+.bottom_area{
+	font-family : "a";
+	width: 100%;
+    background-color: #54cff4;
+    height: 300px;
+}
+
+/* float 속성 해제 */
+.clearfix{
+	clear: both;
+}
