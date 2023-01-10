@@ -52,16 +52,16 @@
 					<div class="address_name">주소</div>
 					<div class="address_input_1_wrap">
 						<div class="address_input_1_box">
-							<input class="address_input_1" name="address_input1">
+							<input class="address_input_1" name="address_input1" readonly="readonly"><!-- readonly="readonly" 추가 (1/10) 찬호-->
 						</div>
 						<div class="address_button">
-							<span>주소 찾기</span><!-- 다음주소 입력하는거로 변경할예정 -->
+							<span>주소 찾기</span><!-- 다음주소가능하게 변경 (01/10) -->
 						</div>
 						<div class="clearfix"></div>
 					</div>
 					<div class="address_input_2_wrap">
 						<div class="address_input_2_box">
-							<input class="address_input_2" name="address_input2">
+							<input class="address_input_2" name="address_input2"readonly="readonly"><!-- readonly="readonly" 추가 (1/10) 찬호-->
 						</div>
 					</div>
 					<div class="address_input_3_wrap">
@@ -77,13 +77,8 @@
 						<input name="gender_radio" type="radio" >&nbsp;&nbsp;여성
 					</div>
 				</div>
-				<div class="rank_wrap"><!-- 히든설정해놔서 보이지 않고 DB에 넘어가게만 해놨어요 가입하면 등급은 자동적으로 브론즈-->
-					<div class="rank_name"></div>
-					<div class="rank_input_box">
-						<input class="rank_input" hidden="hidden" value="bronze"
-							disabled="disabled">
-					</div>
-				</div>
+				<!-- rank 필요없어서 삭제
+					이유 매퍼에서 적용하면됨 (01/10)찬호 -->
 				<div class="join_button_wrap">
 					<input type="button" class="join_button" value="가입하기" >
 				</div>
