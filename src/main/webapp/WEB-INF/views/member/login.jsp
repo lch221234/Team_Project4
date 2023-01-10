@@ -21,7 +21,7 @@
 				</div>
 				<div class="pw_wrap">비밀번호</div>
 				<div class="pw_input_box">
-					<input class="pw_iput">
+					<input class="pw_iput" type="password" >
 				</div>
 				<div class="login_button_wrap"><!-- 카카오 네이버 로그인 추가예정 -->
 					<input type="button" class="login_button" value="로그인">
