@@ -6,11 +6,10 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <link rel="stylesheet" href="resources/css/member/join.css">
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/do.js"></script>
-<script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript" src="resources/js/go.js" ></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -22,25 +21,31 @@
 				<div class="id_wrap">
 					<div class="id_name">아이디</div>
 					<div class="id_input_box">
-						<input class="id_input" name="id_input">
+						<input class="id_input" name ="id_input"
+						autofocus="autofocus" autocomplete="off" 
+						placeholder="ID를 입력하세요" maxlength="10">  <!-- 추가(shin) -->
 					</div>
 				</div>
 				<div class="pw_wrap">
 					<div class="pw_name">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_input" name="pw_input">
+						<input class="pw_input" name="pw_input" type="password" 
+						autocomplete="off" placeholder="PW 입력하세요" maxlength="12"> <!-- 추가(shin) -->
 					</div>
 				</div>
 				<div class="pwck_wrap">
 					<div class="pwck_name">비밀번호 확인</div>
 					<div class="pwck_input_box">
-						<input class="pwck_input" name="pwck_input">
+						<input class="pwck_input" name="pwck_input" type="password"
+						autocomplete="off" placeholder="다시 한번 PW 입력하세요" maxlength="12" > <!-- 추가(shin) -->
 					</div>
 				</div>
 				<div class="user_wrap">
 					<div class="user_name">이름</div>
 					<div class="user_input_box">
-						<input class="user_input" name="user_input">
+						<input class="user_input" name="user_input"
+						autocomplete="off" placeholder="이름을 입력하세요" maxlength="8"> <!-- 추가(shin) -->
+						<!-- placeholder는 삭제해도 무방 -->
 					</div>
 				</div>
 				<div class="address_wrap">
@@ -50,8 +55,7 @@
 							<input class="address_input_1" name="address_input1">
 						</div>
 						<div class="address_button">
-							<span>주소 찾기</span>
-							<!-- 다음주소 입력하는거로 변경할예정 -->
+							<span>주소 찾기</span><!-- 다음주소 입력하는거로 변경할예정 -->
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -68,17 +72,21 @@
 				</div>
 				<div class="gender_wrap">
 					<div class="gender_name">성별</div>
-					<div class="gender_radio_box">
-						<!-- &nbsp; 띄어쓰기 -->
-						<input name="gender_radio" type="radio" value="남자">&nbsp;&nbsp;남성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<input name="gender_radio" type="radio" value="여자">&nbsp;&nbsp;여성
+					<div class="gender_radio_box"><!-- &nbsp; 띄어쓰기 -->
+						<input name="gender_radio" type="radio" >&nbsp;&nbsp;남성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<input name="gender_radio" type="radio" >&nbsp;&nbsp;여성
 					</div>
 				</div>
-				<button>가입하기</button>
-
-				<!-- <div class="join_button_wrap">
-					<input type="button" class="join_button" value="가입하기" > 
-				</div>-->
+				<div class="rank_wrap"><!-- 히든설정해놔서 보이지 않고 DB에 넘어가게만 해놨어요 가입하면 등급은 자동적으로 브론즈-->
+					<div class="rank_name"></div>
+					<div class="rank_input_box">
+						<input class="rank_input" hidden="hidden" value="bronze"
+							disabled="disabled">
+					</div>
+				</div>
+				<div class="join_button_wrap">
+					<input type="button" class="join_button" value="가입하기" >
+				</div>
 			</div>
 		</form>
 	</div>

@@ -17,11 +17,13 @@
 			<div class="login_wrap">
 				<div class="id_wrap">아이디</div>
 				<div class="id_input_box">
-					<input class="id_input">
+					<input class="id_input" autofocus="autofocus" autocomplete="off"
+					placeholder="ID를 입력하세요" maxlength="10">  <!-- 추가(shin) -->
 				</div>
 				<div class="pw_wrap">비밀번호</div>
 				<div class="pw_input_box">
-					<input class="pw_iput" type="password" >
+					<input class="pw_iput" type="password" 
+					autocomplete="off" placeholder="PW 입력하세요" maxlength="12">  <!-- 추가(shin) -->
 				</div>
 				<div class="login_button_wrap"><!-- 카카오 네이버 로그인 추가예정 -->
 					<input type="button" class="login_button" value="로그인">
