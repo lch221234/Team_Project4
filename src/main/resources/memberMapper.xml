@@ -4,7 +4,7 @@
 	<select id="getId" parameterType="com.shop.main.member.Member" resultType="com.shop.main.member.Member">
 	</select>
 	<insert id="signup" parameterType="com.shop.main.member.Member">
-		insert into s_member values(#{m_id}, #{m_pw}, #{m_name}, #{m_address}, #{m_grade}, #{m_money}, #{m_point})
+		insert into s_member values(#{m_id}, #{m_pw}, #{m_name}, #{m_address}, 'bronze', #{m_sex})
 	</insert>
 	<update id="update" parameterType="com.shop.main.member.Member">
 	</update>

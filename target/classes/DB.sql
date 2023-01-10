@@ -3,12 +3,11 @@ create table s_member(
 	m_pw varchar2(30 char) not null,
 	m_name varchar2(10 char) not null,
 	m_address varchar2(200 char) not null,
-	m_grade varchar2(10 char),
-	m_money number(10),
-	m_point number(6)
+	m_grade varchar2(10 char)not null,
+	m_sex varchar2(10 char)not null
 )
 
-insert into s_member values('asdf','asdf1234!','테스트','봉은사로119','등급', 100000, 100);
+insert into s_member values('asdf', 'asdfasdf', '테스트', '테스트 주소', 'bronze', '남자');
 
 select * from s_member;
 

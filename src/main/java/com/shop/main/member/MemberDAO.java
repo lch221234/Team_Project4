@@ -31,17 +31,21 @@ public class MemberDAO {
 	
 	// 회원가입
 	public void signup(Member m, HttpServletRequest req) {
-		try {
-			String m_id = req.getParameter("id_input");
-			String m_pw = req.getParameter("pw_input");
-			String m_name = req.getParameter("user_input");
-			String address1 = req.getParameter("address_input_1 ");
-			String address2 = req.getParameter("address_input_2 ");
-			String address3 = req.getParameter("address_input_3");
-			String m_address = (address1 + address2 + address3);
+		try {	
+
+			String address1 = req.getParameter("address_input1");
+			String address2 = req.getParameter("address_input2");
+			String address3 = req.getParameter("address_input3");
+			String m_address = (address1 + "!" + address2 + "!" + address3);
+			
+			m.setM_id(req.getParameter("id_input"));
+			m.setM_pw(req.getParameter("pw_input"));
+			m.setM_name(req.getParameter("user_input"));
+			m.setM_address(m_address);
+			m.setM_sex(req.getParameter("gender_radio"));
 			
 			ss.getMapper(MemberMapper.class).signup(m);
-			
+						
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
