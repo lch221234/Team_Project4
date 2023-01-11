@@ -1,57 +1,69 @@
-// ìœ íš¨ì„±ê²€ì‚¬ ì¶”ê°€
+// HongValidChecker.js
+// ÇÔ¼ö¸í ´Ù¸£°Ô ÇØµµ »ó°üÀº ¾øÀ¸³ª, ±â¾ï ÀßÇÏ¼Å¾ß!!
+// Àß¸øµÆÀ» ¶§ true(¹¹°¡ ¹®Á¦°¡ µÇ¸é true, Á¤»óÀûÀÌ¸é false)
+////////////////////////////////////////////////////
 
-// <input> ë„£ì—ˆì„ë•Œ
-//	ì•„ë¬´ê²ƒë„ ì•ˆì¼ìœ¼ë©´ true, ë­ë¼ë„ ì¼ìœ¼ë©´ false
-function isEmpty(input) {
+// <input>À» ¾µ¶§
+//		¾Æ¹«°Íµµ ¾È½èÀ¸¸é true, ¹¹¶óµµ ½èÀ¸¸é false
+function isEmpty(input){
 	return (!input.value);
 }
 
-// <input> ê¸€ììˆ˜ë¥¼ ë„£ì—ˆì„ë•Œ
-// ê·¸ ê¸€ììˆ˜ë³´ë‹¤ ì ìœ¼ë©´ true, ê·¸ ê¸€ììˆ˜ ì´ìƒì´ë©´ false
-function lessThan(input, len) {
-	return (input.value.length < len);
-}
-
-// <input> ë„£ì—ˆì„ë•Œ
-// í•œê¸€/íŠ¹ìˆ˜ë¬¸ìê°€ ì í˜€ìˆìœ¼ë©´ true, ì—†ìœ¼ë©´ false
-function containsJSC(input) {
-	var ok = "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM@._";
-	var iv = input.value;
-	for (var i = 0; i < iv.length; i++) {
-		if (ok.indexOf(iv[i]) == -1) {
+// <input>¿¡ ³»¿ëÀ» ³Ö¾úÀ» ¶§ 
+// ÇÑ±Û or Æ¯¼ö¹®ÀÚ°¡ ÀûÇôÀÖ´Ù¸é true, ¾ø´Ù¸é false
+function containsAnother(input) {
+	let pass = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@_.!#$%^&*()";
+	let iv = input.value;
+	for(let i =0; i < iv.length; i++){
+		if (pass.indexOf(iv[i]) == -1) { // passÀÇ ³»¿ë Áß¿¡ ³»°¡ ¾´ ³»¿ëÀÌ ¾øÀ¸¸é
 			return true;
 		}
 	}
 	return false;
 }
 
-// <input> x 2 ë„£ì—ˆì„ë•Œ
-// ë‚´ìš©ì´ ë‹¤ë¥´ë©´ true, ê°™ìœ¼ë©´ false
-function notEquals(input1, input2) {
-	return (input1.value != input2.value);
+// <input>, ±ÛÀÚ¼ö ³Ö¾úÀ» ¶§
+// ±× ±ÛÀÚ¼öº¸´Ù ÀûÀ¸¸é true, ±× ±ÛÀÚ¼ö ÀÌ»óÀÌ¸é false
+function atLeastLetter(input, len){
+	return(input.value.length < len);
 }
 
-// <input>, ë¬¸ìì—´ì„¸íŠ¸ ë„£ì—ˆì„ë•Œ
-// ì—†ìœ¼ë©´ true, ìˆìœ¼ë©´ false
-function notContains(input, okSet) {
-	var iv = input.value;
-	for (var i = 0; i < okSet.length; i++) {
-		if (iv.indexOf(okSet[i]) != -1) {
-			return false;
-		}
+// <input> x 2 ³Ö¾úÀ» ¶§ (pw, pwChk)
+// ³»¿ëÀÌ ¼­·Î ´Ù¸£¸é true, °°À¸¸é false
+function notEquals(input1, input2){
+	return(input1.value != input2.value);
+}
+
+// <input>, ¹®ÀÚ¿­ ¼¼Æ® ³Ö¾úÀ» ¶§
+// ¾øÀ¸¸é true, ÀÖÀ¸¸é false (ÀÔ·ÂÇÑ pw¿¡ ÁöÁ¤ÇÑ ¹®ÀÚ¿­ÀÌ ¾ø´Â °æ¿ì)
+
+function notContain(input, passSet){
+	let iv = input.value;
+	for(let i=0; i<passSet.length; i++){
+		if(iv.indexOf(passSet[i]) != -1);
+		return false;
 	}
 	return true;
 }
 
-// <input> ë„£ì—ˆì„ë•Œ
-// ìˆ«ìì•„ë‹Œê±° ìˆìœ¼ë©´ true, ìˆ«ìë§Œ ìˆìœ¼ë©´ false
-function isNotNumber(input) {
+// <input> ³Ö¾úÀ» ¶§ 
+//		¼ıÀÚ ¾Æ´Ñ°Å ÀÖÀ¸¸é true, ¼ıÀÚ¸¸ ÀÖÀ¸¸é false
+function isNotNumber(input){
 	return isNaN(input.value);
 }
 
-// <input>, í™•ì¥ì ë„£ì—ˆì„ ë•Œ
-// ê·¸ê±° ì•„ë‹ˆë©´ true, ê·¸ê±°ë©´ false
-function isNotType(input, type) {
+// <input>¿¡ È®ÀåÀÚ ³Ö¾úÀ» ¶§
+// È®ÀåÀÚ ¸íÀÌ ¾Æ´Ï¸é true, È®ÀåÀÚ ¸íÀÌ¸é false
+function isNotType(input, type){
+	// .jpg, .gif, .png, ...
 	type = "." + type;
 	return (input.value.indexOf(type) == -1);
 }
+
+
+
+
+
+
+
+
