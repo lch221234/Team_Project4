@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,34 +11,56 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 </head>
 <body>
-	<div class="wrapper"><!-- 화면 전체 div -->
-		<div class="wrap"><!-- 화면  -->
-			<div class="top_gnb_area"><!-- 상단 네비 -->
+	<div class="wrapper">
+		<!-- 화면 전체 div -->
+		<div class="wrap">
+			<!-- 화면  -->
+			<div class="top_gnb_area">
+				<!-- 상단 네비 -->
 				<h1>로그인, 회원가입, 고객센터</h1>
 			</div>
-			<div class="top_area"><!-- 상단 구역 -->
-				<div class="logo_area"><!-- 로고 -->
+			<div class="top_area">
+				<!-- 상단 구역 -->
+				<div class="logo_area">
+					<!-- 로고 -->
 					<h1>로고 넣을곳</h1>
 				</div>
-				<div class="search_area"><!-- 검색창 -->
+				<div class="search_area">
+					<!-- 검색창 -->
 					<h1>검색창</h1>
 				</div>
-				<div class="login_area"><!-- 로그인 구역 -->
-					<div class="login_button">
-						<button onclick="location.href='login'">로그인</button>
-					</div>
-					<span><button onclick="location.href='join'">회원가입</button></span><!-- <a href="/member/join"> 오류나서 교체 -->
+				<div class="login_area">
+					<!-- 로그인 구역 -->
+					<!-- 추가 로그인 하지 않은 상태 (1/12) 찬호 -->
+					<c:if test="${member == null }">
+						<div class="login_button">
+							<button onclick="location.href='login'">로그인</button>
+						</div>
+						<span><button onclick="location.href='join'">회원가입</button></span>
+						<!-- <a href="/member/join"> 오류나서 교체 -->
+					</c:if>
+
+					  <!-- 추가 로그인한 상태 (1/12) 찬호-->
+                <c:if test="${ member != null }">
+                    <div class="login_success_area">
+                        <span>회원 : ${member.m_name}</span>
+                        <span>등급 : ${member.m_grade}</span>
+                    </div>
+                </c:if>
 				</div>
 				<div class="clearfix"></div>
 			</div>
-			<div class="navi_bar_area"><!--  메뉴네비 -->
+			<div class="navi_bar_area">
+				<!--  메뉴네비 -->
 				<h1>메뉴 ex) 옷, 바지, 남성, 여성, 할인상품</h1>
 			</div>
-			<div class="content_area"><!-- 메인제품 구역 -->
+			<div class="content_area">
+				<!-- 메인제품 구역 -->
 				<h1>쇼핑몰 메인 옷 평점 순으로 나열</h1>
 			</div>
-			<div class="bottom_area"><!-- 하단 구역 -->
-			<h1>이용안내, 이용약관, 개인정보처리방침, 회사주소</h1>
+			<div class="bottom_area">
+				<!-- 하단 구역 -->
+				<h1>이용안내, 이용약관, 개인정보처리방침, 회사주소</h1>
 			</div>
 		</div>
 	</div>

@@ -34,6 +34,12 @@ public class MemberController {
 		mDAO.signup(m, req);
 		return "main";
 	}
+	//추가한 부분(로그인성공시)
+	@RequestMapping(value = "member.SuccessLogin", method = RequestMethod.POST)
+	public String loginSuccess(Member m, HttpServletRequest req) {
+		mDAO.login(m, req);
+		return "main";
+	}
 	
 	
 	

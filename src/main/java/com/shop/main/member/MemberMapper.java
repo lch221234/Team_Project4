@@ -8,5 +8,6 @@ public interface MemberMapper {
 	public abstract int signup(Member m);
 	public abstract int update(Member m);
 	public abstract int delete(Member m);
+	public abstract int memberLogin(Member m);//추가한 부분 로그인
 	
 }
