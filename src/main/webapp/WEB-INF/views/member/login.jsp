@@ -18,8 +18,7 @@
 
 		<div class="wrap">
 		<!-- form 추가한부분 -->
-			<form action="member.SuccessLogin" method="post" name="login_form"
-				onsubmit="return userloginChk();">
+			<form action="member.SuccessLogin" method="post" name="login_form">
 				<div class="logo_wrap">
 					<span>쇼핑몰</span>
 				</div>
@@ -27,19 +26,19 @@
 					<div class="id_wrap">아이디</div>
 					<div class="id_input_box">
 						<input class="id_input" name="id_input" autofocus="autofocus"
-							autocomplete="off" placeholder="ID를 입력하세요" maxlength="10">
+							autocomplete="off" placeholder="아이디">
 						<!-- 추가(shin) -->
 					</div>
 					<div class="pw_wrap">비밀번호</div>
 					<div class="pw_input_box">
 						<input class="pw_iput" name="pw_input" type="password"
-							autocomplete="off" placeholder="PW 입력하세요" maxlength="12">
+							autocomplete="off" placeholder="비밀번호">
 						<!-- 추가(shin) -->
 					</div>
-					<!-- 추가 로그인시 id 비밀번호 안맞을경우 뜨는거 (1/12) 찬호 -->
+					<!-- 추가 로그인시 id 비밀번호 안맞을경우 뜨는거 (1/12) 찬호 
 					<c:if test="${result == 0 }">
 						<div class="login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
-					</c:if>
+					</c:if>-->
 					<div class="login_button_wrap">
 						<!-- 카카오 네이버 로그인 추가예정 -->
 						<button class="login_button">로그인</button>

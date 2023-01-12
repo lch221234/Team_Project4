@@ -50,25 +50,25 @@ function userInfoChk(){
 }
 
 //추가한 부분 로그인 유효성 검사
-function userloginChk(){
-	let idBox = document.login_form.id_input;
-	let pwBox = document.login_form.pw_input;
-	
-		
-	if (isEmpty(idBox) || atLeastLetter(idBox, 6)) {
-		alert("아이디");
-		idBox.value="";
-		idBox.focus();
-		return false;
-		
-	} else if (isEmpty(pwBox) || atLeastLetter(pwBox,8) || notEquals(pwBox,pwChkBox)  
-			|| containsAnother(pwBox)) {
-		alert('비밀번호');
-		pwBox.value="";
-		pwChkBox.value="";
-		pwBox.focus();
-		return false;
-		
-	} 
-	return true;
-}
+//function userloginChk(){
+//	let idBox = document.login_form.id_input;
+//	let pwBox = document.login_form.pw_input;
+//	
+//		
+//	if (isEmpty(idBox) || atLeastLetter(idBox, 6)) {
+//		alert("아이디");
+//		idBox.value="";
+//		idBox.focus();
+//		return false;
+//		
+//	} else if (isEmpty(pwBox) || atLeastLetter(pwBox,8) || notEquals(pwBox,pwChkBox)  
+//			|| containsAnother(pwBox)) {
+//		alert('비밀번호');
+//		pwBox.value="";
+//		pwChkBox.value="";
+//		pwBox.focus();
+//		return false;
+//		
+//	} 
+//	return true;
+//}

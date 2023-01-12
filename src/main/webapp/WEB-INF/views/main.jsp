@@ -9,6 +9,7 @@
 <title>쇼핑몰</title>
 <link rel="stylesheet" href="resources/css/main.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
+<script type="text/javascript" src="resources/js/go.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -29,24 +30,37 @@
 					<!-- 검색창 -->
 					<h1>검색창</h1>
 				</div>
+
 				<div class="login_area">
 					<!-- 로그인 구역 -->
-					<!-- 추가 로그인 하지 않은 상태 (1/12) 찬호 -->
-					<c:if test="${member == null }">
-						<div class="login_button">
-							<button onclick="location.href='login'">로그인</button>
-						</div>
-						<span><button onclick="location.href='join'">회원가입</button></span>
-						<!-- <a href="/member/join"> 오류나서 교체 -->
-					</c:if>
+					
+					<!-- jstl 코드 간편하게 수정 (when, otherwise) 사용하기위해 choose사용 ※ 주석 jstl안에 넣으니 오류나서 밖으로 뺐습니다--성현  (1.12)-->
+					<!-- loginMember는 memberDAO에서 로그인 부분 req.getsession.setAttribute에 담은 loginMember입니다 -->
+					<!-- c:when이 if 라고 생각하면 이해가 쉽습니다 -->
+					<!-- c:otherwise가 else 라고 생각하면 이해가 쉽습니다 -->
+					<!-- 로그아웃 간략하게 설정한거라 프론트에서 한분이 css 부탁드립니다  -->
+					<c:choose>
+						<c:when test="${sessionScope.loginMember != null}">
+						
+							<div class="login_success_area">
+								<span>회원 : ${sessionScope.loginMember.m_name}</span> <span>등급
+									: ${sessionScope.loginMember.m_grade}</span>
+							</div>
+							<div>
+								<span onclick="logout();">로그아웃</span> 
+							</div>
+						</c:when>
 
-					  <!-- 추가 로그인한 상태 (1/12) 찬호-->
-                <c:if test="${ member != null }">
-                    <div class="login_success_area">
-                        <span>회원 : ${member.m_name}</span>
-                        <span>등급 : ${member.m_grade}</span>
-                    </div>
-                </c:if>
+						<c:otherwise>
+							<div class="login_button">
+								<button onclick="location.href='login'">로그인</button>
+							</div>
+							<span><button onclick="location.href='join'">회원가입</button></span>
+							<!-- <a href="/member/join"> 오류나서 교체 -->
+						</c:otherwise>
+
+					</c:choose>
+
 				</div>
 				<div class="clearfix"></div>
 			</div>
