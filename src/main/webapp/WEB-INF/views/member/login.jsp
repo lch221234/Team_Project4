@@ -36,6 +36,7 @@
 							autocomplete="off" placeholder="비밀번호">
 							<img alt="눈 닫음" src="resources/img/eye-close.png" class="login_eye_img" name="login_eye_img" id= "login_eye_img" onclick="eyeImgLogin();">
 						<!-- 추가(shin) -->
+						<!-- img 추가 및 설정 (1/13) 찬호 -->
 					</div>
 					<!-- 추가 로그인시 id 비밀번호 안맞을경우 뜨는거 (1/12) 찬호 
 					<c:if test="${result == 0 }">

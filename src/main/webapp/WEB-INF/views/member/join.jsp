@@ -37,6 +37,7 @@
 							autocomplete="off" placeholder="비밀번호" maxlength="20">
 						<img alt="눈 닫음" src="resources/img/eye-close.png" class="pw_eye_img" name="pw_eye_img" id= "pw_eye_img" onclick="eyeImgJoinPw();">
 						<!-- 추가(shin) -->
+						<!-- img 추가 및 설정 (1/13) 찬호 -->
 					</div>
 				</div>
 				<div class="pwck_wrap">
@@ -46,6 +47,7 @@
 							autocomplete="off" placeholder="비밀번호 확인" maxlength="20">
 							<img alt="눈 닫음" src="resources/img/eye-close.png" class="pwck_eye_img" name="pwck_eye_img" id= "pwck_eye_img" onclick="eyeImgJoinPwCk();">
 						<!-- 추가(shin) -->
+						<!-- img 추가 및 설정 (1/13) 찬호 -->
 					</div>
 				</div>
 				<div class="user_wrap">
