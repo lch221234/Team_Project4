@@ -113,7 +113,14 @@
     color : red;
 }
 
-
+/* 로그인 비밀번호 이미지 */
+.login_eye_img{
+	width:40px;
+	height:40px;
+	top : 500px;
+	left : 1200px;
+	position: absolute;
+}
 
 /* float 속성 해제 */
 .clearfix{

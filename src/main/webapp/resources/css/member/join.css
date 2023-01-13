@@ -232,6 +232,26 @@
     color: white;
 }
 
+/* 회원가입 비밀번호 이미지 */
+.pw_eye_img{
+	width:40px;
+	height:40px;
+	top : 285px;
+	left : 1300px;
+	position: absolute;
+}
+
+/* 회원가입 비밀번호 체크 이미지 */
+.pwck_eye_img{
+	width:40px;
+	height:40px;
+	top : 388px;
+	left : 1300px;
+	position: absolute;
+}
+
+
+
 /* float 속성 해제 */
 .clearfix{
 	clear: both;

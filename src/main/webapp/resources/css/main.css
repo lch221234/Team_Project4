@@ -112,6 +112,22 @@
     margin-left: 10%;
 }
 
+.logout{
+    font-size: 15px;
+    font-weight: 900;
+    display: inline-block;
+    margin-top: 5px;
+    background: #e1e5e8;
+    width: 82px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 25px;
+    color: #606267;
+    top : 145px;
+    right : 50px;
+    position: absolute;  
+}
+
 /* float 속성 해제 */
 .clearfix{
 	clear: both;

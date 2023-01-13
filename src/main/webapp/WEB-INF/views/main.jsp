@@ -47,7 +47,7 @@
 									: ${sessionScope.loginMember.m_grade}</span>
 							</div>
 							<div>
-								<span onclick="logout();">로그아웃</span> 
+								<span class="logout" onclick="logout();">로그아웃</span> 
 							</div>
 						</c:when>
 

@@ -12,6 +12,7 @@
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/UserInfoChk.js"></script>
+<script type="text/javascript" src="resources/js/eyeimg.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -31,8 +32,9 @@
 					</div>
 					<div class="pw_wrap">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_iput" name="pw_input" type="password"
+						<input class="pw_iput" name="pw_input" id="pw_input" type="password"
 							autocomplete="off" placeholder="비밀번호">
+							<img alt="눈 닫음" src="resources/img/eye-close.png" class="login_eye_img" name="login_eye_img" id= "login_eye_img" onclick="eyeImgLogin();">
 						<!-- 추가(shin) -->
 					</div>
 					<!-- 추가 로그인시 id 비밀번호 안맞을경우 뜨는거 (1/12) 찬호 
