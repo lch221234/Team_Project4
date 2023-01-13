@@ -1,41 +1,36 @@
-// HongValidChecker.js
-// ÇÔ¼ö¸í ´Ù¸£°Ô ÇØµµ »ó°üÀº ¾øÀ¸³ª, ±â¾ï ÀßÇÏ¼Å¾ß!!
-// Àß¸øµÆÀ» ¶§ true(¹¹°¡ ¹®Á¦°¡ µÇ¸é true, Á¤»óÀûÀÌ¸é false)
-////////////////////////////////////////////////////
-
-// <input>À» ¾µ¶§
-//		¾Æ¹«°Íµµ ¾È½èÀ¸¸é true, ¹¹¶óµµ ½èÀ¸¸é false
+// <input>ì„ ì“¸ë•Œ
+//		ì•„ë¬´ê²ƒë„ ì•ˆì¼ìœ¼ë©´ true, ë­ë¼ë„ ì¼ìœ¼ë©´ false
 function isEmpty(input){
 	return (!input.value);
 }
 
-// <input>¿¡ ³»¿ëÀ» ³Ö¾úÀ» ¶§ 
-// ÇÑ±Û or Æ¯¼ö¹®ÀÚ°¡ ÀûÇôÀÖ´Ù¸é true, ¾ø´Ù¸é false
+// <input>ì— ë‚´ìš©ì„ ë„£ì—ˆì„ ë•Œ 
+// í•œê¸€ or íŠ¹ìˆ˜ë¬¸ìê°€ ì í˜€ìˆë‹¤ë©´ true, ì—†ë‹¤ë©´ false
 function containsAnother(input) {
 	let pass = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ@_.!#$%^&*()";
 	let iv = input.value;
 	for(let i =0; i < iv.length; i++){
-		if (pass.indexOf(iv[i]) == -1) { // passÀÇ ³»¿ë Áß¿¡ ³»°¡ ¾´ ³»¿ëÀÌ ¾øÀ¸¸é
+		if (pass.indexOf(iv[i]) == -1) { // passì˜ ë‚´ìš© ì¤‘ì— ë‚´ê°€ ì“´ ë‚´ìš©ì´ ì—†ìœ¼ë©´
 			return true;
 		}
 	}
 	return false;
 }
 
-// <input>, ±ÛÀÚ¼ö ³Ö¾úÀ» ¶§
-// ±× ±ÛÀÚ¼öº¸´Ù ÀûÀ¸¸é true, ±× ±ÛÀÚ¼ö ÀÌ»óÀÌ¸é false
+// <input>, ê¸€ììˆ˜ ë„£ì—ˆì„ ë•Œ
+// ê·¸ ê¸€ììˆ˜ë³´ë‹¤ ì ìœ¼ë©´ true, ê·¸ ê¸€ììˆ˜ ì´ìƒì´ë©´ false
 function atLeastLetter(input, len){
 	return(input.value.length < len);
 }
 
-// <input> x 2 ³Ö¾úÀ» ¶§ (pw, pwChk)
-// ³»¿ëÀÌ ¼­·Î ´Ù¸£¸é true, °°À¸¸é false
+// <input> x 2 ë„£ì—ˆì„ ë•Œ (pw, pwChk)
+// ë‚´ìš©ì´ ì„œë¡œ ë‹¤ë¥´ë©´ true, ê°™ìœ¼ë©´ false
 function notEquals(input1, input2){
 	return(input1.value != input2.value);
 }
 
-// <input>, ¹®ÀÚ¿­ ¼¼Æ® ³Ö¾úÀ» ¶§
-// ¾øÀ¸¸é true, ÀÖÀ¸¸é false (ÀÔ·ÂÇÑ pw¿¡ ÁöÁ¤ÇÑ ¹®ÀÚ¿­ÀÌ ¾ø´Â °æ¿ì)
+// <input>, ë¬¸ìì—´ ì„¸íŠ¸ ë„£ì—ˆì„ ë•Œ
+// ì—†ìœ¼ë©´ true, ìˆìœ¼ë©´ false (ì…ë ¥í•œ pwì— ì§€ì •í•œ ë¬¸ìì—´ì´ ì—†ëŠ” ê²½ìš°)
 
 function notContain(input, passSet){
 	let iv = input.value;
@@ -46,24 +41,17 @@ function notContain(input, passSet){
 	return true;
 }
 
-// <input> ³Ö¾úÀ» ¶§ 
-//		¼ıÀÚ ¾Æ´Ñ°Å ÀÖÀ¸¸é true, ¼ıÀÚ¸¸ ÀÖÀ¸¸é false
+// <input> ë„£ì—ˆì„ ë•Œ 
+//		ìˆ«ì ì•„ë‹Œê±° ìˆìœ¼ë©´ true, ìˆ«ìë§Œ ìˆìœ¼ë©´ false
 function isNotNumber(input){
 	return isNaN(input.value);
 }
 
-// <input>¿¡ È®ÀåÀÚ ³Ö¾úÀ» ¶§
-// È®ÀåÀÚ ¸íÀÌ ¾Æ´Ï¸é true, È®ÀåÀÚ ¸íÀÌ¸é false
+// <input>ì— í™•ì¥ì ë„£ì—ˆì„ ë•Œ
+// í™•ì¥ì ëª…ì´ ì•„ë‹ˆë©´ true, í™•ì¥ì ëª…ì´ë©´ false
 function isNotType(input, type){
 	// .jpg, .gif, .png, ...
 	type = "." + type;
 	return (input.value.indexOf(type) == -1);
 }
-
-
-
-
-
-
-
 

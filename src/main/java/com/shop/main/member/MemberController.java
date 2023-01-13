@@ -36,6 +36,22 @@ public class MemberController {
 	}
 	
 	
+	@RequestMapping(value = "member.SuccessLogin", method = RequestMethod.POST)
+	public String loginSuccess(Member m, HttpServletRequest req) {
+		mDAO.login(m, req);
+		mDAO.loginChk(req);
+		return "main";
+	}
+	
+
+	@RequestMapping(value = "member.logout", method = RequestMethod.GET)
+	public String logOut(HttpServletRequest req) {
+		mDAO.logOut(req);
+		mDAO.loginChk(req);
+		return "main";
+	}
+	
+	
 	
 //	// 여기서부터  네이버로그인 callback (shin)
 //	
