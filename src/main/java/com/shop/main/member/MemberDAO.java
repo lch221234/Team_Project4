@@ -25,10 +25,16 @@ public class MemberDAO {
 				if (mbr.getM_pw().equals(m.getM_pw())) {
 					req.getSession().setAttribute("loginMember", mbr);
 					req.getSession().setMaxInactiveInterval(15 * 60);
-				} 
+					req.setAttribute("result", "1"); // 로그인 잘못되었을때 뜰 수 있게 추가 (01/16) -장창호
+				} else {
+					req.setAttribute("result", "사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.");
+				}
+			} else {
+				req.setAttribute("result", "계정을 찾을 수 없습니다.");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			req.setAttribute("result", "시스템에 오류가 발생했습니다.");
 		}
 	}
 

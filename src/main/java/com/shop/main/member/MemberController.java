@@ -20,7 +20,7 @@ public class MemberController {
 	
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String joinGet(Locale locale, Model model) {
-//		System.out.println("회원가입이동");//이동이 되는지 확인하기위해서 작성
+//		System.out.println("회원가입이동"); //이동이 되는지 확인하기위해서 작성
 		return "/member/join";
 	}
 	@RequestMapping(value = "login", method = RequestMethod.GET)
@@ -39,8 +39,12 @@ public class MemberController {
 	@RequestMapping(value = "member.SuccessLogin", method = RequestMethod.POST)
 	public String loginSuccess(Member m, HttpServletRequest req) {
 		mDAO.login(m, req);
-		mDAO.loginChk(req);
-		return "main";
+		// 로그인 틀렸을때도 넘어가지는거 고쳐봤습니다.(01/16) -장창호
+		if(mDAO.loginChk(req)) { // DAO에서 로그인체크가 true면 main으로 반환
+			return "main";			
+		} else {
+			return "/member/login"; // false면 다시 login화면
+		}
 	}
 	
 
