@@ -108,7 +108,7 @@
 }
 
 /*로그인 성공시 회원 정보 영역 */
-.grade{
+.login_grade{/*main.jsp에서 class 이름이랑 다르게 설정해서 안되던거 수정 (1/16) 찬호 */
     display : block;
     text-align: left;
     margin-left: 10%;
