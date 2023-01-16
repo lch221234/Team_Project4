@@ -106,10 +106,30 @@
     margin: 5% auto;
     padding-top: 5%;
 }
-.login_success_area>span{
+
+/*로그인 성공시 회원 정보 영역 */
+.login_grade{/*main.jsp에서 class 이름이랑 다르게 설정해서 안되던거 수정 (1/16) 찬호 */
     display : block;
     text-align: left;
     margin-left: 10%;
+}
+
+/* 로그아웃 영역*/
+.logout{
+    font-size: 15px;
+    font-weight: 900;
+    display: inline-block;
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 5px;
+    background: #e1e5e8;
+    width: 82px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 25px;
+    color: #606267;
+    left : 25%;
+    position: relative;
 }
 
 /* float 속성 해제 */

@@ -12,6 +12,7 @@
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/UserInfoChk.js"></script>
+<script type="text/javascript" src="resources/js/eyeimg.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -31,14 +32,19 @@
 					</div>
 					<div class="pw_wrap">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_iput" name="pw_input" type="password"
+						<input class="pw_iput" name="pw_input" id="pw_input" type="password"
 							autocomplete="off" placeholder="비밀번호">
+							<img alt="눈 닫음" src="resources/img/eye-close.png" class="login_eye_img" name="login_eye_img" id= "login_eye_img" onclick="eyeImgLogin();">
 						<!-- 추가(shin) -->
+						<!-- img 추가 및 설정 (1/13) 찬호 -->
 					</div>
-					<!-- 추가 로그인시 id 비밀번호 안맞을경우 뜨는거 (1/12) 찬호 
-					<c:if test="${result == 0 }">
-						<div class="login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
-					</c:if>-->
+					<c:if test="${result != '1' }">
+					<div class="login_warn">${result }</div>
+					</c:if>
+					<!-- 찬호님 코드 수정 (01/16) 장창호 -->
+					<!-- 기존에 찬호님 주석에 오류가 나서 지워뒀습니다. -->
+
+
 					<div class="login_button_wrap">
 						<!-- 카카오 네이버 로그인 추가예정 -->
 						<button class="login_button">로그인</button>
