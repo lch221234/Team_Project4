@@ -62,7 +62,7 @@
 		/* 로그인 버튼 클릭 메서드 */
 		$(".login_button").click(function() {
 
-			alert("로그인 버튼 작동");
+			alert("로그인 성공");
 
 		});
 	</script>

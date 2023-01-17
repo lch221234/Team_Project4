@@ -18,7 +18,35 @@
 			<!-- 화면  -->
 			<div class="top_gnb_area">
 				<!-- 상단 네비 -->
-				<h1>로그인, 회원가입, 고객센터</h1>
+				<ul class="list">
+				<!-- 로그인 X (1/17) 찬호-->
+				<c:if test="${sessionScope.loginMember == null}">   
+				<li >
+                    <a href="/main/login">로그인</a>
+                </li>
+                <li>
+                    <a href="/main/join">회원가입</a>
+                </li>
+				</c:if>
+				<!-- 로그인 O(1/17) 찬호 -->
+				  <c:if test="${sessionScope.loginMember != null}">
+				   <c:if test="${sessionScope.loginMember.m_grade == 'admin' }"> <!-- 관리자 일 경우 (1/17) 찬호-->
+                        <li><a href="/admin/main">관리자 페이지</a></li><!-- 현재 안됨 수정되면 주석 삭제 -->
+                    </c:if>               
+                    <li>
+                        <a id="gnb_logout_button" onclick="logout();">로그아웃</a>
+                    </li>
+                    <li>
+                        마이룸
+                    </li>
+                    <li>
+                        장바구니
+                    </li>
+                </c:if>    
+                <li>
+                    고객센터
+                </li>      
+				</ul>
 			</div>
 			<div class="top_area">
 				<!-- 상단 구역 -->
