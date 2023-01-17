@@ -21,6 +21,7 @@ public class MemberController {
 //		System.out.println("회원가입이동"); //이동이 되는지 확인하기위해서 작성
 		return "/member/join";
 	}
+	
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String loginGet(Locale locale, Model model) {
 //		System.out.println("로그인이동");

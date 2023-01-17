@@ -18,7 +18,7 @@ function logout() {
 
 //관리자페이지 이동 현재 안됨
 function goAdmin() {
-	location.href = "admin.main";
+	location.href = "admin.go";
 }
 
 
