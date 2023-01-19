@@ -69,8 +69,7 @@
 								<span class="logout"
 									onclick="logout();">로그아웃</span>
 								<span class="updateMember"
-									onclick="memberInfoGo();">회원정보</span>
-						 		<span><jsp:include page="${contentPage }"></jsp:include></span>
+									onclick="memberInfo();">회원정보</span>
 									
 									
 							</div>

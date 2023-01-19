@@ -22,8 +22,8 @@ function goAdmin() {
 }
 
 // 회원정보수정
-function memberInfoGo() {
-	location.href = "member.info.go";
+function memberInfo(){
+	location.href="member.info.go";
 }
 
 // 탈퇴

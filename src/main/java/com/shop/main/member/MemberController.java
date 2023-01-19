@@ -58,14 +58,12 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "member.info.go", method = RequestMethod.GET)
-	public String memberInfoGo(HttpServletRequest req) {
+	public String goInfo(HttpServletRequest req) {
 		if (mDAO.loginChk(req)) {
 			mDAO.divideAddr(req);
-			return "main";
-		} else {
 			return "/member/info";
 		}
-		
+		return "main";
 	}
 	
 	
