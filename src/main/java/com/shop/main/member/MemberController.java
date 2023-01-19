@@ -47,6 +47,7 @@ public class MemberController {
 	}
 	
 
+
 	@RequestMapping(value = "member.logout", method = RequestMethod.GET)
 	public String logOut(HttpServletRequest req) {
 		mDAO.logOut(req);
@@ -56,6 +57,43 @@ public class MemberController {
 	
 	
 	
+	@RequestMapping(value = "member.info.go", method = RequestMethod.GET)
+	public String memberInfoGo(HttpServletRequest req) {
+		if (mDAO.loginChk(req)) {
+			mDAO.divideAddr(req);
+			return "main";
+		} else {
+			return "/member/info";
+		}
+		
+	}
+	
+	
+	
+	@RequestMapping(value = "member.update", method = RequestMethod.POST)
+	public String memberUpdate(Member m, HttpServletRequest req) {
+		if (mDAO.loginChk(req)) {
+			mDAO.update(m, req);
+			mDAO.divideAddr(req);
+			return "main";
+		} else {
+			return "/member/info";
+		}
+		
+	}
+	
+	@RequestMapping(value = "member.bye", method = RequestMethod.GET)
+	public String memberBye(HttpServletRequest req) {
+		if (mDAO.loginChk(req)) {
+			mDAO.bye(req);
+			mDAO.logOut(req);
+			mDAO.loginChk(req);
+		}
+		req.setAttribute("contentPage", "main.jsp");
+		return "main";
+	}
+		
+		
 //	// 여기서부터  네이버로그인 callback (shin)
 //	
 //	

@@ -75,4 +75,74 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	
+
+	public void divideAddr(HttpServletRequest req) {
+		Member m = (Member) req.getSession().getAttribute("loginMember");
+		String addr = m.getM_address();
+		String[] addr2 = addr.split("!");
+		req.setAttribute("addr", addr2);
+	}
+	
+	// 회원정보수정
+	public void update(Member m, HttpServletRequest req) {
+		Member lm = (Member) req.getSession().getAttribute("loginMember");
+		
+		try {
+			String m_id = req.getParameter("m_id");
+			String m_pw = req.getParameter("m_pw");
+			String m_name = req.getParameter("m_name");
+			String address1 = req.getParameter("address_input1");
+			String address2 = req.getParameter("address_input2");
+			String address3 = req.getParameter("address_input3");
+			String m_address = (address1 + "!" + address2 + "!" + address3);
+//			String m_sex = req.getParameter("m_sex")
+					
+			m.setM_id(m_id);
+			m.setM_pw(m_pw);
+			m.setM_name(m_name);
+			m.setM_address(m_address);
+			
+			if (ss.getMapper(MemberMapper.class).update(m) == 1) {
+				req.setAttribute("result", "수정성공");
+				
+				req.getSession().setAttribute("loginMember", m);
+				loginChk(req);
+			} else {
+				req.setAttribute("result", "수정실패");
+			}
+			
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			req.setAttribute("result", "수정실패");
+		}
+		
+	}
+	
+	
+	// 회원 탈퇴
+	public void bye(HttpServletRequest req) {
+		try {
+			Member m = (Member) req.getSession().getAttribute("loginMember");
+		
+			if (ss.getMapper(MemberMapper.class).delete(m) == 1) {
+				req.setAttribute("result", "탈퇴성공");
+				
+			} else {
+				req.setAttribute("result", "탈퇴실패");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			req.setAttribute("result", "탈퇴실패");
+		}
+	}
+	
+	
+	
+	
+	
 }

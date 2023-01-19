@@ -49,6 +49,46 @@ function userInfoChk(){
 	return true;
 }
 
+// 회원정보수정 체크
+
+function memberUpdateCheck() {
+	let pwBox = document.join_form.pw_input;
+	let pwChkBox= document.join_form.pwck_input;
+	let nameBox = document.join_form.user_input;
+	let addr1Box = document.join_form.address_input1;
+	let addr2Box = document.join_form.address_input2;
+	let addr3Box = document.join_form.address_input3;
+	let sexBox = document.join_form.gender_radio;
+
+	if (isEmpty(pwBox) || notEquals(pwBox, pwChkBox)
+			|| notContains(pwBox, "1234567890")) {
+		alert("PW?");
+		pwBox.value = "";
+		pwChkBox.value = "";
+		pwBox.focus();
+		return false;
+	} else if (isEmpty(nameBox)) {
+		alert("이름?");
+		nameBox.value = "";
+		nameBox.focus();
+		return false;
+	} else if (isEmpty(addr1Box) || isEmpty(addr2Box)
+			|| isEmpty(addr3Box)) {
+		alert("주소?");
+		addr1Box.value = "";
+		addr2Box.value = "";
+		addr3Box.value = "";
+		addr3Box.focus();
+		return false;
+	} else if (isEmpty(sexBox)) {
+		alert('성별');
+		return false;
+	} 
+	return true;
+}
+
+
+
 //추가한 부분 로그인 유효성 검사
 //function userloginChk(){
 //	let idBox = document.login_form.id_input;

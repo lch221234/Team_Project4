@@ -63,9 +63,16 @@
 
 							<div class="login_success_area">
 								<span class="login_grade">회원 :
-									${sessionScope.loginMember.m_name}</span> <span class="login_grade">등급
-									: ${sessionScope.loginMember.m_grade}</span> <span class="logout"
+									${sessionScope.loginMember.m_name}</span>
+								<span class="login_grade">등급
+									: ${sessionScope.loginMember.m_grade}</span>
+								<span class="logout"
 									onclick="logout();">로그아웃</span>
+								<span class="updateMember"
+									onclick="memberInfoGo();">회원정보</span>
+						 		<span><jsp:include page="${contentPage }"></jsp:include></span>
+									
+									
 							</div>
 							<!-- class명 login_grade 추가 (1/16) 찬호-->
 						</c:when>

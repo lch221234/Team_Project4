@@ -21,7 +21,15 @@ function goAdmin() {
 	location.href = "admin.go";
 }
 
+// 회원정보수정
+function memberInfoGo() {
+	location.href = "member.info.go";
+}
 
-
-
+// 탈퇴
+function bye() {
+	if (confirm("탈퇴하시겠습니까?")) {
+		location.href = "memeber.bye";
+	}
+}
 
