@@ -129,11 +129,11 @@
     line-height: 22px;
     border-radius: 25px;
     color: #606267;
-    left : 25%;
+    left : 45%; /* %변경 (1/19)찬호 */
     position: relative;
 }
 
-/* 회원정보수정 영역(위치 이상하게 나옴 수정 필요) */
+/* 회원정보수정 영역 */
 .updateMember{
     font-size: 15px;
     font-weight: 900;
@@ -147,7 +147,7 @@
     line-height: 22px;
     border-radius: 25px;
     color: #606267;
-    left : 25%;
+    right : 25%; /*right로 수정 (1/19)찬호*/
     position: relative;
 }
 
