@@ -27,9 +27,9 @@ function memberInfo(){
 }
 
 // 탈퇴
-function bye() {
-	if (confirm("탈퇴하시겠습니까?")) {
-		location.href = "memeber.bye";
+function del() {
+	if (confirm("정말 탈퇴 하시겠습니까?")) {
+		location.href="member.delete";
 	}
 }
 

@@ -34,7 +34,6 @@ public class MemberController {
 		return "main";
 	}
 	
-	
 	@RequestMapping(value = "member.SuccessLogin", method = RequestMethod.POST)
 	public String loginSuccess(Member m, HttpServletRequest req) {
 		mDAO.login(m, req);
@@ -46,8 +45,6 @@ public class MemberController {
 		}
 	}
 	
-
-
 	@RequestMapping(value = "member.logout", method = RequestMethod.GET)
 	public String logOut(HttpServletRequest req) {
 		mDAO.logOut(req);
@@ -55,42 +52,33 @@ public class MemberController {
 		return "main";
 	}
 	
-	
-	
 	@RequestMapping(value = "member.info.go", method = RequestMethod.GET)
 	public String goInfo(HttpServletRequest req) {
 		if (mDAO.loginChk(req)) {
-			mDAO.divideAddr(req);
+			mDAO.divideAddress(req);
 			return "/member/info";
-		}
+		} 
 		return "main";
 	}
-	
-	
 	
 	@RequestMapping(value = "member.update", method = RequestMethod.POST)
 	public String memberUpdate(Member m, HttpServletRequest req) {
-		if (mDAO.loginChk(req)) {
-			mDAO.update(m, req);
-			mDAO.divideAddr(req);
-			return "main";
-		} else {
-			return "/member/info";
-		}
-		
+		mDAO.loginChk(req);
+		mDAO.divideAddress(req);
+		mDAO.update(m, req);
+		mDAO.logOut(req);  // 로그아웃 안하면 main.jsp에 수정 전 정보로 표시돼서  다시 로그인 하도록 자동 로그아웃 설정했습니다  --성현
+		return "main";
 	}
 	
-	@RequestMapping(value = "member.bye", method = RequestMethod.GET)
-	public String memberBye(HttpServletRequest req) {
+	@RequestMapping(value = "/member.delete", method = RequestMethod.GET)
+	public String memberDelete(Member m, HttpServletRequest req) {
 		if (mDAO.loginChk(req)) {
-			mDAO.bye(req);
+			mDAO.delete(req);
 			mDAO.logOut(req);
 			mDAO.loginChk(req);
 		}
-		req.setAttribute("contentPage", "main.jsp");
 		return "main";
-	}
-		
+	}	
 		
 //	// 여기서부터  네이버로그인 callback (shin)
 //	
@@ -101,43 +89,7 @@ public class MemberController {
 //	}
 //	
 //	
-//	@RequestMapping(value="naverSave", method=RequestMethod.POST)
-//	public @ResponseBody String naverSave(@RequestParam("n_age") String n_age, @RequestParam("n_birthday") String n_birthday, @RequestParam("n_email") String n_email, @RequestParam("n_gender") String n_gender, @RequestParam("n_id") String n_id, @RequestParam("n_name") String n_name, @RequestParam("n_nickName") String n_nickName) {
-//	System.out.println("#############################################");
-//	System.out.println(n_age);
-//	System.out.println(n_email);
-//	System.out.println(n_gender);
-//	System.out.println(n_id);
-//	System.out.println(n_name);
-//	System.out.println(n_nickName);
-//	System.out.println("#############################################");
-//
-//	NaverDTO naver = new NaverDTO();
-//	
-//	
-///*	여긴 왜 오류가 나는걸까
-// * 
-// * naver.setN_age(n_age);
-////	naver.setN_email(n_email);
-////	naver.setN_gender(n_gender);
-////	naver.setN_id(n_id);
-////	naver.setN_name(n_name);
-////	naver.setN_nickName(n_nickName);
-//	naver.setN_age(n_age);
-//*/
-//   
-//	// ajax에서 성공 결과에서 ok인지 no인지에 따라 다른 페이지에 갈 수 있게끔 result의 기본값을 "no"로 선언
-//	String result = "no";
-//    
-//	if(naver!=null) {
-//		// naver가 비어있지 않는다는건 데이터를 잘 받아왔다는 뜻이므로 result를 "ok"로 설정
-//		result = "ok";
-//	}
-//
-//	return result;
-//    
-//	}
-//	일단 안되는건 전부 주석으로 변경(1/11) 찬호
+
 	
 	
 }

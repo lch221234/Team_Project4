@@ -14,7 +14,7 @@ public class MemberDAO {
 	@Autowired
 	private SqlSession ss;
 
-	// 로그인
+	// 로그인  --성현
 	public void login(Member m, HttpServletRequest req) {
 		try {
 			m.setM_id(req.getParameter("id_input"));
@@ -38,7 +38,7 @@ public class MemberDAO {
 		}
 	}
 
-	// 로그인체크
+	// 로그인체크 -- 성현
 	public boolean loginChk(HttpServletRequest req) {
 		Member m = (Member) req.getSession().getAttribute("loginMember");
 		if (m != null) {
@@ -49,12 +49,12 @@ public class MemberDAO {
 		}
 	}
 	
-	// 로그아웃
+	// 로그아웃 -- 성현
 	public void logOut(HttpServletRequest req) {
 		req.getSession().setAttribute("loginMember", null);
 	}
 
-	// 회원가입
+	// 회원가입 -- 성현
 	public void signup(Member m, HttpServletRequest req) {
 		try {
 
@@ -75,74 +75,43 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
 
-	public void divideAddr(HttpServletRequest req) {
-		Member m = (Member) req.getSession().getAttribute("loginMember");
-		String addr = m.getM_address();
-		String[] addr2 = addr.split("!");
-		req.setAttribute("addr", addr2);
+	// addr에 정보담기 -- 성신
+	public void divideAddress(HttpServletRequest req) {
+		Member m = (Member)req.getSession().getAttribute("loginMember");
+		String address = m.getM_address();
+		String [] address2 = address.split("!");
+		req.setAttribute("addr", address2);
 	}
 	
-	// 회원정보수정
+	// 회원정보수정  -- 성현
 	public void update(Member m, HttpServletRequest req) {
-		Member lm = (Member) req.getSession().getAttribute("loginMember");
-		
 		try {
-			String m_id = req.getParameter("m_id");
-			String m_pw = req.getParameter("m_pw");
-			String m_name = req.getParameter("m_name");
-			String address1 = req.getParameter("address_input1");
-			String address2 = req.getParameter("address_input2");
-			String address3 = req.getParameter("address_input3");
-			String m_address = (address1 + "!" + address2 + "!" + address3);
-//			String m_sex = req.getParameter("m_sex")
-					
-			m.setM_id(m_id);
-			m.setM_pw(m_pw);
-			m.setM_name(m_name);
-			m.setM_address(m_address);
+			String u_address1 = req.getParameter("address_input1");
+			String u_address2 = req.getParameter("address_input2");
+			String u_address3 = req.getParameter("address_input3");
+			String u_m_address = (u_address1 + "!" + u_address2 +"!"+ u_address3);
 			
-			if (ss.getMapper(MemberMapper.class).update(m) == 1) {
-				req.setAttribute("result", "수정성공");
-				
-				req.getSession().setAttribute("loginMember", m);
-				loginChk(req);
-			} else {
-				req.setAttribute("result", "수정실패");
-			}
+			m.setM_id(req.getParameter("id_input"));
+			m.setM_pw(req.getParameter("pw_input"));
+			m.setM_name(req.getParameter("user_input"));
+			m.setM_address(u_m_address);
+			m.setM_sex(req.getParameter("gender_radio"));
 			
-			
+			ss.getMapper(MemberMapper.class).update(m);
 			
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
-			req.setAttribute("result", "수정실패");
-		}
-		
-	}
-	
-	
-	// 회원 탈퇴
-	public void bye(HttpServletRequest req) {
-		try {
-			Member m = (Member) req.getSession().getAttribute("loginMember");
-		
-			if (ss.getMapper(MemberMapper.class).delete(m) == 1) {
-				req.setAttribute("result", "탈퇴성공");
-				
-			} else {
-				req.setAttribute("result", "탈퇴실패");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			req.setAttribute("result", "탈퇴실패");
 		}
 	}
 	
-	
-	
-	
-	
+	// 회원 탈퇴 -- 성현
+	public void delete(HttpServletRequest req) {
+		Member m = (Member) req.getSession().getAttribute("loginMember");
+		try {
+			ss.getMapper(MemberMapper.class).delete(m);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
