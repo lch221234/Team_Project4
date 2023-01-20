@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지</title>
-<link rel="stylesheet" href="resources/css/admin/main.css">
+<title>회원 관리 페이지</title>
+<link rel="stylesheet" href="resources/css/admin/memberList.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 </head>
@@ -49,7 +49,7 @@
                     <!--  페이지 영역 -->
                 </div>
                 <div class="admin_content_wrap">
-                    <div class="admin_content_subject"><span>관리자 페이지 입니다</span></div>
+                    <div class="admin_content_subject"><span>회원 관리</span></div>
                 </div>
                 <div class="clearfix"></div>
             </div>

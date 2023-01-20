@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>관리자 페이지</title>
-<link rel="stylesheet" href="resources/css/admin/main.css">
+<title>업체 목록 페이지</title>
+</head>
+<link rel="stylesheet" href="resources/css/admin/companyList.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 </head>
@@ -29,7 +30,7 @@
             <div class="admin_wrap">
                 <!-- 네비영역 -->
                 <div class="admin_navi_wrap">
-                    <ul>
+                     <ul>
                         <li >
                             <a class="admin_list_01" href="productRegistration.go">상품 등록</a>
                         </li>
@@ -49,7 +50,7 @@
                     <!--  페이지 영역 -->
                 </div>
                 <div class="admin_content_wrap">
-                    <div class="admin_content_subject"><span>관리자 페이지 입니다</span></div>
+                    <div class="admin_content_subject"><span>업체 목록</span></div>
                 </div>
                 <div class="clearfix"></div>
             </div>
