@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/member/join.css">
+<link rel="stylesheet" href="resources/css/member/info.css">
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
@@ -91,14 +91,15 @@
 						<input name="gender_radio" type="radio" value="여자">&nbsp;&nbsp;여성
 					</div>
 				</div>
-				<div class="update_button_wrap">
-					<button class="update_button">수정</button>
+				<!-- div 떨어져있어서 수정 및 목적 알아볼수있게 클래스명 수정 (1/24) 찬호 -->
+				<div class="button_wrap">
+				<div class="button_click">
+					<button class="button_update_wrap">수정</button>
+					<button class="button_delete_wrap" onclick="del();">탈퇴</button>
+					</div>
 				</div>
 			</div>
 		</form>
-		<div class="delete_button_wrap">
-			<button class="delete_button" onclick="del();">탈퇴</button>
-		</div>
 	</div>
 </body>
 </html>
