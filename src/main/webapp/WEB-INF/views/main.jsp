@@ -18,7 +18,26 @@
 			<!-- 화면  -->
 			<div class="top_gnb_area">
 				<!-- 상단 네비 -->
-				<h1>로그인, 회원가입, 고객센터</h1>
+				<ul class="list">
+					<!-- 로그인 X (1/17) 찬호-->
+					<c:choose>
+						<c:when test="${sessionScope.loginMember != null}">
+							<c:if test="${sessionScope.loginMember.m_grade == 'admin' }">
+								<!-- 관리자 일 경우 (1/17) 찬호-->
+								<li onclick="goAdmin();">관리자 페이지</li>
+								<!-- 현재 안됨 수정되면 주석 삭제 -->
+							</c:if>
+							<li><a id="gnb_logout_button" onclick="logout();">로그아웃</a></li>
+							<li>마이룸</li>
+							<li>장바구니</li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="/main/login">로그인</a></li>
+							<li><a href="/main/join">회원가입</a></li>
+						</c:otherwise>
+					</c:choose>
+					<li>고객센터</li>
+				</ul>
 			</div>
 			<div class="top_area">
 				<!-- 상단 구역 -->
@@ -44,9 +63,15 @@
 
 							<div class="login_success_area">
 								<span class="login_grade">회원 :
-									${sessionScope.loginMember.m_name}</span> <span class="login_grade">등급
-									: ${sessionScope.loginMember.m_grade}</span> <span class="logout"
+									${sessionScope.loginMember.m_name}</span>
+								<span class="login_grade">등급
+									: ${sessionScope.loginMember.m_grade}</span>
+								<span class="logout"
 									onclick="logout();">로그아웃</span>
+								<span class="updateMember"
+									onclick="memberInfo();">회원정보</span>
+									
+									
 							</div>
 							<!-- class명 login_grade 추가 (1/16) 찬호-->
 						</c:when>

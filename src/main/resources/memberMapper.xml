@@ -8,7 +8,9 @@
 		insert into s_member values(#{m_id}, #{m_pw}, #{m_name}, #{m_address}, 'bronze', #{m_sex})
 	</insert>
 	<update id="update" parameterType="com.shop.main.member.Member">
+		update s_member set m_pw=#{m_pw}, m_name=#{m_name}, m_address=#{m_address}, m_sex=#{m_sex} where m_id=#{m_id} <!--  1.20 코드 추가 성현 -->
 	</update>
 	<delete id="delete" parameterType="com.shop.main.member.Member">
+		delete from s_member where m_id = #{m_id}
 	</delete>
 </mapper>

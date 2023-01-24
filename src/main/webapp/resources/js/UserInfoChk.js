@@ -1,3 +1,4 @@
+/* 회원가입 유효성검사를 회원정보 수정에 똑같이 입히면 됩니다 굳이 따로 안만들어도 됩니다  info.jsp form name을 join_form으로 수정*/
 function userInfoChk(){
 	let idBox = document.join_form.id_input;
 	let pwBox = document.join_form.pw_input;
@@ -8,14 +9,14 @@ function userInfoChk(){
 	let addr3Box = document.join_form.address_input3;
 	let sexBox = document.join_form.gender_radio;
 	
-	/*	
-	if (isEmpty(idBox) || atLeastLetter(idBox, 6)) {
+	
+/*	if (isEmpty(idBox) || atLeastLetter(idBox, 6)) {
 		alert("아이디");
 		idBox.value="";
 		idBox.focus();
 		return false;
 		
-	} else if (isEmpty(pwBox) || atLeastLetter(pwBox,8) || notEquals(pwBox,pwChkBox)  편의성을 위해 id와 비밀번호 막아뒀습니다(나중에 풀겁니다) --성현 
+	} else if (isEmpty(pwBox) || atLeastLetter(pwBox,8) || notEquals(pwBox,pwChkBox)  
 			|| containsAnother(pwBox)) {
 		alert('비밀번호');
 		pwBox.value="";
@@ -23,7 +24,7 @@ function userInfoChk(){
 		pwBox.focus();
 		return false;
 		
-	} else*/ if (isEmpty(nameBox)) {
+	} else */ if (isEmpty(nameBox)) {
 		alert("이름");
 		nameBox.value="";
 		nameBox.focus();
@@ -48,27 +49,3 @@ function userInfoChk(){
 	}
 	return true;
 }
-
-//추가한 부분 로그인 유효성 검사
-//function userloginChk(){
-//	let idBox = document.login_form.id_input;
-//	let pwBox = document.login_form.pw_input;
-//	
-//		
-//	if (isEmpty(idBox) || atLeastLetter(idBox, 6)) {
-//		alert("아이디");
-//		idBox.value="";
-//		idBox.focus();
-//		return false;
-//		
-//	} else if (isEmpty(pwBox) || atLeastLetter(pwBox,8) || notEquals(pwBox,pwChkBox)  
-//			|| containsAnother(pwBox)) {
-//		alert('비밀번호');
-//		pwBox.value="";
-//		pwChkBox.value="";
-//		pwBox.focus();
-//		return false;
-//		
-//	} 
-//	return true;
-//}
