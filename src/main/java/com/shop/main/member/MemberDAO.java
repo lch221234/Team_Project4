@@ -75,6 +75,11 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	// id 중복체크 -- 성현
+	public Members doubleChk(Member m) {
+		return new Members(ss.getMapper(MemberMapper.class).getId(m));
+	}
 
 	// addr에 정보담기 -- 성신
 	public void divideAddress(HttpServletRequest req) {

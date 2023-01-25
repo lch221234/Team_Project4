@@ -13,7 +13,7 @@
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/UserInfoChk.js"></script>
-<script type="text/javascript" src="resources/js/eyeimg.js"></script>
+<script type="text/javascript" src="resources/js/do_jQuery.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -32,7 +32,7 @@
 				<div class="pw_wrap">
 					<div class="pw_name">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_input" name="pw_input" id="pw_input"
+						<input class="pw_input" autocomplete="off" name="pw_input" id="pw_input" 
 							type="password" value="${sessionScope.loginMember.m_pw }"
 							placeholder="비밀번호" maxlength="20"> <img
 							alt="눈 닫음" src="resources/img/eye-close.png" class="pw_eye_img"
@@ -42,7 +42,7 @@
 				<div class="pwck_wrap">
 					<div class="pwck_name">비밀번호 확인</div>
 					<div class="pwck_input_box">
-						<input class="pwck_input" name="pwck_input" id="pwck_input"
+						<input class="pwck_input" autocomplete="off" name="pwck_input" id="pwck_input"
 							type="password" value="${sessionScope.loginMember.m_pw }"
 							 placeholder="비밀번호 확인" maxlength="20">
 						<img alt="눈 닫음" src="resources/img/eye-close.png"

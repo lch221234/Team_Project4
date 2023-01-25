@@ -13,10 +13,14 @@
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/UserInfoChk.js"></script>
-<script type="text/javascript" src="resources/js/eyeimg.js"></script>
+<script type="text/javascript" src="resources/js/do_jQuery.js"></script>
 </head>
 <body>
 	<div class="wrapper">
+	<!-- id 중복체크 
+				<div>
+					<button class="doubleChk">중복 확인</button>
+				</div>-->
 		<form action="member.SuccessJoin" method="post" name="join_form" onsubmit="return userInfoChk();" >
 			<div class="wrap">
 				<div class="subjecet">
@@ -27,7 +31,10 @@
 					<div class="id_input_box">
 						<input class="id_input" name="id_input" autofocus="autofocus"
 							autocomplete="off" placeholder="아이디" maxlength="50">
-						<!-- 추가(shin) -->
+							<!-- 아이디 중복체크 버튼 추가  성현  1.25 3줄추가-->
+						<input type="button" value="중복 확인" class="doubleChk" onclick="idChk();">
+						<input type="hidden" name="idDuplication" value="idUnCheck" class="id_chk">
+						<input type="hidden" value="idUnCheck2" class="id_chk2">
 					</div>
 				</div>
 				<div class="pw_wrap">
@@ -36,7 +43,6 @@
 						<input class="pw_input" name="pw_input" id="pw_input" type="password"
 							autocomplete="off" placeholder="비밀번호" maxlength="20">
 						<img alt="눈 닫음" src="resources/img/eye-close.png" class="pw_eye_img" name="pw_eye_img" id= "pw_eye_img" onclick="eyeImgJoinPw();">
-						<!-- 추가(shin) -->
 						<!-- img 추가 및 설정 (1/13) 찬호 -->
 					</div>
 				</div>
@@ -46,7 +52,6 @@
 						<input class="pwck_input" name="pwck_input" id = "pwck_input" type="password"
 							autocomplete="off" placeholder="비밀번호 확인" maxlength="20">
 							<img alt="눈 닫음" src="resources/img/eye-close.png" class="pwck_eye_img" name="pwck_eye_img" id= "pwck_eye_img" onclick="eyeImgJoinPwCk();">
-						<!-- 추가(shin) -->
 						<!-- img 추가 및 설정 (1/13) 찬호 -->
 					</div>
 				</div>
@@ -55,7 +60,6 @@
 					<div class="user_input_box">
 						<input class="user_input" name="user_input" autocomplete="off"
 							placeholder="이름" maxlength="8">
-						<!-- 추가(shin) -->
 						<!-- placeholder는 삭제해도 무방 -->
 					</div>
 				</div>
@@ -83,7 +87,6 @@
 					<div class="address_input_3_wrap">
 						<div class="address_input_3_box">
 							<input class="address_input_3" name="address_input3" placeholder="상세주소" autocomplete="off">
-							<!-- autocomplete 추가 1.11 성현 -->
 						</div>
 					</div>
 				</div>
