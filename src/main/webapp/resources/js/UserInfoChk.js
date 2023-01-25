@@ -63,7 +63,7 @@ function userInfoChk(){
 		return false;
 // jquery로 사용가능한 id일때만 회원가입 될수있게 -- 성현
 	} else if (idChk2 != "idCheck2") {
-		alert("동작");
+		alert("ID 중복체크");
 		return false;
 	}
 	return true;
