@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class MemberController {
@@ -26,6 +27,11 @@ public class MemberController {
 	public String loginGet(Locale locale, Model model) {
 //		System.out.println("로그인이동");
 		return "/member/login";
+	}
+	
+	@RequestMapping(value = "/member.idChk", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
+	public @ResponseBody Members idChk(Member m) {
+		return mDAO.doubleChk(m);
 	}
 	
 	@RequestMapping(value = "member.SuccessJoin", method = RequestMethod.POST)

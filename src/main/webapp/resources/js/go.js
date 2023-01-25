@@ -3,10 +3,6 @@ function goJoin() {
 	location.href = "member.join.go";
 }
 
-//function logout() {
-//	
-//	location.href = "member.logout";
-//}
 
 //로그아웃
 function logout() {

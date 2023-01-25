@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/member/join.css">
+<link rel="stylesheet" href="resources/css/member/info.css">
 <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
@@ -13,7 +13,7 @@
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/UserInfoChk.js"></script>
-<script type="text/javascript" src="resources/js/eyeimg.js"></script>
+<script type="text/javascript" src="resources/js/do_jQuery.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -32,7 +32,7 @@
 				<div class="pw_wrap">
 					<div class="pw_name">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_input" name="pw_input" id="pw_input"
+						<input class="pw_input" autocomplete="off" name="pw_input" id="pw_input" 
 							type="password" value="${sessionScope.loginMember.m_pw }"
 							placeholder="비밀번호" maxlength="20"> <img
 							alt="눈 닫음" src="resources/img/eye-close.png" class="pw_eye_img"
@@ -42,7 +42,7 @@
 				<div class="pwck_wrap">
 					<div class="pwck_name">비밀번호 확인</div>
 					<div class="pwck_input_box">
-						<input class="pwck_input" name="pwck_input" id="pwck_input"
+						<input class="pwck_input" autocomplete="off" name="pwck_input" id="pwck_input"
 							type="password" value="${sessionScope.loginMember.m_pw }"
 							 placeholder="비밀번호 확인" maxlength="20">
 						<img alt="눈 닫음" src="resources/img/eye-close.png"
@@ -91,14 +91,15 @@
 						<input name="gender_radio" type="radio" value="여자">&nbsp;&nbsp;여성
 					</div>
 				</div>
-				<div class="update_button_wrap">
-					<button class="update_button">수정</button>
+				<!-- div 떨어져있어서 수정 및 목적 알아볼수있게 클래스명 수정 (1/24) 찬호 -->
+				<div class="button_wrap">
+				<div class="button_click">
+					<button class="button_update_wrap">수정</button>
+					<button class="button_delete_wrap" onclick="del();">탈퇴</button>
+					</div>
 				</div>
 			</div>
 		</form>
-		<div class="delete_button_wrap">
-			<button class="delete_button" onclick="del();">탈퇴</button>
-		</div>
 	</div>
 </body>
 </html>
