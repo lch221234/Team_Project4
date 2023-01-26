@@ -23,14 +23,16 @@
 					<span>회원가입</span>
 				</div>
 				<div class="id_wrap">
-					<div class="id_name">아이디</div>
-					<div class="id_input_box">
-						<input class="id_input" name="id_input" autofocus="autofocus"
-							autocomplete="off" placeholder="아이디" maxlength="50">
-							<!-- 아이디 중복체크 버튼 추가  성현  1.25 3줄추가-->
+					<div class="id_name">아이디
+					<!-- 아이디 중복체크 버튼 추가  성현  1.25 3줄추가
+					코드 위치 변경 (1.26) 찬호-->
 						<input type="button" value="중복 확인" class="doubleChk" onclick="idChk();">
 						<input type="hidden" name="idDuplication" value="idUnCheck" class="id_chk">
 						<input type="hidden" value="idUnCheck2" class="id_chk2">
+					</div>
+					<div class="id_input_box">
+						<input class="id_input" name="id_input" autofocus="autofocus"
+							autocomplete="off" placeholder="아이디" maxlength="50">
 					</div>
 				</div>
 				<div class="pw_wrap">
