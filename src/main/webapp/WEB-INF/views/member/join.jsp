@@ -17,11 +17,7 @@
 </head>
 <body>
 	<div class="wrapper">
-	<!-- id 중복체크 
-				<div>
-					<button class="doubleChk">중복 확인</button>
-				</div>-->
-		<form action="member.SuccessJoin" method="post" name="join_form" onsubmit="return userInfoChk();" >
+		<form action="member.SuccessJoin" method="post" name="join_form" onsubmit="return userJoinChk();" >
 			<div class="wrap">
 				<div class="subjecet">
 					<span>회원가입</span>
