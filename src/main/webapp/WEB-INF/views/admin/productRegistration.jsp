@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +11,7 @@
 	href="resources/css/admin/productRegistration.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript" src="resources/js/do_jQuery.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -33,6 +36,9 @@
 					<ul>
 						<li><a class="admin_list_01" href="productRegistration.go">상품
 								등록</a></li>
+						<li >
+                            <a class="admin_list_06" href="categoryRegistration.go">카테고리 등록</a>
+                        </li>
 						<li><a class="admin_list_02" href="productList.go">상품 목록</a>
 						</li>
 						<li><a class="admin_list_03" href="companyRegistration.go">업체
@@ -47,8 +53,17 @@
 					<div class="admin_content_subject">
 						<span>상품 등록</span>
 					</div>
+					<div>
+						<form action="product.reg">
+							<input class="category_code" name="p_c_c"> 카테고리 코드
+							<input class="product_name" name="p_n"> 이름
+							<input class="product_price" name="p_p"> 가격
+							<input class="product_stock" name="p_s"> 재고
+							<button>가입하기</button>
+						</form>
+					</div>
+					
 				</div>
-
 				<div class="clearfix"></div>
 			</div>
 			<!-- 하단 영역 -->

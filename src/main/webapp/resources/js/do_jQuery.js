@@ -35,7 +35,16 @@ function doubleChkId() {
 	});
 }
 
+function AddCategory(){
+	$(".rcBtn").click(function(){
+		let category_name = $(".category_name").val();
+		let div = $("<div></div>").text(category_name);
+		$(".categoryBox").append(div);
+	});
+}
+
 $(function(){
 	searchAddress();
 	doubleChkId();
+//	AddCategory();
 });

@@ -33,6 +33,9 @@
                         <li >
                             <a class="admin_list_01" href="productRegistration.go">상품 등록</a>
                         </li>
+                        <li >
+                            <a class="admin_list_06" href="categoryRegistration.go">카테고리 등록</a>
+                        </li>
                         <li>
                             <a class="admin_list_02" href="productList.go">상품 목록</a>
                         </li>

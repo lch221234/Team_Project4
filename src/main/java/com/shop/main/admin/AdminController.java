@@ -12,6 +12,11 @@ public class AdminController {
 		return "admin/main";
 	}
 	//상품등록 이동
+	@RequestMapping(value = "categoryRegistration.go", method = RequestMethod.GET)
+	public String goCategoryRegistration() {
+		return "admin/categoryRegistration";
+	}
+	//상품등록 이동
 	@RequestMapping(value = "productRegistration.go", method = RequestMethod.GET)
 	public String goProductregistration() {
 		return "admin/productRegistration";
@@ -36,5 +41,10 @@ public class AdminController {
 	public String gomemberList() {
 		return "admin/memberList";
 	}
+//	// child.jsp 팝업창 띄우기
+//	@RequestMapping("/admin/child")
+//	public void child() throws Exception{
+//		
+//	}
 	
 }

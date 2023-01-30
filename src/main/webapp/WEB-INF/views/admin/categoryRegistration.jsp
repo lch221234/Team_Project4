@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>상품 목록 페이지</title>
-<link rel="stylesheet" href="resources/css/admin/productList.css">
+<title>Insert title here</title>
+<link rel="stylesheet" href="resources/css/admin/main.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript" src="resources/js/do.js"></script>
+<script type="text/javascript" src="resources/js/do_jQuery.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -47,8 +49,9 @@
 				</div>
 				<div class="admin_content_wrap">
 					<div class="admin_content_subject">
-						<span>상품 목록</span>
+						<span>카테고리 등록</span>
 					</div>
+					<input type="button" value="등록하기" onclick="openChild();">
 				</div>
 				<div class="clearfix"></div>
 			</div>

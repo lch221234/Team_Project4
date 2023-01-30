@@ -29,3 +29,22 @@ function del() {
 	}
 }
 
+// 팝업창 열기
+let openwin;
+function openChild(){
+	window.name = "parentForm"
+	openwin = window.open("admin/child","childForm","width=800, height=600, resizable = no, scrollbars = no");
+}
+
+//function regCategory(){
+//	location.href = "category.registration";
+//	
+//}
+
+function regCategory() {
+	location.href = "child";
+}
+
+function regProduct() {
+	location.href = "product.reg";
+}
