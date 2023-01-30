@@ -188,28 +188,28 @@ insert into pay_card values('1111-2222-3333-4444', 2, '우리', 15, 50000, 50000
 select * from pay_card;
 ==========================================================================================================================
 -- 국가 테이블 생성
-create table business_nation(
+create table company_nation(
    nationId varchar2(2) primary key,
     nationName varchar2(50)
 );
 -- 국가 테이블 데이터 삽입
-insert into business_nation values('01', '국내');
-insert into business_nation values('02', '국외');
-select * from business_nation;
-drop table business_nation cascade constraint purge;
---insert into business_nation values ('01', '국내');
---insert into business_nation values ('02', '국외');
+insert into company_nation values('01', '국내');
+insert into company_nation values('02', '국외');
+select * from company_nation;
+drop table company_nation cascade constraint purge;
+--insert into company_nation values ('01', '국내');
+--insert into company_nation values ('02', '국외');
  
 -- 업체 테이블 생성
-create table business_member(
-    businessNumber number(5) primary key,
-    businessName varchar2(50),
+create table company_member(
+    companyNumber number(5) primary key,
+    companyName varchar2(50),
     nationId varchar2(2),
-    businessIntro long,
-    foreign key (nationId) references business_nation(nationId)
+    companyIntro long,
+    foreign key (nationId) references company_nation(nationId)
 );
-select * from business_member;
-create sequence business_member_seq
+select * from company_member;
+create sequence company_member_seq
   INCREMENT BY 1
     START WITH 1
     MINVALUE 1
@@ -217,19 +217,19 @@ create sequence business_member_seq
     NOCYCLE
     NOCACHE
     NOORDER;
-drop sequence business_member_seq;
-drop table business_member cascade constraint purge;
+drop sequence company_member_seq;
+drop table company_member cascade constraint purge;
 --업체 테이블 데이터 삽입
-insert into business_member values(business_member_seq.nextval, '무신사', '01','업체 소개 입니다');
-insert into business_member values(business_member_seq.nextval, '나이키', '02','업체 소개 입니다');
-insert into business_member values(business_member_seq.nextval, '미쏘', '01','업체 소개 입니다',sysdate);
-insert into business_member values(business_member_seq.nextval, '유니클로', '02','업체 소개 입니다',sysdate);
-insert into business_member values(business_member_seq.nextval, '아디다스', '02','업체 소개 입니다',sysdate);
+insert into company_member values(company_member_seq.nextval, '무신사', '01','업체 소개 입니다');
+insert into company_member values(company_member_seq.nextval, '나이키', '02','업체 소개 입니다');
+insert into company_member values(company_member_seq.nextval, '미쏘', '01','업체 소개 입니다',sysdate);
+insert into company_member values(company_member_seq.nextval, '유니클로', '02','업체 소개 입니다',sysdate);
+insert into company_member values(company_member_seq.nextval, '아디다스', '02','업체 소개 입니다',sysdate);
 
 --삽입 날짜
-alter table business_member add regDate date default sysdate;
+alter table company_member add regDate date default sysdate;
 
 --수정 날짜
-alter table business_member add updateDate date default sysdate;
+alter table company_member add updateDate date default sysdate;
 
-insert into business_member(businessName, nationId, businessIntro) values('쇼핑몰', '01', '업체소개');
+insert into company_member(companyNumber, companyName, nationId, companyIntro) values(company_member_seq.nextval, '쇼핑몰', '01', '업체소개');

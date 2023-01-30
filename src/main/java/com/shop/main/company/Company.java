@@ -1,13 +1,13 @@
-package com.shop.main.business;
+package com.shop.main.company;
 
 import java.util.Date;
 
-public class Business {
+public class Company {
 	/* 업체 아이디 */
-	private int businessNumber;
+	private int companyNumber;
 
 	/* 업체 이름 */
-	private String businessName;
+	private String companyName;
 
 	/* 국가 id */
 	private String nationId;
@@ -16,7 +16,7 @@ public class Business {
 	private String nationName;
 
 	/* 업체 소개 */
-	private String businessIntro;
+	private String companyIntro;
 
 	/* 등록 날짜 */
 	private Date regDate;
@@ -24,36 +24,36 @@ public class Business {
 	/* 수정 날짜 */
 	private Date updateDate;
 	
-	public Business() {
+	public Company() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Business(int businessNumber, String businessName, String nationId, String nationName, String businessIntro,
+	public Company(int companyNumber, String companyName, String nationId, String nationName, String companyIntro,
 			Date regDate, Date updateDate) {
 		super();
-		this.businessNumber = businessNumber;
-		this.businessName = businessName;
+		this.companyNumber = companyNumber;
+		this.companyName = companyName;
 		this.nationId = nationId;
 		this.nationName = nationName;
-		this.businessIntro = businessIntro;
+		this.companyIntro = companyIntro;
 		this.regDate = regDate;
 		this.updateDate = updateDate;
 	}
 
-	public int getBusinessNumber() {
-		return businessNumber;
+	public int getCompanyNumber() {
+		return companyNumber;
 	}
 
-	public void setBusinessNumber(int businessNumber) {
-		this.businessNumber = businessNumber;
+	public void setCompanyNumber(int companyNumber) {
+		this.companyNumber = companyNumber;
 	}
 
-	public String getBusinessName() {
-		return businessName;
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public void setBusinessName(String businessName) {
-		this.businessName = businessName;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	public String getNationId() {
@@ -72,12 +72,12 @@ public class Business {
 		this.nationName = nationName;
 	}
 
-	public String getBusinessIntro() {
-		return businessIntro;
+	public String getCompanyIntro() {
+		return companyIntro;
 	}
 
-	public void setBusinessIntro(String businessIntro) {
-		this.businessIntro = businessIntro;
+	public void setCompanyIntro(String companyIntro) {
+		this.companyIntro = companyIntro;
 	}
 
 	public Date getRegDate() {
@@ -95,5 +95,6 @@ public class Business {
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
 	}
+	
 	
 }
