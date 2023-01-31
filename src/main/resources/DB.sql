@@ -187,28 +187,14 @@ create table pay_card(
 insert into pay_card values('1111-2222-3333-4444', 2, '우리', 15, 50000, 50000, sysdate, 'Y');
 select * from pay_card;
 ==========================================================================================================================
--- 국가 테이블 생성
-create table company_nation(
-   nationId varchar2(2) primary key,
-    nationName varchar2(50)
-);
--- 국가 테이블 데이터 삽입
-insert into company_nation values('01', '국내');
-insert into company_nation values('02', '국외');
-select * from company_nation;
-drop table company_nation cascade constraint purge;
---insert into company_nation values ('01', '국내');
---insert into company_nation values ('02', '국외');
- 
 -- 업체 테이블 생성
 create table company_member(
-    companyNumber number(5) primary key,
-    companyName varchar2(50),
-    nationId varchar2(2),
-    companyIntro long,
-    foreign key (nationId) references company_nation(nationId)
+    company_number number(5) primary key,
+    company_name varchar2(50 char)not null,
+    country_id varchar2(10 char),
+    company_introduce varchar2(300 char)not null
 );
-select * from company_member;
+select * from company_member order by company_number;
 create sequence company_member_seq
   INCREMENT BY 1
     START WITH 1

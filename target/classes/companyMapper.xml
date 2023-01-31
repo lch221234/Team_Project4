@@ -3,7 +3,6 @@
 <mapper namespace="com.shop.main.company.CompanyMapper">
 <insert id="companyreg"
 		parameterType="com.shop.main.company.Company">
-		insert into company_member(companyNumber, companyName, nationId, companyIntro)
-		values(company_member_seq.nextval, #{companyName}, #{nationId}, #{companyIntro})
+		insert into company_member values(company_member_seq.nextval, #{company_name}, #{country_id}, #{company_introduce})
 	</insert>
 </mapper>

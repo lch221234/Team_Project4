@@ -4,97 +4,61 @@ import java.util.Date;
 
 public class Company {
 	/* 업체 아이디 */
-	private int companyNumber;
+	private int company_number;
 
 	/* 업체 이름 */
-	private String companyName;
+	private String company_name;
 
 	/* 국가 id */
-	private String nationId;
-
-	/* 업체 국가 */
-	private String nationName;
+	private String country_id;
 
 	/* 업체 소개 */
-	private String companyIntro;
+	private String company_introduce;
 
-	/* 등록 날짜 */
-	private Date regDate;
-
-	/* 수정 날짜 */
-	private Date updateDate;
-	
 	public Company() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Company(int companyNumber, String companyName, String nationId, String nationName, String companyIntro,
-			Date regDate, Date updateDate) {
+	public Company(int company_number, String company_name, String country_id, String company_introduce) {
 		super();
-		this.companyNumber = companyNumber;
-		this.companyName = companyName;
-		this.nationId = nationId;
-		this.nationName = nationName;
-		this.companyIntro = companyIntro;
-		this.regDate = regDate;
-		this.updateDate = updateDate;
+		this.company_number = company_number;
+		this.company_name = company_name;
+		this.country_id = country_id;
+		this.company_introduce = company_introduce;
 	}
 
-	public int getCompanyNumber() {
-		return companyNumber;
+	public int getCompany_number() {
+		return company_number;
 	}
 
-	public void setCompanyNumber(int companyNumber) {
-		this.companyNumber = companyNumber;
+	public void setCompany_number(int company_number) {
+		this.company_number = company_number;
 	}
 
-	public String getCompanyName() {
-		return companyName;
+	public String getCompany_name() {
+		return company_name;
 	}
 
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+	public void setCompany_name(String company_name) {
+		this.company_name = company_name;
 	}
 
-	public String getNationId() {
-		return nationId;
+	public String getCountry_id() {
+		return country_id;
 	}
 
-	public void setNationId(String nationId) {
-		this.nationId = nationId;
+	public void setCountry_id(String country_id) {
+		this.country_id = country_id;
 	}
 
-	public String getNationName() {
-		return nationName;
+	public String getCompany_introduce() {
+		return company_introduce;
 	}
 
-	public void setNationName(String nationName) {
-		this.nationName = nationName;
+	public void setCompany_introduce(String company_introduce) {
+		this.company_introduce = company_introduce;
 	}
 
-	public String getCompanyIntro() {
-		return companyIntro;
-	}
-
-	public void setCompanyIntro(String companyIntro) {
-		this.companyIntro = companyIntro;
-	}
-
-	public Date getRegDate() {
-		return regDate;
-	}
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
-	}
-
-	public Date getUpdateDate() {
-		return updateDate;
-	}
-
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
 	
 	
 }

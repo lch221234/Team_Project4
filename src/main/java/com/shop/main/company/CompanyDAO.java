@@ -15,11 +15,14 @@ public class CompanyDAO {
 	//업체 등록
 	public void companyReg(Company c, HttpServletRequest req) {
 		try {
-			c.setCompanyName(req.getParameter("companyName"));
-			c.setNationId(req.getParameter("nationId"));
-			c.setCompanyIntro(req.getParameter("companyIntro"));
-			
-			ss.getMapper(CompanyMapper.class).companyreg(c);
+			c.setCompany_name(req.getParameter("companyName"));
+			c.setCountry_id(req.getParameter("nationId"));
+			c.setCompany_introduce(req.getParameter("companyIntro"));
+			if (ss.getMapper(CompanyMapper.class).companyreg(c) ==1) {
+				req.setAttribute("r", "등록성공");
+			}else {
+				req.setAttribute("r", "등록실패");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
