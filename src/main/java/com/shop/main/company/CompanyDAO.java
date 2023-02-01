@@ -1,5 +1,7 @@
 package com.shop.main.company;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,9 +17,9 @@ public class CompanyDAO {
 	//업체 등록
 	public void companyReg(Company c, HttpServletRequest req) {
 		try {
-			c.setCompany_name(req.getParameter("companyName"));
-			c.setCountry_id(req.getParameter("nationId"));
-			c.setCompany_introduce(req.getParameter("companyIntro"));
+			c.setCompany_name(req.getParameter("company_name"));
+			c.setCountry_id(req.getParameter("country_id"));
+			c.setCompany_introduce(req.getParameter("company_introduce"));
 			if (ss.getMapper(CompanyMapper.class).companyreg(c) ==1) {
 				req.setAttribute("r", "등록성공");
 			}else {
@@ -26,5 +28,8 @@ public class CompanyDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	//업체 목록
+	public void companyList(Company c, HttpServletRequest req) {
 	}
 }
