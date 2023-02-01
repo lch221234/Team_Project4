@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +12,18 @@
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/do.js"></script>
 <script type="text/javascript" src="resources/js/do_jQuery.js"></script>
+<script type="text/javascript">
+$(()=>{
+	$.getJSON("admin.getCategory",function(c_n){
+		let ar = c_n.productCategory;
+//		alert(ar[3].category_name);
+		$.each(c_n.productCategory,function(i,c_n){ 
+			let div = $("<div></div>").text(c_n.category_name);
+			$(".div1").append(div);
+		}); 
+	});
+});
+</script>
 </head>
 <body>
 	<div class="wrapper">
@@ -52,6 +66,8 @@
 						<span>카테고리 등록</span>
 					</div>
 					<input type="button" value="등록하기" onclick="openChild();">
+					<div class="div1">
+					</div>
 				</div>
 				<div class="clearfix"></div>
 			</div>

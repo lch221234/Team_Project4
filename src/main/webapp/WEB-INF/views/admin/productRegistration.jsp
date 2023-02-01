@@ -54,11 +54,12 @@
 						<span>상품 등록</span>
 					</div>
 					<div>
-						<form action="product.reg">
+						<form action="product.reg" enctype="multipart/form-data" method="post">
 							<input class="category_code" name="p_c_c"> 카테고리 코드
 							<input class="product_name" name="p_n"> 이름
 							<input class="product_price" name="p_p"> 가격
 							<input class="product_stock" name="p_s"> 재고
+							<input class="product_img" name = "p_i" type="file"> 
 							<button>가입하기</button>
 						</form>
 					</div>

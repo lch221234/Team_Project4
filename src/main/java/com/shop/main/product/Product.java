@@ -8,18 +8,21 @@ public class Product {
 	private String product_name;
 	private int product_price;
 	private int product_stock;
+	private String product_img;
 	
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Product(int product_number, int category_code, String product_name, int product_price, int product_stock) {
+	public Product(int product_number, int category_code, String product_name, int product_price, int product_stock,
+			String product_img) {
 		super();
 		this.product_number = product_number;
 		this.category_code = category_code;
 		this.product_name = product_name;
 		this.product_price = product_price;
 		this.product_stock = product_stock;
+		this.product_img = product_img;
 	}
 
 	public int getProduct_number() {
@@ -61,6 +64,18 @@ public class Product {
 	public void setProduct_stock(int product_stock) {
 		this.product_stock = product_stock;
 	}
+
+	public String getProduct_img() {
+		return product_img;
+	}
+
+	public void setProduct_img(String product_img) {
+		this.product_img = product_img;
+	}
+	
+	
+	
+	
 	
 	
 

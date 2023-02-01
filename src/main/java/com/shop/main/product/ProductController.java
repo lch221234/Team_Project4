@@ -14,7 +14,7 @@ public class ProductController {
 	private ProductDAO pDAO;
 	
 	//상품등록 이동
-	@RequestMapping(value = "product.reg", method = RequestMethod.GET)
+	@RequestMapping(value = "product.reg", method = RequestMethod.POST)
 	public String regProduct(Product p, HttpServletRequest req) {
 		pDAO.ProductReg(p, req);
 		return "admin/productRegistration";

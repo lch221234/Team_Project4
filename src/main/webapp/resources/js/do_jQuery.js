@@ -35,16 +35,21 @@ function doubleChkId() {
 	});
 }
 
-function AddCategory(){
-	$(".rcBtn").click(function(){
-		let category_name = $(".category_name").val();
-		let div = $("<div></div>").text(category_name);
-		$(".categoryBox").append(div);
+function getCategory() {
+	$(".admin_list_06").click(()=>{
+		$.getJSON("admin.getCategory",function(c_n){
+			let ar = c_n.productCategory;
+			alert(ar[3].category_name);
+			$.each(c_n.productCategory,function(i,c_n){ 
+				let div = $("<div></div>").text(c_n.category_name);
+				$(".div1").append(div);
+			}); 
+		});
 	});
 }
 
 $(function(){
 	searchAddress();
 	doubleChkId();
-//	AddCategory();
+//	getCategory();
 });

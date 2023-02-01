@@ -36,6 +36,17 @@ function openChild(){
 	openwin = window.open("admin/child","childForm","width=800, height=600, resizable = no, scrollbars = no");
 }
 
+// 팝업창 닫기
+function closeChild() {
+	window.close();
+}
+
+// 자식창에서 부모창으로 값 전달하기
+function setParentText(){
+	opener.document.getElementById("pInput").value = document.getElementById("cInput").value
+}
+
+
 //function regCategory(){
 //	location.href = "category.registration";
 //	

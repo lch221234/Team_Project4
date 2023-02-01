@@ -1,19 +1,28 @@
 package com.shop.main.admin;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.shop.main.productcategory.ProductCategoryDAO;
+
 @Controller
 public class AdminController {
+	@Autowired
+	private ProductCategoryDAO pcDAO;
+	
 	//메인화연 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
 	public String goAdmin() {
 		return "admin/main";
 	}
-	//상품등록 이동
+	//카테고리등록 이동
 	@RequestMapping(value = "categoryRegistration.go", method = RequestMethod.GET)
-	public String goCategoryRegistration() {
+	public String goCategoryRegistration(HttpServletRequest req) {
+		pcDAO.getAllCategory(req);
 		return "admin/categoryRegistration";
 	}
 	//상품등록 이동
