@@ -7,6 +7,7 @@
 <title>업체 등록 페이지</title>
 <link rel="stylesheet"
 	href="resources/css/admin/companyRegistration.css">
+<script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/CompanyReg.js"></script>
@@ -22,7 +23,7 @@
 		<!-- 예시 현재 DB어케 짜여진지 몰라서 만든거 전부 수정 예정 -->
 		<div class="admin_content_main">
 			<form action="companyEnroll.do" method="get" name="enrollForm"
-				>
+				onsubmit="return CompanyCheck()">
 				<div class="form_section">
 					<div class="form_section_title">
 						<label>업체 이름</label>
@@ -38,7 +39,7 @@
 					</div>
 					<div class="form_section_content">
 						<select name="country_id" class="country_id">
-							<option value="none" selected>=== 선택 ===</option>
+							<option value="" selected>=== 선택 ===</option><!-- none 대신 공백으로 변경 (02/02) 찬호 -->
 							<option value="01">국내</option>
 							<option value="02">국외</option>
 						</select>
@@ -46,7 +47,7 @@
 				</div>
 				<div class="form_section">
 					<div class="form_section_title">
-						<label>업체소개</label>
+						<label>업체소개1</label>
 					</div>
 					<div class="form_section_content">
 						<input name="company_introduce" class="company_introduce"
