@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.main.company.CompanyMapper">
+	<!-- 업체등록 -->
+	<insert id="companyreg"
+		parameterType="com.shop.main.company.Company">
+		insert into company_member
+		values(company_member_seq.nextval, #{company_name},
+		#{country_id},#{company_introduce})
+	</insert>
+	<!-- 업체 목록 -->
+	<select id="companylist"
+		resultType="com.shop.main.company.Company">
+		select company_number,
+		company_name,
+		country_id,
+		company_introduce
+		from company_member
+		order by company_number;
+	</select>
+</mapper>

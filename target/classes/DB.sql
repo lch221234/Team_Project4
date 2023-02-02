@@ -190,4 +190,42 @@ create table pay_card(
 insert into pay_card values('1111-2222-3333-4444', 2, '우리', 15, 50000, 50000, sysdate, 'Y');
 select * from pay_card;
 ==========================================================================================================================
+-- 업체 테이블 생성
+create table company_member(
+    company_number number(5) primary key,
+    company_name varchar2(50 char)not null,
+    country_id varchar2(10 char),
+    company_introduce varchar2(300 char)not null
+);
+select * from company_member order by company_number;
+select company_number as num,
+company_name as name,
+country_id as id,
+company_introduce as intro
+from company_member
+order by num;
+create sequence company_member_seq
+  INCREMENT BY 1
+    START WITH 1
+    MINVALUE 1
+    MAXVALUE 9999
+    NOCYCLE
+    NOCACHE
+    NOORDER;
+drop sequence company_member_seq;
+drop table company_member cascade constraint purge;
+--업체 테이블 데이터 삽입
+insert into company_member values(company_member_seq.nextval, '무신사', '01','업체 소개 입니다');
+insert into company_member values(company_member_seq.nextval, '나이키', '02','업체 소개 입니다');
+insert into company_member values(company_member_seq.nextval, '미쏘', '01','업체 소개 입니다',sysdate);
+insert into company_member values(company_member_seq.nextval, '유니클로', '02','업체 소개 입니다',sysdate);
+insert into company_member values(company_member_seq.nextval, '아디다스', '02','업체 소개 입니다',sysdate);
+
+--삽입 날짜
+alter table company_member add regDate date default sysdate;
+
+--수정 날짜
+alter table company_member add updateDate date default sysdate;
+
+insert into company_member(companyNumber, companyName, nationId, companyIntro) values(company_member_seq.nextval, '쇼핑몰', '01', '업체소개');
 

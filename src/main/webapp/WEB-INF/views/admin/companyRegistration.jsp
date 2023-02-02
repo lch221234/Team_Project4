@@ -7,129 +7,62 @@
 <title>업체 등록 페이지</title>
 <link rel="stylesheet"
 	href="resources/css/admin/companyRegistration.css">
+<script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript" src="resources/js/CompanyReg.js"></script>
+
 </head>
 <body>
-	<div class="wrapper">
-		<div class="wrap">
-			<!-- gnb영역 -->
-			<div class="top_gnb_area">
-				<ul class="list">
-					<li><a href="/main">메인 페이지</a></li>
-					<li><a onclick="logout();">로그아웃</a></li>
-					<li>고객센터</li>
-				</ul>
-			</div>
-			<!-- 제목영역 -->
-			<div class="admin_top_wrap">
-				<span>관리자 페이지</span>
-
-			</div>
-			<!-- 콘텐츠영역 -->
-			<div class="admin_wrap">
-				<!-- 네비영역 -->
-				<div class="admin_navi_wrap">
-					<ul>
-						<li><a class="admin_list_01" href="productRegistration.go">상품
-								등록</a></li>
-						<li >
-                            <a class="admin_list_06" href="categoryRegistration.go">카테고리 등록</a>
-                        </li>
-						<li><a class="admin_list_02" href="productList.go">상품 목록</a>
-						</li>
-						<li><a class="admin_list_03" href="companyRegistration.go">업체
-								등록</a></li>
-						<lI><a class="admin_list_04" href="companyList.go">업체 목록</a>
-						</li>
-						<li><a class="admin_list_05" href="memberList.go">회원 관리</a></li>
-					</ul>
-					<!--  페이지 영역 -->
-				</div>
-				<div class="admin_content_wrap">
-					<div class="admin_content_subject">
-						<span>업체 등록</span>
+	<!-- 코드 줄이는 방법 찾아서 적용 (1.31)찬호-->
+	<%@include file="../includes/admin/header.jsp"%>
+	<div class="admin_content_wrap">
+		<div class="admin_content_subject">
+			<span>업체 등록</span>
+		</div>
+		<!-- 예시 현재 DB어케 짜여진지 몰라서 만든거 전부 수정 예정 -->
+		<div class="admin_content_main">
+			<form action="companyEnroll.do" method="get" name="enrollForm"
+				onsubmit="return CompanyCheck()">
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>업체 이름</label>
 					</div>
-					<!-- 예시 현재 DB어케 짜여진지 몰라서 만든거 전부 수정 예정 -->
-					<div class="admin_content_main">
-						<form action="/admin/companyRegistration.do" method="post"
-							id="enrollForm">
-							<div class="form_section">
-								<div class="form_section_title">
-									<label>업체 이름</label>
-								</div>
-								<div class="form_section_content">
-									<input name="companyName">
-								</div>
-							</div>
-							<div class="form_section">
-								<div class="form_section_title">
-									<!-- 국외기업도 있으니까 만든거라 DB에 안넣을꺼면 삭제 -->
-									<label>소속 국가</label>
-								</div>
-								<div class="form_section_content">
-									<select name="nationId">
-										<option value="none" selected>=== 선택 ===</option>
-										<option value="01">국내</option>
-										<option value="02">국외</option>
-									</select>
-								</div>
-							</div>
-							<div class="form_section">
-								<div class="form_section_title">
-									<label>업체소개</label>
-								</div>
-								<div class="form_section_content">
-									<input name="companyIntro" type="text">
-								</div>
-							</div>
-						</form>
-						<div class="btn_section">
-							<button id="cancelBtn" class="btn">취 소</button>
-							<button id="enrollBtn" class="btn enroll_btn">등 록</button>
-						</div>
+					<div class="form_section_content">
+						<input name="company_name" class="company_name">
 					</div>
 				</div>
-
-				<div class="clearfix"></div>
-			</div>
-			<!-- 하단 영역 -->
-			<div class="bottom_nav">
-				<div class="bottom_nav_container">
-					<ul>
-						<li>회사소개</li>
-						<span class="line">|</span>
-						<li>이용약관</li>
-						<span class="line">|</span>
-						<li>고객센터</li>
-						<span class="line">|</span>
-						<li>광고문의</li>
-						<span class="line">|</span>
-						<li>채용정보</li>
-						<span class="line">|</span>
-					</ul>
-				</div>
-			</div>
-			<!-- class="bottom_nav" -->
-
-			<div class="bottom">
-				<div class="bottom_container">
-
-					<div class="bottom_left">
-						<img src="resources/img/Logo.png">
+				<div class="form_section">
+					<div class="form_section_title">
+						<!-- 국외기업도 있으니까 만든거라 DB에 안넣을꺼면 삭제 -->
+						<label>소속 국가</label>
 					</div>
-					<div class="bottom_right">
-						(주) H2mall 대표이사 : Team4조 <br> 사업자등록번호 : 210-81-65986 <br>
-						대표전화 : 1644-7583(발신자 부담전화) <br> 평일 AM 09:30 ~ PM 17:00<br>
-						점심시간 전화상담가능 · 주말&공휴일 휴무 · 배송문의 2시 이후<br> <br>
-						COPYRIGHT(C) <strong>https://github.com/lch221234/Team_Project4</strong>
-						ALL RIGHTS RESERVED.
+					<div class="form_section_content">
+						<select name="country_id" class="country_id">
+							<option value="" selected>=== 선택 ===</option><!-- none 대신 공백으로 변경 (02/02) 찬호 -->
+							<option value="01">국내</option>
+							<option value="02">국외</option>
+						</select>
 					</div>
-					<div class="clearfix"></div>
 				</div>
-			</div>
-			<!-- class="bottom" -->
+				<div class="form_section">
+					<div class="form_section_title">
+						<label>업체소개1</label>
+					</div>
+					<div class="form_section_content">
+						<input name="company_introduce" class="company_introduce"
+							type="text">
+					</div>
+				</div>
+				<div class="btn_section">
+					<!--  <button id="cancelBtn" class="btn" onclick="companyCancle()">취 소</button>-->
+					<button id="enrollBtn" class="btn_enroll_btn">등 록</button>
+				</div>
+			</form>
+			<b>${r }</b>
 		</div>
 	</div>
+
+	<%@include file="../includes/admin/footer.jsp"%>
 </body>
 </html>

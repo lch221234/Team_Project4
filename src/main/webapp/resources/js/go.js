@@ -55,3 +55,14 @@ function delCategory(no) {
 function regProduct() {
 	location.href = "product.reg";
 }
+
+//등록 버튼
+//function companyReg() {
+//	location.href = "companyEnroll.do"
+
+//}
+
+//취소 버튼
+//function companyCancle() {
+//		location.href = "companyList.go"
+//}
