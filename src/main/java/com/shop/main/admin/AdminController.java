@@ -15,7 +15,7 @@ public class AdminController {
 	@Autowired
 	private ProductCategoryDAO pcDAO;
 	
-	//메인화연 이동
+	//메인화면 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
 	public String goAdmin() {
 		return "admin/main";
@@ -43,7 +43,7 @@ public class AdminController {
 	}
 	//업체목록 이동
 	@RequestMapping(value = "companyList.go", method = RequestMethod.GET)
-	public String gocompanyList(Model m) {
+	public String gocompanyList(Model m){
 //		List<Company> list = CompanyMapper.companylist(); //오류나서 주석
 //		m.addAttribute("list", CompanyMapper.companylist());
 		return "admin/companyList";

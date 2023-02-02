@@ -228,4 +228,3 @@ alter table company_member add regDate date default sysdate;
 alter table company_member add updateDate date default sysdate;
 
 insert into company_member(companyNumber, companyName, nationId, companyIntro) values(company_member_seq.nextval, '쇼핑몰', '01', '업체소개');
-

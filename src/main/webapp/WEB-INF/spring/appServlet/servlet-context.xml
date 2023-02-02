@@ -46,6 +46,7 @@
 				<beans:value>classpath:memberMapper.xml</beans:value>
 				<beans:value>classpath:productCategoryMapper.xml</beans:value>
 				<beans:value>classpath:productMapper.xml</beans:value>
+				<beans:value>classpath:companyMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
