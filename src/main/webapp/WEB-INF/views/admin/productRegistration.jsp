@@ -60,7 +60,7 @@
 							<input class="product_price" name="p_p"> 가격
 							<input class="product_stock" name="p_s"> 재고
 							<input class="product_img" name = "p_i" type="file"> 
-							<button>가입하기</button>
+							<button>등록하기</button>
 						</form>
 					</div>
 					

@@ -29,8 +29,13 @@ public class ProductCategoryController {
 	@RequestMapping(value = "/admin.getCategory", method = RequestMethod.GET, produces ="application/json; charset=utf-8" )
 	public @ResponseBody ProductCategories getCategory(HttpServletResponse res, HttpServletRequest req) {
 		res.addHeader("Access-Control-Allow-Orign", "*");
-		TokenManager.tokenManager(req);
 		return pcDAO.getCategoryJSON(req);
+	}
+	
+	@RequestMapping(value = "admin.delCategory", method = RequestMethod.GET)
+	public String DelCategory(ProductCategory pc, HttpServletRequest req) {
+		pcDAO.categoryDel(pc, req);
+		return "admin/categoryRegistration";
 	}
 		
 }

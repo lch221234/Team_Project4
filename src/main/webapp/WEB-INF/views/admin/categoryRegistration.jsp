@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,16 +13,34 @@
 <script type="text/javascript" src="resources/js/do.js"></script>
 <script type="text/javascript" src="resources/js/do_jQuery.js"></script>
 <script type="text/javascript">
-$(()=>{
-	$.getJSON("admin.getCategory",function(c_n){
-		let ar = c_n.productCategory;
-//		alert(ar[3].category_name);
-		$.each(c_n.productCategory,function(i,c_n){ 
-			let div = $("<div></div>").text(c_n.category_name);
-			$(".div1").append(div);
+<!--$(function(){
+	$.getJSON("admin.getCategory",function(p_c){
+		nums = 0;
+		$.each(p_c.productCategory,function(i,p_c){ 
+			let div = $("<div class = \"append_Category\"></div>").text(p_c.category_name);
+			$(".append_Categories").append(div);
+			nums = p_c.category_code;
+			console.log(i + '번째 ' +nums);
+		}); 
+			$(".append_Category").append(" <img class=\"delete_category\" src =\"resources/img/recycle_bin.png\" width = \"20\" height = \"20\"  >");
+			
+			// num = p_c.productCategory[0].category_code;
+			// console.log(num);
+		$(".delete_category").click(function(){
+			alert(nums);
+			//alert(p_c.productCategory[0].category_code);    
+			
+			 //alert(num);
+			 
+			 //alert("${p_c}");
+			 //alert(p_c);
+			// alert("p_c");
+			 
+			//location.href = "admin.delCategory?c_n="+nums;
+			
 		}); 
 	});
-});
+}); -->
 </script>
 </head>
 <body>
@@ -48,9 +66,8 @@ $(()=>{
 					<ul>
 						<li><a class="admin_list_01" href="productRegistration.go">상품
 								등록</a></li>
-						<li >
-                            <a class="admin_list_06" href="categoryRegistration.go">카테고리 등록</a>
-                        </li>
+						<li><a class="admin_list_06" href="categoryRegistration.go">카테고리
+								등록</a></li>
 						<li><a class="admin_list_02" href="productList.go">상품 목록</a>
 						</li>
 						<li><a class="admin_list_03" href="companyRegistration.go">업체
@@ -66,8 +83,7 @@ $(()=>{
 						<span>카테고리 등록</span>
 					</div>
 					<input type="button" value="등록하기" onclick="openChild();">
-					<div class="div1">
-					</div>
+					<div class="append_Categories"></div>
 				</div>
 				<div class="clearfix"></div>
 			</div>

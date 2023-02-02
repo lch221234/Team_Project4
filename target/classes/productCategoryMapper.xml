@@ -8,6 +8,6 @@
 		insert into product_category values (product_category_seq.nextval, #{category_name})
 	</insert>
 	<delete id="categoryDel" parameterType="com.shop.main.productcategory.ProductCategory">
-		delete from product_category where category_name = #{category_name}
+		delete from product_category where category_code = #{category_code}
 	</delete>
 </mapper>

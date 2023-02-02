@@ -1,16 +1,29 @@
 package com.shop.main.productcategory;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.shop.main.product.Product;
+
 @Service
 public class ProductCategoryDAO {
 
 	@Autowired
 	private SqlSession ss;
+	
+	// 카테고리 삭제
+	public void categoryDel(ProductCategory pc, HttpServletRequest req) {
+		try {
+			ss.getMapper(ProductCategoryMapper.class).categoryDel(pc);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 	// 카테고리 등록
 	public void categoryReg(ProductCategory pc, HttpServletRequest req) {
@@ -24,7 +37,7 @@ public class ProductCategoryDAO {
 			
 			pc.setCategory_name(req.getParameter("c_n"));
 			if (ss.getMapper(ProductCategoryMapper.class).categoryReg(pc) == 1) {
-				req.setAttribute("token2", token);
+				req.getSession().setAttribute("token2", token);
 			} 
 		} catch (Exception e) {	
 			e.printStackTrace();
@@ -34,7 +47,7 @@ public class ProductCategoryDAO {
 	// 카테고리 전체 가져오기
 	public void getAllCategory(HttpServletRequest req) {
 		try {
-			req.setAttribute("c_n", ss.getMapper(ProductCategoryMapper.class).getCategory());
+			req.setAttribute("p_c", ss.getMapper(ProductCategoryMapper.class).getCategory());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

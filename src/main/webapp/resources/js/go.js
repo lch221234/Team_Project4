@@ -41,21 +41,17 @@ function closeChild() {
 	window.close();
 }
 
-// 자식창에서 부모창으로 값 전달하기
-function setParentText(){
-	opener.document.getElementById("pInput").value = document.getElementById("cInput").value
-}
-
-
-//function regCategory(){
-//	location.href = "category.registration";
-//	
-//}
-
+// 팝업창에서 등록하고 머무르기
 function regCategory() {
 	location.href = "child";
 }
 
+// 카테고리 삭제하기
+function delCategory(no) {
+	location.href = "admin.delCategory?c_n="+no;
+}
+
+// 상품 등록하기
 function regProduct() {
 	location.href = "product.reg";
 }

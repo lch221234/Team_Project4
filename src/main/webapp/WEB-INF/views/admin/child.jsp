@@ -20,7 +20,7 @@
 				<input class="category_name" name="c_n" autocomplete="off"
 					id="cInput">
 				<input type="hidden" name="token" value="${token }">
-				<button class="c_Btn" onclick="setParentText();">등록하기</button>
+				<button class="c_Btn">등록하기</button>
 			</div>
 			<!-- <c:forEach var="c_n" items="${sessionScope.p_c.category_name}">
 					<h2>${c_n }</h2>
@@ -30,11 +30,11 @@
 				<br>-->
 			<b>${r }</b>
 		</form>
-		<c:forEach var="c_n" items="${c_n }">
+		<c:forEach var="c_n" items="${p_c }">
 			<b>${c_n.category_name }</b>
 			<br>
 		</c:forEach>
-		<button onclick="closeChild();">저장하기</button>
+		<button onclick="closeChild();">나가기</button>
 	</div>
 </body>
 </html>
