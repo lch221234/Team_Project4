@@ -57,6 +57,14 @@
 	font-size:28px;
 }
 
+/* 아이디중복체크영역 */
+.doubleChk{
+	width:20%;
+	margin-left: 73%;
+	margin-bottom: 10px;
+	font-size:28px;
+}
+
 /* 비밀번호 영역 */
 .pw_wrap{
 	width: 100%;
@@ -236,7 +244,7 @@
 .pw_eye_img{
 	width:40px;
 	height:40px;
-	top : 285px;
+	top : 300px; /* 아이디 중복체크 css 때문에 수정 */
 	left : 1300px;
 	position: absolute;
 }
@@ -245,7 +253,7 @@
 .pwck_eye_img{
 	width:40px;
 	height:40px;
-	top : 388px;
+	top : 405px; /* 아이디 중복체크 css 때문에 수정 */
 	left : 1300px;
 	position: absolute;
 }

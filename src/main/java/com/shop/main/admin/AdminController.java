@@ -1,12 +1,19 @@
 package com.shop.main.admin;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.shop.main.company.Company;
+import com.shop.main.company.CompanyMapper;
+
 @Controller
 public class AdminController {
-	//메인화연 이동
+	
+	//메인화면 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
 	public String goAdmin() {
 		return "admin/main";
@@ -28,7 +35,9 @@ public class AdminController {
 	}
 	//업체목록 이동
 	@RequestMapping(value = "companyList.go", method = RequestMethod.GET)
-	public String gocompanyList() {
+	public String gocompanyList(Model m){
+//		List<Company> list = CompanyMapper.companylist(); //오류나서 주석
+//		m.addAttribute("list", CompanyMapper.companylist());
 		return "admin/companyList";
 	}
 	//회원관리 이동

@@ -19,7 +19,7 @@
 
 		<div class="wrap">
 		<!-- form 추가한부분 -->
-			<form action="member.SuccessLogin" method="post" name="login_form">
+			<form action="member.SuccessLogin" method="post" name="login_form" onsubmit="return loginck();">
 				<div class="logo_wrap">
 					<span>쇼핑몰</span>
 				</div>
@@ -58,13 +58,6 @@
 	</div>
 
 
-	<script>
-		/* 로그인 버튼 클릭 메서드 */
-		$(".login_button").click(function() {
 
-			alert("로그인 성공");
-
-		});
-	</script>
 </body>
 </html>
