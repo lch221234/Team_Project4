@@ -12,7 +12,8 @@
 <script type="text/javascript" src="resources/js/CompanyReg.js"></script>
 
 </head>
-<body><!-- 코드 줄이는 방법 찾아서 적용 (1.31)찬호-->
+<body>
+	<!-- 코드 줄이는 방법 찾아서 적용 (1.31)찬호-->
 	<%@include file="../includes/admin/header.jsp"%>
 	<div class="admin_content_wrap">
 		<div class="admin_content_subject">
@@ -20,8 +21,8 @@
 		</div>
 		<!-- 예시 현재 DB어케 짜여진지 몰라서 만든거 전부 수정 예정 -->
 		<div class="admin_content_main">
-			<form action="companyEnroll.do" method="get" id="enrollForm"
-				name="enrollForm">
+			<form action="companyEnroll.do" method="get" name="enrollForm"
+				>
 				<div class="form_section">
 					<div class="form_section_title">
 						<label>업체 이름</label>
@@ -54,7 +55,7 @@
 				</div>
 				<div class="btn_section">
 					<!--  <button id="cancelBtn" class="btn" onclick="companyCancle()">취 소</button>-->
-					<button id="enrollBtn" class="btn enroll_btn">등 록</button>
+					<button id="enrollBtn" class="btn_enroll_btn">등 록</button>
 				</div>
 			</form>
 			<b>${r }</b>

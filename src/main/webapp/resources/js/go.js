@@ -28,12 +28,12 @@ function del() {
 	}
 }
 // 등록 버튼
-function companyReg() {
-	location.href = "companyEnroll.do"
+//function companyReg() {
+//	location.href = "companyEnroll.do"
 
-}
+//}
 
 // 취소 버튼
-function companyCancle() {
-		location.href = "companyList.go"
-}
+//function companyCancle() {
+//		location.href = "companyList.go"
+//}

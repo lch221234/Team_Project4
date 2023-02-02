@@ -29,9 +29,10 @@
 						</tr>
 					<!--<c:forEach items="${list}" var="list">
 						<tr>
-							<td><c:out value="${list.authorId}"></c:out></td>
-							<td><c:out value="${list.authorName}"></c:out></td>
-							<td><c:out value="${list.nationName}"></c:out></td>
+							<td><c:out value="${list.company_number}"></c:out></td>
+							<td><c:out value="${list.company_name}"></c:out></td>
+							<td><c:out value="${list.country_id}"></c:out></td>
+							<td><c:out value="${list.company_introduce}"></c:out></td>
 						</tr>
 					</c:forEach>-->
 				</table>

@@ -11,11 +11,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class CompanyController {
 	@Autowired
 	private CompanyDAO cDAO;
-	
-	//업체등록 이동
-		@RequestMapping(value = "companyEnroll.do", method = RequestMethod.GET)
-		public String goCompanyRegistration(Company c, HttpServletRequest req) {
-			cDAO.companyReg(c, req);
-			return "admin/companyRegistration";
-		}
+
+	// 업체등록 이동
+	@RequestMapping(value = "companyEnroll.do", method = RequestMethod.GET)
+	public String goCompanyRegistration(Company c, HttpServletRequest req) {
+		cDAO.companyReg(c, req);
+		return "admin/companyRegistration";
+	}
+
 }

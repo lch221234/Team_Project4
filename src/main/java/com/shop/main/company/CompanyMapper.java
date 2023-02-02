@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface CompanyMapper {
 	public abstract int companyreg(Company c);
-	public abstract List<Company> companyList();
+	public abstract List<Company> companylist();
 }
