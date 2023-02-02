@@ -10,7 +10,7 @@ public class Company {
 	/* 국가 id */
 	private String country_id;
 
-	/* 업체 소개 */
+	/* 업체 소개 .*/
 	private String company_introduce;
 
 	public Company() {
