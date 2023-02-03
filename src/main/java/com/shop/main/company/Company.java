@@ -1,7 +1,5 @@
 package com.shop.main.company;
 
-import java.util.Date;
-
 public class Company {
 	/* 업체 아이디 */
 	private int company_number;

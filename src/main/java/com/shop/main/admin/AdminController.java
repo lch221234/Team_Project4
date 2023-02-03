@@ -1,22 +1,30 @@
 package com.shop.main.admin;
 
-import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.shop.main.company.Company;
-import com.shop.main.company.CompanyMapper;
+import com.shop.main.productcategory.ProductCategoryDAO;
 
 @Controller
 public class AdminController {
+	@Autowired
+	private ProductCategoryDAO pcDAO;
 	
 	//메인화면 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
 	public String goAdmin() {
 		return "admin/main";
+	}
+	//카테고리등록 이동
+	@RequestMapping(value = "categoryRegistration.go", method = RequestMethod.GET)
+	public String goCategoryRegistration(HttpServletRequest req) {
+		pcDAO.getAllCategory(req);
+		return "admin/categoryRegistration";
 	}
 	//상품등록 이동
 	@RequestMapping(value = "productRegistration.go", method = RequestMethod.GET)
@@ -45,5 +53,10 @@ public class AdminController {
 	public String gomemberList() {
 		return "admin/memberList";
 	}
+//	// child.jsp 팝업창 띄우기
+//	@RequestMapping("/admin/child")
+//	public void child() throws Exception{
+//		
+//	}
 	
 }

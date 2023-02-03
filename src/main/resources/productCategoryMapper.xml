@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.main.productcategory.ProductCategoryMapper">
+	<select id="getCategory" resultType="com.shop.main.productcategory.ProductCategory">
+		select * from product_category order by category_code
+	</select>
+	<insert id="categoryReg" parameterType="com.shop.main.productcategory.ProductCategory">
+		insert into product_category values (product_category_seq.nextval, #{category_name})
+	</insert>
+	<delete id="categoryDel" parameterType="com.shop.main.productcategory.ProductCategory">
+		delete from product_category where category_code = #{category_code}
+	</delete>
+</mapper>

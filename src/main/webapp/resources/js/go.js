@@ -27,13 +27,42 @@ function del() {
 		location.href = "member.delete";
 	}
 }
-// 등록 버튼
+
+// 팝업창 열기
+let openwin;
+function openChild(){
+	window.name = "parentForm"
+	openwin = window.open("admin/child","childForm","width=800, height=600, resizable = no, scrollbars = no");
+}
+
+// 팝업창 닫기
+function closeChild() {
+	window.close();
+}
+
+// 팝업창에서 등록하고 머무르기
+function regCategory() {
+	location.href = "child";
+}
+
+// 카테고리 삭제하기
+function delCategory(no) {
+	location.href = "admin.delCategory?c_n="+no;
+}
+
+// 상품 등록하기
+function regProduct() {
+	location.href = "product.reg";
+}
+
+//등록 버튼
 //function companyReg() {
 //	location.href = "companyEnroll.do"
 
 //}
 
-// 취소 버튼
+//취소 버튼
 //function companyCancle() {
 //		location.href = "companyList.go"
 //}
+

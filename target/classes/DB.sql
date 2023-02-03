@@ -22,9 +22,12 @@ create table product_category(
 )
 
 create sequence product_category_seq;
-insert into product_category values(product_category_seq.nextval, '상의');
+insert into product_category values(product_category_seq.nextval, 'NEW ARRIVAL');
+insert into product_category values(product_category_seq.nextval, 'TOP');
+insert into product_category values(product_category_seq.nextval, 'OUTER');
+insert into product_category values(product_category_seq.nextval, 'PANTS');
 drop sequence product_category_seq;
-select * from product_category;
+select * from product_category order by category_code;
 drop table product_category cascade constraint purge;
 ==========================================================================================================================
 -- 상품
@@ -34,30 +37,30 @@ create table product(
 	constraint fk_product foreign key(category_code) references product_category(category_code) on delete cascade,
 	product_name varchar2(50 char) not null,
 	product_price number(9) not null,
-	product_stock number(5) not null -- 재고
-
+	product_stock number(5) not null, -- 재고
+	product_img varchar2(300 char)not null -- img 추가
 )
 
 create sequence product_seq;
-insert into product values(product_seq.nextval,1,'반팔',10000,100);
+insert into product values(product_seq.nextval,1,'반팔',10000,100,'xxx.png');
 drop sequence product_seq;
-select * from product;
+select * from product order by product_number;
 drop table product cascade constraint purge;
 ==========================================================================================================================
--- 상품 img << 사용할지 말지는 미정
-create table product_imgFile(
-	img_number number(5) primary key,
-	product_number number(5)not null,
-	constraint fk_product_imgFile foreign key(product_number) references product(product_number)on delete cascade,
-	origin_img_name varchar2(300 char) not null, -- 원본 파일이름
-	store_img_name varchar2(300 char) not null -- 서버에 저장될 파일 이름
-)
-
-create sequence product_imgFile_seq;
-insert into product_imgFile values(product_imgFile_seq.nextval, 1, 'xxx.png','xxxx.png');
-drop sequence product_imgFile_seq;
-select * from product_imgFile;
-drop table product_imgFile cascade constraint purge;
+-- 상품 img 
+--create table product_imgFile(
+--	img_number number(5) primary key,
+--	product_number number(5)not null,
+--	constraint fk_product_imgFile foreign key(product_number) references product(product_number)on delete cascade,
+--	origin_img_name varchar2(300 char) not null, -- 원본 파일이름
+--	store_img_name varchar2(300 char) not null -- 서버에 저장될 파일 이름
+--)
+--
+--create sequence product_imgFile_seq;
+--insert into product_imgFile values(product_imgFile_seq.nextval, 1, 'xxx.png','xxxx.png');
+--drop sequence product_imgFile_seq;
+--select * from product_imgFile;
+--drop table product_imgFile cascade constraint purge;
 ==========================================================================================================================
 -- 상품 댓글
 create table product_review(	
