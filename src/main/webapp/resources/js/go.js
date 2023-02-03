@@ -66,3 +66,43 @@ function regProduct() {
 //		location.href = "companyList.go"
 //}
 
+
+
+/*voc */
+
+//voc 수정
+function vocMsgUpdate(no, txt) {
+	txt = prompt("문의하실 내용을 적어주세요", txt);
+	if (txt != null && txt.length > 0 && txt.length < 500) {
+		location.href = "voc.update?v_no=" + no + "&v_txt=" + txt;
+	}
+}
+
+//voc 삭제
+function vocMsgDelete(no) {
+	if (confirm("글을 삭제하시겠습니까?")) {
+		location.href = "voc.delete?v_no=" + no;
+	}
+}
+
+//page
+function vocPageChange(page) {
+	location.href = "voc.page.change?p=" + page;
+}
+
+
+//댓글 수정
+function vocReplyUpdate(no, txt) {
+	txt = prompt("문의하실 내용을 적어주세요", txt);
+	if (txt != null && txt.length > 0 && txt.length < 500) {
+		location.href = "voc.reply.update?vr_no=" + no + "&vr_txt=" + txt;
+	}
+}
+
+//댓글 삭제
+function vocReplyDelete(no) {
+	if(confirm("댓글을 삭제하시겠습니까?")) {
+	location.href = "voc.reply.delete?vr_no=" + no;
+	}
+}
+

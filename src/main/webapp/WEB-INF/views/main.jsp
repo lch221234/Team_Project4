@@ -33,7 +33,7 @@
 							<li><a href="/main/join">회원가입</a></li>
 						</c:otherwise>
 					</c:choose>
-					<li>고객센터</li>
+					<li><a href="voc.go">고객센터</li>
 				</ul>
 			</div>
 			<div class="top_area">
@@ -60,10 +60,11 @@
 								<span class="login_grade">회원 :
 									${sessionScope.loginMember.m_name}</span> <span class="login_grade">등급
 									: ${sessionScope.loginMember.m_grade}</span> <span class="logout"
-									onclick="logout();">로그아웃</span> <span class="updateMember"
-									onclick="memberInfo();">회원정보</span>
+									onclick="logout();" style="cursor:pointer;">로그아웃</span> <span class="updateMember"
+									onclick="memberInfo();" style="cursor:pointer;">회원정보</span>
 							</div>
 							<!-- class명 login_grade 추가 (1/16) 찬호-->
+							<!-- 로그아웃, 회원정보 커서 포인터로 추가(2/1) shin -->
 						</c:when>
 
 						<c:otherwise>
@@ -94,7 +95,7 @@
 						<span class="line">|</span>
 						<li>이용약관</li>
 						<span class="line">|</span>
-						<li>고객센터</li>
+						<li><a href="voc.go">고객센터</li>
 						<span class="line">|</span>
 						<li>광고문의</li>
 						<span class="line">|</span>
