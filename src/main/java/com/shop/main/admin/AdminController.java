@@ -8,12 +8,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.shop.main.member.Member;
+import com.shop.main.member.MemberDAO;
 import com.shop.main.productcategory.ProductCategoryDAO;
 
 @Controller
 public class AdminController {
 	@Autowired
 	private ProductCategoryDAO pcDAO;
+	@Autowired
+	private MemberDAO mDAO;
 	
 	//메인화면 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
@@ -50,7 +54,9 @@ public class AdminController {
 	}
 	//회원관리 이동
 	@RequestMapping(value = "memberList.go", method = RequestMethod.GET)
-	public String gomemberList() {
+	public String gomemberList(Member inputM, HttpServletRequest req) {
+		mDAO.listMember(inputM, req);
+//		mDAO.findMember(inputM, req); 
 		return "admin/memberList";
 	}
 //	// child.jsp 팝업창 띄우기

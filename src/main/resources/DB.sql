@@ -198,10 +198,10 @@ create table company_member(
     company_introduce varchar2(300 char)not null
 );
 select * from company_member order by company_number;
-select company_number as num,
-company_name as name,
-country_id as id,
-company_introduce as intro
+select company_number,
+company_name,
+country_id,
+company_introduce
 from company_member
 order by num;
 create sequence company_member_seq
