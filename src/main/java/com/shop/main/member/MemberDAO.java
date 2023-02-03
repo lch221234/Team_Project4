@@ -119,4 +119,25 @@ public class MemberDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	// 회원 불러오기
+		public void listMember(Member inputM, HttpServletRequest req) {
+				List<Member> load = ss.getMapper(MemberMapper.class).getMember(inputM);
+				req.setAttribute("list", load);
+		}
+		
+		// 회원 검색하기
+//		public void findMember(Member inputM, HttpServletRequest req) {
+//			String search = (String) req.getSession().getAttribute("search"); // 검색어
+//			if (search == null) { // 전체조회
+//				search = "";
+//			} else { // 검색
+////				MemberSelector mSel = new MemberSelector(search);
+//			}
+	//
+//			MemberSelector mSel2 = new MemberSelector(search);
+	//
+//			List<Member> load = ss.getMapper(MemberMapper.class).searchMember(mSel2);
+//			req.setAttribute("list", load);
+//		}
 }

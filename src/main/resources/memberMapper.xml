@@ -13,4 +13,11 @@
 	<delete id="delete" parameterType="com.shop.main.member.Member">
 		delete from s_member where m_id = #{m_id}
 	</delete>
+	<!-- 02.01 회원조회 하기 위해 회원 불러오기, 검색하기 장창호 -->
+	<select id="getMember" resultType="com.shop.main.member.Member" parameterType="com.shop.main.member.Member">
+		select * from s_member
+    </select>
+	<select id="searchMember" resultType="com.shop.main.member.MemberSelector" parameterType="com.shop.main.member.MemberSelector">
+		select * from s_member where m_id like '%'||#{search}||'%' and m_address like '%'||#{search}||'%' and m_sex like '%'||#{search}||'%'
+    </select>
 </mapper>
