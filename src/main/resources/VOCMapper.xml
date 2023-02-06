@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.main.voc.VOCMapper">
+	<delete id="deleteMsg1"
+		parameterType="com.shop.main.voc.VOCMsg">
+		delete from voc where v_no = #{v_no}
+	</delete>
+	<delete id="deleteReply1"
+		parameterType="com.shop.main.voc.VOCReply">
+		delete from voc_reply where vr_no = #{vr_no}
+	</delete>
+	<select id="getAllMsgCount1" resultType="java.lang.Integer">
+		select count(*) from s_member, voc where m_id = v_owner
+	</select>	
+	<select id="getSearchMsgCount1"
+		parameterType="com.shop.main.voc.VOCSelector"
+		resultType="java.lang.Integer">
+		select count(*) from s_member, voc
+		where m_id = v_owner
+		and (v_txt like '%'||#{search}||'%' or m_id like '%'||#{search}||'%')
+	</select>
+	<select id="getMsg1"
+		parameterType="com.shop.main.voc.VOCSelector"
+		resultType="com.shop.main.voc.VOCMsg">
+		select * from (
+		select rownum as rn, m_id, v_txt, v_when, v_color, v_no
+		from (select * from s_member, voc
+		where m_id = v_owner
+		and (v_txt like '%'||#{search}||'%' or m_id like '%'||#{search}||'%')
+		order by v_when desc))
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	<select id="getReply1"
+		parameterType="com.shop.main.voc.VOCMsg"
+		resultType="com.shop.main.voc.VOCReply">
+		select * from voc_reply where vr_v_no = #{v_no}
+		order by vr_when
+	</select>
+	<insert id="writeMsg1" parameterType="com.shop.main.voc.VOCMsg">
+		insert into voc(v_no, v_owner, v_txt, v_when, v_color) values(voc_seq.nextval, #{m_id}, #{v_txt}, sysdate, #{v_color})
+	</insert>
+	<insert id="writeReply1" parameterType="com.shop.main.voc.VOCReply">
+		insert into voc_reply values(voc_reply_seq.nextval, #{vr_v_no}, #{vr_owner}, #{vr_txt}, sysdate)
+	</insert>
+	<update id="updateMsg1"
+		parameterType="com.shop.main.voc.VOCMsg">
+		update voc set v_txt = #{v_txt} where v_no = #{v_no}
+	</update>
+	<update id="updateReply1"
+		parameterType="com.shop.main.voc.VOCReply">
+		update voc_reply set vr_txt = #{vr_txt} where vr_no = #{vr_no}
+	</update>
+</mapper>

@@ -47,6 +47,7 @@
 				<beans:value>classpath:productCategoryMapper.xml</beans:value>
 				<beans:value>classpath:productMapper.xml</beans:value>
 				<beans:value>classpath:companyMapper.xml</beans:value>
+				<beans:value>classpath:VOCMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -54,6 +55,10 @@
 	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
+	</beans:bean>
+	
+	<beans:bean id="so" class="com.shop.main.SiteOption">
+		<beans:property name="vocMsgPerPage" value="5"></beans:property>
 	</beans:bean>
 
 </beans:beans>

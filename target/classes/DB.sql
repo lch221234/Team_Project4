@@ -228,3 +228,53 @@ alter table company_member add regDate date default sysdate;
 alter table company_member add updateDate date default sysdate;
 
 insert into company_member(companyNumber, companyName, nationId, companyIntro) values(company_member_seq.nextval, '쇼핑몰', '01', '업체소개');
+
+==========================================================================================================================
+
+-- 고객센터 게시글
+create table voc(
+	v_no number(4) primary key,
+	v_owner varchar2(10 char) not null,
+	v_txt varchar2(300 char) not null,
+	v_when date not null,
+	v_color char(7) not null
+);
+
+create sequence voc_seq;
+
+select * from voc;
+
+-- 고객센터 댓글
+create table voc_reply (
+	vr_no number(5) primary key,
+	vr_v_no number(4) not null,
+	vr_owner varchar2(10 char) not null,
+	vr_txt varchar2(200 char) not null,
+	vr_when date not null,
+	constraint voc_reply1
+		foreign key (vr_v_no) references voc(v_no)
+		on delete cascade
+);
+
+create sequence voc_reply_seq;
+
+-- 고객센터 게시글 목록
+create table voc_board(
+	b_no number(5) primary key,
+	b_title varchar2(150 char) not null,
+	b_content varchar2(2000 char) not null,
+	b_writer varchar2(50 char) not null,
+	b_regdate date not null,
+	b_updatedate date not null,
+	constraint voc_board1 
+		foreign key (b_no) references voc(v_no)
+		on delete cascade
+);
+
+create sequence voc_board_seq;
+
+insert into voc_board values(voc_board_seq.nextval, '테스트제목', '테스트내용', '작가', sysdate, sysdate);
+
+select * from voc;
+drop table voc;
+drop sequence voc_board_seq;
