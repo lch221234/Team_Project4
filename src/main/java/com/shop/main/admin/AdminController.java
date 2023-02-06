@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.shop.main.member.Member;
 import com.shop.main.member.MemberDAO;
+import com.shop.main.product.ProductController;
+import com.shop.main.product.ProductDAO;
 import com.shop.main.productcategory.ProductCategoryDAO;
 
 @Controller
@@ -18,6 +20,15 @@ public class AdminController {
 	private ProductCategoryDAO pcDAO;
 	@Autowired
 	private MemberDAO mDAO;
+	@Autowired
+	private ProductDAO pDAO;
+	@Autowired ProductController pCon;
+
+	private boolean isFirstReq;
+	
+public AdminController() {
+	isFirstReq = true;
+}
 	
 	//메인화면 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
@@ -37,7 +48,12 @@ public class AdminController {
 	}
 	//상품목록 이동
 	@RequestMapping(value = "productList.go", method = RequestMethod.GET)
-	public String goProductList() {
+	public String goProductList(HttpServletRequest req) {
+//		if (isFirstReq) {
+//			pDAO.countAllProduct();
+//			isFirstReq = false;
+//		}
+		pDAO.getProduct(req);
 		return "admin/productList";
 	}
 	//업체등록 이동

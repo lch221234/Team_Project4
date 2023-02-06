@@ -1,14 +1,10 @@
 package com.shop.main.productcategory;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.shop.main.product.Product;
 
 @Service
 public class ProductCategoryDAO {
@@ -16,7 +12,7 @@ public class ProductCategoryDAO {
 	@Autowired
 	private SqlSession ss;
 	
-	// 카테고리 삭제
+//	// 카테고리 삭제
 	public void categoryDel(ProductCategory pc, HttpServletRequest req) {
 		try {
 			ss.getMapper(ProductCategoryMapper.class).categoryDel(pc);
@@ -52,6 +48,13 @@ public class ProductCategoryDAO {
 			e.printStackTrace();
 		}
 	}
+	
+	
+//	// 카테고리 이름 가져오기
+//	public ProductCategories getCategory_code(ProductCategory pc) {
+//		return new ProductCategories(ss.getMapper(ProductCategoryMapper.class).getCategory_code(pc));
+//		
+//	}
 
 	// 카테고리 JSON으로 갖고오기
 	public ProductCategories getCategoryJSON(HttpServletRequest req) {

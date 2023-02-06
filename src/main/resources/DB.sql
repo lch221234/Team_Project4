@@ -40,7 +40,7 @@ create table product(
 	product_stock number(5) not null, -- 재고
 	product_img varchar2(300 char)not null -- img 추가
 )
-
+select count(*) from product;
 create sequence product_seq;
 insert into product values(product_seq.nextval,1,'반팔',10000,100,'xxx.png');
 drop sequence product_seq;
@@ -230,7 +230,6 @@ alter table company_member add updateDate date default sysdate;
 insert into company_member(companyNumber, companyName, nationId, companyIntro) values(company_member_seq.nextval, '쇼핑몰', '01', '업체소개');
 
 ==========================================================================================================================
-
 -- 고객센터 게시글
 create table voc(
 	v_no number(4) primary key,
@@ -239,11 +238,10 @@ create table voc(
 	v_when date not null,
 	v_color char(7) not null
 );
-
+drop table voc;
 create sequence voc_seq;
-
+drop sequence voc_seq;
 select * from voc;
-
 -- 고객센터 댓글
 create table voc_reply (
 	vr_no number(5) primary key,
@@ -255,9 +253,10 @@ create table voc_reply (
 		foreign key (vr_v_no) references voc(v_no)
 		on delete cascade
 );
-
 create sequence voc_reply_seq;
-
+drop sequence voc_reply_seq;
+select * from voc_reply;
+drop table voc_reply cascade constraint purge;
 -- 고객센터 게시글 목록
 create table voc_board(
 	b_no number(5) primary key,
@@ -270,11 +269,9 @@ create table voc_board(
 		foreign key (b_no) references voc(v_no)
 		on delete cascade
 );
-
 create sequence voc_board_seq;
-
-insert into voc_board values(voc_board_seq.nextval, '테스트제목', '테스트내용', '작가', sysdate, sysdate);
-
 select * from voc;
-drop table voc;
 drop sequence voc_board_seq;
+insert into voc_board values(voc_board_seq.nextval, '테스트제목', '테스트내용', '작가', sysdate, sysdate);
+drop table voc_board cascade constraint purge;
+

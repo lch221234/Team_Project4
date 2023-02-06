@@ -126,3 +126,48 @@ function userInfoChk(){
 	}
 		return true;
 }
+
+function productRegCheck() {
+	let codeBox = document.product_regForm.p_c_c;
+	let nameBox1 = document.product_regForm.p_n;
+	let priceBox = document.product_regForm.p_p;
+	let stockBox = document.product_regForm.p_s;
+	let photoBox = document.product_regForm.p_i;
+	
+	
+	if (isEmpty(codeBox)) {
+		alert("카테고리 코드 입력해주세요");
+		codeBox.value="";
+		codeBox.focus();
+		return false;
+	} else if (isEmpty(nameBox1)) {
+		alert("상품 이름 입력해주세요");
+		nameBox1.value = "";
+		nameBox1.focus();
+		return false;
+	} else if (isEmpty(priceBox)) {
+		alert("상품 가격 입력해주세요");
+		priceBox.value="";
+		priceBox.focus();
+		return false;
+	} else if (isEmpty(stockBox)) {
+		alert("상품 재고 수량 입력해주세요");
+		stockBox.value="";
+		stockBox.focus();
+		return false;
+	} else if (isEmpty(photoBox) || (isNotType(photoBox,"png") && isNotType(photoBox,"gif") 
+			&& isNotType(photoBox,"jpg")
+			&& isNotType(photoBox,"jpeg")
+			&& isNotType(photoBox,"bmp")
+			&& isNotType(photoBox,"PNG")
+			&& isNotType(photoBox,"GIF")
+			&& isNotType(photoBox,"JPG")
+			&& isNotType(photoBox,"JPEG")
+			&& isNotType(photoBox,"BMP"))) {
+			alert("사진");
+			photoBox.value="";
+			photoBox.focus();
+		return false;
+	}
+	return true;
+}
