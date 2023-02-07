@@ -1,7 +1,5 @@
 package com.shop.main.product;
 
-import java.math.BigDecimal;
-
 public class Product {
 	private int product_number;
 	private int category_code;

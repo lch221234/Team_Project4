@@ -66,6 +66,10 @@ function regProduct() {
 //		location.href = "companyList.go"
 //}
 
+//상품 page
+function productPageChange(page){
+	location.href = "product.page.change?p=" + page;
+}
 
 
 /*voc */
