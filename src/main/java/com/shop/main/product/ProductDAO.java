@@ -1,8 +1,5 @@
 package com.shop.main.product;
 
-import java.io.File;
-import java.math.BigDecimal;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
 
@@ -23,7 +20,8 @@ public class ProductDAO {
 	@Autowired
 	private SqlSession ss;
 	
-	@Autowired SiteOption so;
+	@Autowired 
+	private SiteOption so2;
 	
 	// 상품 등록	
 	public void ProductReg(Product p, HttpServletRequest req) {
@@ -65,46 +63,51 @@ public class ProductDAO {
 	}
 	
 	// 전체 상품 가져오기
-	public void getProduct(HttpServletRequest req) {
-		try {
-			req.setAttribute("product", ss.getMapper(ProductMapper.class).getProduct());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	//public void getProduct(HttpServletRequest req) {
+	//	try {
+	//		req.setAttribute("product", ss.getMapper(ProductMapper.class).getProduct());
+	//	} catch (Exception e) {
+	//		e.printStackTrace();
+	//	}
+	//}
+	// 상품 개수
+	public void countAllProduct() {
+		allProductCount = ss.getMapper(ProductMapper.class).getAllProductCount();
 	}
-//	// 상품 개수
-//	public void countAllProduct() {
-//		allProductCount = ss.getMapper(ProductMapper.class).getAllProductCount();
-//	}
 	
-//	// 상품 검색
-//	public void searchProduct(HttpServletRequest req) {
-//		req.getSession().setAttribute("search", req.getParameter("search"));
-//	}
+	// 상품 검색
+	public void searchProduct(HttpServletRequest req) {
+		req.getSession().setAttribute("search", req.getParameter("search"));
+	}
 	
-//	// 검색한 상품 가져오기
-//	public void getProduct2(int page, HttpServletRequest req) {
-//		req.setAttribute("curPage", page);
-//		int productCount = 0;
-//		String search = (String) req.getSession().getAttribute("search");
-//		if (search == null) {
-//			productCount = allProductCount;
-//			search = "";
-//		} else {
-//			ProductSelector pSel = new ProductSelector(search, 0, 0);
-//			productCount = ss.getMapper(ProductMapper.class).getSearchProductCount(pSel);
-//		}
-//		int allPageCount = (int) Math.ceil((double) productCount / so.getProductPerPage());
-//		req.setAttribute("allProductCount", allPageCount);
-//		
-//		int start = (page - 1) * so.getProductPerPage() + 1;
-//		int end = (page == allPageCount) ? productCount : start + so.getProductPerPage() -1;
-//		
-//		ProductSelector pSel1 = new ProductSelector(search, start, end);
-//		List<Product> products = ss.getMapper(ProductMapper.class).getSearchProduct(pSel1);
-//		
-//		req.setAttribute("productsss", products);
-//	}
+	// 상품 검색 초기화
+	public void searchClearPD(HttpServletRequest req) {
+		req.getSession().setAttribute("search", null);
+	}
+	
+	// 검색한 상품 가져오기
+	public void getProduct2(int page, HttpServletRequest req) {
+		req.setAttribute("curPage", page);
+		int productCount = 0;
+		String search = (String) req.getSession().getAttribute("search");
+		if (search == null) {
+			productCount = allProductCount;
+			search = "";
+		} else {
+			ProductSelector pSel2 = new ProductSelector(search, 0, 0);
+			productCount = ss.getMapper(ProductMapper.class).getSearchProductCount(pSel2);
+		}
+		int allPageCount = (int) Math.ceil((double) productCount / so2.getProductPerPage());
+		req.setAttribute("allProductCount", allPageCount);
+		
+		int start = (page - 1) * so2.getProductPerPage() + 1;
+		int end = (page == allPageCount) ? productCount : start + so2.getProductPerPage() - 1;
+		
+		ProductSelector pSel = new ProductSelector(search, start, end);
+		List<Product> products = ss.getMapper(ProductMapper.class).getProduct2(pSel);
+		
+		req.setAttribute("productsss", products);
+	}
 //	// 상품 삭제
 //	public void ProductDel(Product p, HttpServletRequest req) {
 //		try {

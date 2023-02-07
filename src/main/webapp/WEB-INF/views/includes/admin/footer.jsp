@@ -17,7 +17,7 @@
 						<span class="line">|</span>
 						<li>이용약관</li>
 						<span class="line">|</span>
-						<li>고객센터</li>
+						<li><a href="voc.go">고객센터</a></li>
 						<span class="line">|</span>
 						<li>광고문의</li>
 						<span class="line">|</span>

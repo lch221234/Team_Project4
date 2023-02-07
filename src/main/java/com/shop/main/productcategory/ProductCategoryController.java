@@ -32,15 +32,9 @@ public class ProductCategoryController {
 		return pcDAO.getCategoryJSON(req);
 	}
 	
-//	@RequestMapping(value = "/admin.getCategory_name", method = RequestMethod.GET, produces ="application/json; charset=utf-8" )
-//	public @ResponseBody ProductCategories Category_nameGet(ProductCategory pc) {
-//		return pcDAO.getCategory_code(pc);
-//	}
-	
-	@RequestMapping(value = "admin.delCategory", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
+	@RequestMapping(value = "admin.delCategory", method = RequestMethod.GET)
 	public String DelCategory(ProductCategory pc, HttpServletRequest req) {
 		pcDAO.categoryDel(pc, req);
-		pcDAO.getAllCategory(req);
 		return "admin/categoryRegistration";
 	}
 		

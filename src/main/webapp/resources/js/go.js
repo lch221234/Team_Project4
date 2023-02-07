@@ -47,7 +47,7 @@ function regCategory() {
 
 // 카테고리 삭제하기
 function delCategory(no) {
-	location.href = "admin.delCategory?category_code="+no;
+	location.href = "admin.delCategory?c_n="+no;
 }
 
 // 상품 등록하기
@@ -66,10 +66,11 @@ function regProduct() {
 //		location.href = "companyList.go"
 //}
 
-// 상품 page
+//상품 page
 function productPageChange(page){
-	location.href = "product.page.change?p="+page;
+	location.href = "product.page.change?p=" + page;
 }
+
 
 /*voc */
 

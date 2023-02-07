@@ -26,9 +26,10 @@ public class AdminController {
 
 	private boolean isFirstReq;
 	
-public AdminController() {
-	isFirstReq = true;
-}
+	public AdminController() {
+		isFirstReq = true;
+	}
+		
 	
 	//메인화면 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
@@ -50,11 +51,12 @@ public AdminController() {
 	@RequestMapping(value = "productList.go", method = RequestMethod.GET)
 	public String goProductList(HttpServletRequest req) {
 //		if (isFirstReq) {
-//			pDAO.countAllProduct();
-//			isFirstReq = false;
-//		}
-		pDAO.getProduct(req);
-		return "admin/productList";
+//		pDAO.countAllProduct();
+//		isFirstReq = false;
+//	}
+
+	pDAO.getProduct2(1, req);
+	return "admin/productList";
 	}
 	//업체등록 이동
 	@RequestMapping(value = "companyRegistration.go", method = RequestMethod.GET)

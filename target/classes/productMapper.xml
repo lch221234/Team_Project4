@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.main.product.ProductMapper">
-	<select id="getProduct" resultType="com.shop.main.product.Product">
+	<select id="getAllProductCount" resultType="java.lang.Integer">
 		select * from product order by product_number
 	</select>
-	<select id="getSearchProduct" parameterType="com.shop.main.product.Product" resultType="com.shop.main.product.Product">
+	<select id="getSearchProductCount" parameterType="com.shop.main.product.ProductSelector" resultType="java.lang.Integer">
+		select count(*) from product where product_name like '%'||#{search}||'%'
+	</select>
+	<select id="getProduct2" parameterType="com.shop.main.product.ProductSelector" resultType="com.shop.main.product.Product">
 		select * from (
 		select rownum as rn, product_name, product_price, product_img 
 		from (select * from product where product_name like '%'||#{search}||'%'))
-		where rn &gt;=${start} and rn &lt;= #{end}
+		where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
-	<select id="getAllProductCount" parameterType="com.shop.main.product.Product" resultType="com.shop.main.product.Product">
-		select count(*) from product
-	</select>
-	<select id="getSearchProductCount" parameterType="com.shop.main.product.Product" resultType="com.shop.main.product.Product">
-		select count(*) from product where product_name like '%'||#{search}||'%'
-	</select>
+	
 	<insert id="productReg" parameterType="com.shop.main.product.Product" >
 		insert into product values (product_seq.nextval, #{category_code}, #{product_name}, #{product_price}, #{product_stock}, #{product_img})
 	</insert>

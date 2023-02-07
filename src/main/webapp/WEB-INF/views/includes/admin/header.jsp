@@ -14,7 +14,7 @@
                 <ul class="list">    
                     <li><a href="/main">메인 페이지</a></li>
                     <li><a onclick="logout();">로그아웃</a></li>
-                    <li>고객센터</li>            
+                    <li><a href="voc.go">고객센터</a></li>         
                 </ul>
             </div>
             <!-- 제목영역 -->

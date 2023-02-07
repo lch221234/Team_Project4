@@ -4,9 +4,6 @@
 	<select id="getCategory" resultType="com.shop.main.productcategory.ProductCategory">
 		select * from product_category order by category_code
 	</select>
-	<select id="getCategory_code" resultType="com.shop.main.productcategory.ProductCategory" parameterType="com.shop.main.productcategory.ProductCategory">
-		select * from product_category where getCategory_code = #{getCategory_code}	
-	</select>
 	<insert id="categoryReg" parameterType="com.shop.main.productcategory.ProductCategory">
 		insert into product_category values (product_category_seq.nextval, #{category_name})
 	</insert>

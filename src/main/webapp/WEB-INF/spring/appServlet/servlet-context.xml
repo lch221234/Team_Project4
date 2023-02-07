@@ -60,5 +60,8 @@
 	<beans:bean id="so" class="com.shop.main.SiteOption">
 		<beans:property name="vocMsgPerPage" value="5"></beans:property>
 	</beans:bean>
-
+	
+	<beans:bean id="so2" class="com.shop.main.SiteOption">
+		<beans:property name="productPerPage" value="5"></beans:property>
+	</beans:bean>
 </beans:beans>

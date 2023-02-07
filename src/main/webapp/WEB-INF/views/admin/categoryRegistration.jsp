@@ -13,20 +13,33 @@
 <script type="text/javascript" src="resources/js/do.js"></script>
 <script type="text/javascript" src="resources/js/do_jQuery.js"></script>
 <script type="text/javascript">
-<!-- $(function(){
+<!--$(function(){
 	$.getJSON("admin.getCategory",function(p_c){
+		nums = 0;
 		$.each(p_c.productCategory,function(i,p_c){ 
-			nums = p_c.category_code;
 			let div = $("<div class = \"append_Category\"></div>").text(p_c.category_name);
 			$(".append_Categories").append(div);
+			nums = p_c.category_code;
 			console.log(i + '번째 ' +nums);
 		}); 
-			let img = $("<img class=\"delete_category\" src =\"resources/img/recycle_bin.png\" width = \"20\" height = \"20\"  >")
-			$(".append_Category").append(img);
-			$(".delete_category").click(function(){
-				location.href = "admin.delCategory?category_code="+nums;
-			});
-	}); 
+			$(".append_Category").append(" <img class=\"delete_category\" src =\"resources/img/recycle_bin.png\" width = \"20\" height = \"20\"  >");
+			
+			// num = p_c.productCategory[0].category_code;
+			// console.log(num);
+		$(".delete_category").click(function(){
+			alert(nums);
+			//alert(p_c.productCategory[0].category_code);    
+			
+			 //alert(num);
+			 
+			 //alert("${p_c}");
+			 //alert(p_c);
+			// alert("p_c");
+			 
+			//location.href = "admin.delCategory?c_n="+nums;
+			
+		}); 
+	});
 }); -->
 </script>
 </head>
@@ -65,19 +78,12 @@
 					</ul>
 					<!--  페이지 영역 -->
 				</div>
-				<div class="admin_content_wrap"  style="background-color: white">
+				<div class="admin_content_wrap">
 					<div class="admin_content_subject">
 						<span>카테고리 등록</span>
 					</div>
 					<input type="button" value="등록하기" onclick="openChild();">
-					<br>
-					<div class = "append_Categories">
-					</div>
-					<c:forEach var="c_n" items="${p_c }">
-						<b>${c_n.category_name }</b>
-							<img src = resources/img/recycle_bin.png width = 20 height = 20 onclick="delCategory(${c_n.category_code});">
-						<br>
-					</c:forEach>
+					<div class="append_Categories"></div>
 				</div>
 				<div class="clearfix"></div>
 			</div>
