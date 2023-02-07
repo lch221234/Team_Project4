@@ -18,7 +18,6 @@
 		<div class="admin_content_subject">
 			<span>회원 관리</span>
 		</div>
-	</div>
 	<!-- 회원 목록 뜨게 해보기 -->
 	<div class="admin_content_main">
 		<div class="form_section">
@@ -55,6 +54,7 @@
 			</form>
 			<!-- DB에서 이름과 등급으로 검색된 멤버들 결과 가져오기 -->
 			<!-- 멤버리스트 불러온 곳에서 검색된 결과 보여주고 싶음  -->
+	</div>
 		</div>
 	</div>
 	<%@include file="../includes/admin/footer.jsp"%>
