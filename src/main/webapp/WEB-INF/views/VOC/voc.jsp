@@ -14,7 +14,7 @@
 <script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 </head>
 <body>
-<!-- 테스트 -->
+
 	<div class="wrapper">
 		<div class="wrap">
 			<!-- gnb영역 -->

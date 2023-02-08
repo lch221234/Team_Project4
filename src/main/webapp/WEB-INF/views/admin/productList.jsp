@@ -10,6 +10,9 @@
 <link rel="stylesheet" href="resources/css/admin/productList.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript" src="resources/js/do_jQuery.js"></script>
+<script type="text/javascript" src="resources/js/UserInfoChk.js"></script>
+<script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 </head>
 <body>
 	<!-- 코드 줄이는 방법 찾아서 적용 (1.31)찬호-->
@@ -18,11 +21,14 @@
 		<div class="admin_content_subject">
 			<span>상품 목록</span>
 		</div>
+		
+		<div>
+			<input type="button" onclick="productInfo();" value="수정|삭제">
+		</div>
 		<div>
 			<c:forEach var="ps" items="${productsss }">
 				<div>${ps.product_name }</div>
 				<div>${ps.product_price }</div>
-				<div>${ps.product_stock }</div>
 				<div><img src="resources/img/product/${ps.product_img }" style="width: 150px; height: 150px;"></div>
 				<div>-----------------------------</div>
 			</c:forEach>

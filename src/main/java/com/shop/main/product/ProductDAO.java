@@ -1,6 +1,9 @@
 package com.shop.main.product;
 
+import java.io.File;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -62,14 +65,6 @@ public class ProductDAO {
 		}
 	}
 	
-	// 전체 상품 가져오기
-	//public void getProduct(HttpServletRequest req) {
-	//	try {
-	//		req.setAttribute("product", ss.getMapper(ProductMapper.class).getProduct());
-	//	} catch (Exception e) {
-	//		e.printStackTrace();
-	//	}
-	//}
 	// 상품 개수
 	public void countAllProduct() {
 		allProductCount = ss.getMapper(ProductMapper.class).getAllProductCount();
@@ -108,34 +103,52 @@ public class ProductDAO {
 		
 		req.setAttribute("productsss", products);
 	}
-//	// 상품 삭제
-//	public void ProductDel(Product p, HttpServletRequest req) {
-//		try {
-//			if (ss.getMapper(ProductMapper.class).productDel(p) == 1) {
+//	// 상품 삭제 -- 삭제되긴 하는데 전체삭제나 선택으로 2개이상 삭제는 x
+	public void ProductDel(Product p, HttpServletRequest req) {
+		try {
+//			String[] productArr = req.getParameterValues("RowCheck");
+//			int [] productArray = new int[productArr.length];
+//			for (int i = 0; i < productArr.length; i++) {
+//				productArray[i] = Integer.parseInt(productArr[i]);
+//			}
+//			for (int i = 0; i < productArray.length; i++) {
+//				ss.getMapper(ProductMapper.class).productDel(productArray);
+//			}
+//			p.setProduct_number(Integer.parseInt(productArr));
+//			int i = 0;
+//			while (i < allProductCount) {
+//				p.setProduct_number(Integer.parseInt(req.getParameter("RowCheck")));
+//				ss.getMapper(ProductMapper.class).productDel(p);
+//			}
+			p.setProduct_number(Integer.parseInt(req.getParameter("RowCheck")));
+			ss.getMapper(ProductMapper.class).productDel(p);
 //				String d_p_i = p.getProduct_img();
 //				d_p_i = URLDecoder.decode(d_p_i, "utf-8");
 //				
 //				String path = req.getSession().getServletContext().getRealPath("resources/img");
 //				new File(path + "/" + d_p_i).delete();
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	
-//	// 상품 수정 -- 미완성
-//	public void ProductUpdate(Product p, HttpServletRequest req) {
-//		String path = req.getSession().getServletContext().getRealPath("resources/img");
-//		MultipartRequest mr = null;
-//		try {
-//			p.setProduct_name(mr.getParameter("p_n"));
-//			p.setCategory_code(Integer.parseInt(mr.getParameter("p_c_c")));
-//			p.setProduct_price(Integer.parseInt(mr.getParameter("p_p")));
-//			p.setProduct_stock(Integer.parseInt(mr.getParameter("p_s")));
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+//	// 상품 수정 -- 미완성(사진 고민중)
+	public void ProductUpdate(Product p, HttpServletRequest req) {
+		try {
+			p.setProduct_number(Integer.parseInt(req.getParameter("RowCheck")));
+			p.setCategory_code(Integer.parseInt(req.getParameter("category_code")));
+			p.setProduct_name(req.getParameter("product_name"));
+			p.setCategory_code(Integer.parseInt(req.getParameter("product_price")));
+			p.setCategory_code(Integer.parseInt(req.getParameter("product_stock")));
+//			System.out.println(req.getParameter("RowCheck"));
+//			System.out.println(req.getParameter("category_code"));
+//			System.out.println(req.getParameter("product_name"));
+//			System.out.println(req.getParameter("product_price"));
+//			System.out.println(req.getParameter("product_stock"));
+			ss.getMapper(ProductMapper.class).productModify(p);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

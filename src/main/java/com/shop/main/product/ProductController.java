@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -64,6 +65,34 @@ public class ProductController {
 		pDAO.getProduct2(p, req);
 		TokenManager.tokenManager(req);
 		return "admin/productList";
+	}
+	
+	@RequestMapping(value = "/product.Information", method = RequestMethod.GET)
+	public String productInfo(HttpServletRequest req) {
+		mDAO.loginChk(req);
+		pDAO.getProduct2(1, req);
+		TokenManager.tokenManager(req);
+		return "admin/productInfo";
+	}
+	
+	@RequestMapping(value = "product.delete")
+	public String productDelete(Product p, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		pDAO.getProduct2(1, req);
+		pDAO.ProductDel(p, req);
+		pDAO.getProduct2(1, req);
+		TokenManager.tokenManager(req);
+		return "admin/productInfo";
+	}
+	
+	@RequestMapping(value = "product.update")
+	public String productUpdate(Product p, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		pDAO.getProduct2(1, req);
+		pDAO.ProductUpdate(p, req);
+		pDAO.getProduct2(1, req);
+		TokenManager.tokenManager(req);
+		return "admin/productInfo";
 	}
 	
 }
