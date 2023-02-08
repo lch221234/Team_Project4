@@ -44,7 +44,17 @@
 				</div>
 				<div class="search_area">
 					<!-- 검색창 -->
-					<h1>검색창</h1>
+					<div class="search_wrap">
+						<form id="searchForm" action="/search" method="get">
+							<div class="search_input">
+								<select name="type">
+									<option value="P">상품이름</option>
+									<option value="C">업체</option>
+								</select> <input type="text" name="keyword">
+								<button class='btn search_btn'>검 색</button>
+							</div>
+						</form>
+					</div>
 				</div>
 
 				<div class="login_area">
@@ -60,8 +70,9 @@
 								<span class="login_grade">회원 :
 									${sessionScope.loginMember.m_name}</span> <span class="login_grade">등급
 									: ${sessionScope.loginMember.m_grade}</span> <span class="logout"
-									onclick="logout();" style="cursor:pointer;">로그아웃</span> <span class="updateMember"
-									onclick="memberInfo();" style="cursor:pointer;">회원정보</span>
+									onclick="logout();" style="cursor: pointer;">로그아웃</span> <span
+									class="updateMember" onclick="memberInfo();"
+									style="cursor: pointer;">회원정보</span>
 							</div>
 							<!-- class명 login_grade 추가 (1/16) 찬호-->
 							<!-- 로그아웃, 회원정보 커서 포인터로 추가(2/1) shin -->
@@ -115,8 +126,8 @@
 					<div class="bottom_right">
 						(주) H2mall 대표이사 : Team4조 <br> 사업자등록번호 : 210-81-65986 <br>
 						대표전화 : 1644-7583(발신자 부담전화) <br> 평일 AM 09:30 ~ PM 17:00<br>
-						점심시간 전화상담가능 · 주말&공휴일 휴무 · 배송문의 2시 이후<br>
-						<br> COPYRIGHT(C) <strong>https://github.com/lch221234/Team_Project4</strong>
+						점심시간 전화상담가능 · 주말&공휴일 휴무 · 배송문의 2시 이후<br> <br>
+						COPYRIGHT(C) <strong>https://github.com/lch221234/Team_Project4</strong>
 						ALL RIGHTS RESERVED.
 					</div>
 					<div class="clearfix"></div>

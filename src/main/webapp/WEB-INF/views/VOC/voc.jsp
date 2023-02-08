@@ -20,9 +20,19 @@
 			<!-- gnb영역 -->
 			<div class="top_gnb_area">
 				<ul class="list">
-					<li><a href="/main">메인 페이지</a></li>
-					<li><a onclick="logout();">로그아웃</a></li>
-					<li><a href="voc.go">고객센터</a></li>
+					<c:choose>
+						<c:when test="${sessionScope.loginMember != null}">
+							<li><a href="/main">메인 페이지</a></li>
+							<li><a onclick="logout();">로그아웃</a></li>
+							<li><a href="voc.go">고객센터</a></li>
+						</c:when>
+						<c:otherwise>
+							<li><a href="/main">메인 페이지</a></li>
+							<li><a href="/main/login">로그인</a></li>
+							<li><a href="/main/join">회원가입</a></li>
+							<li><a href="voc.go">고객센터</a></li>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 			<!-- 제목영역 -->
