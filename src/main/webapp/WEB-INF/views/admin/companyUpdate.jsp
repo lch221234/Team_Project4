@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>업체 등록 페이지</title>
+<title>업체 수정 페이지</title>
 <link rel="stylesheet"
-	href="resources/css/admin/companyRegistration.css">
+	href="resources/css/admin/companyUpdate.css">
 <script type="text/javascript" src="resources/js/ValidChecker.js"></script>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
@@ -18,18 +18,18 @@
 	<%@include file="../includes/admin/header.jsp"%>
 	<div class="admin_content_wrap">
 		<div class="admin_content_subject">
-			<span>업체 등록</span>
+			<span>업체 수정</span>
 		</div>
 		<!-- 예시 현재 DB어케 짜여진지 몰라서 만든거 전부 수정 예정 -->
 		<div class="admin_content_main">
-			<form action="companyEnroll.do" method="get" name="enrollForm"
+			<form action="company.update" method="get" name="enrollForm"
 				onsubmit="return CompanyCheck()">
 				<div class="form_section">
 					<div class="form_section_title">
 						<label>업체 이름</label>
 					</div>
 					<div class="form_section_content">
-						<input name="company_name" class="company_name">
+						<input name="company_name" class="company_name" value="업체이름 나오게">
 					</div>
 				</div>
 				<div class="form_section">
@@ -51,15 +51,14 @@
 					</div>
 					<div class="form_section_content">
 						<input name="company_introduce" class="company_introduce"
-							type="text">
+							type="text" value="업체 소개 나오게">
 					</div>
 				</div>
 				<div class="btn_section">
 					<!--  <button id="cancelBtn" class="btn" onclick="companyCancle()">취 소</button>-->
-					<button id="enrollBtn" class="btn_enroll_btn">등 록</button>
+					<button id="enrollBtn" class="btn_enroll_btn">수 정</button>
 				</div>
 			</form>
-			<b>${r }</b>
 		</div>
 	</div>
 

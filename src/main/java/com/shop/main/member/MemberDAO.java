@@ -132,12 +132,21 @@ public class MemberDAO {
 //			if (search == null) { // 전체조회
 //				search = "";
 //			} else { // 검색
-////				MemberSelector mSel = new MemberSelector(search);
+//				MemberSelector mSel = new MemberSelector(search);
 //			}
-	//
+//	
 //			MemberSelector mSel2 = new MemberSelector(search);
-	//
+//	
 //			List<Member> load = ss.getMapper(MemberMapper.class).searchMember(mSel2);
 //			req.setAttribute("list", load);
+//		}
+		
+//		public void searchMemClear(HttpServletRequest req) {
+//			req.getSession().setAttribute("search", null);
+//		}
+//		
+//		public void searchMember(HttpServletRequest req) {
+//			String search = req.getParameter("search");
+//			req.getSession().setAttribute("search", search);
 //		}
 }

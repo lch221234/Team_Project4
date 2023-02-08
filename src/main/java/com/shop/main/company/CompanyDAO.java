@@ -1,5 +1,7 @@
 package com.shop.main.company;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,12 @@ public class CompanyDAO {
 	}
 
 	// 업체 목록
-	public void companyList(Company c, HttpServletRequest req) {
+//	public void companyList(Company c, HttpServletRequest req) {
+//	}
+
+	// 회원 불러오기
+	public void listCompany(Company c, HttpServletRequest req) {
+		List<Company> load = ss.getMapper(CompanyMapper.class).companylist(c);
+		req.setAttribute("list", load);
 	}
 }

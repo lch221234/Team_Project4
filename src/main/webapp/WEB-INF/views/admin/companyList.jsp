@@ -18,24 +18,36 @@
 	<div class="admin_content_wrap">
 		<div class="admin_content_subject">
 			<span>업체 목록</span>
-
-			<div class="author_table_wrap">
-				<table class="company_table">
+		</div>
+		<div class="author_table_wrap">
+			<div class="form_section">
+				<div class="form_section">
+					<!-- 표 크기, 글자 색 변경필요 (02.07) 장창호 -->
+					<table class="company_table" border="1">
 						<tr>
-							<th class="th_column_1">업체 번호</td>
-							<th class="th_column_2">업체 이름</td>
-							<th class="th_column_3">등록 국가</td>
-							<th class="th_column_4">업체 소개</td>
+							<th class="th_column_1">업체 번호</th>
+							<th class="th_column_2">업체 이름</th>
+							<th class="th_column_3">등록 국가</th>
+							<th class="th_column_4">업체 소개</th>
 						</tr>
-					<!--<c:forEach items="${list}" var="list">
-						<tr>
-							<td><c:out value="${list.company_number}"></c:out></td>
-							<td><c:out value="${list.company_name}"></c:out></td>
-							<td><c:out value="${list.country_id}"></c:out></td>
-							<td><c:out value="${list.company_introduce}"></c:out></td>
-						</tr>
-					</c:forEach>-->
-				</table>
+						<c:forEach items="${list}" var="list">
+							<tr>
+								<td>${list.company_number}</td>
+								<td><a href="company.info.go">${list.company_name}</a></td>
+								<td>${list.country_id}</td>
+								<td>${list.company_introduce}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
+				<form action="companyList.go">
+					<select name="">
+						<option value="menu">::보기::</option>
+						<option value="name">이름</option>
+						<option value="country">국가</option>
+					</select> <input type="text" name="search"> <input type="submit"
+						value="검색하기">
+				</form>
 			</div>
 		</div>
 	</div>
