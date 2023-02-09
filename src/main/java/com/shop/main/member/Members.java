@@ -3,24 +3,25 @@ package com.shop.main.member;
 import java.util.List;
 
 public class Members {
-	private List<Member> member;
+	private List<Member> members;
 	
 	public Members() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Members(List<Member> member) {
+	public Members(List<Member> members) {
 		super();
-		this.member = member;
+		this.members = members;
 	}
 
 	public List<Member> getMember() {
-		return member;
+		return members;
 	}
 
-	public void setMember(List<Member> member) {
-		this.member = member;
+	public void setMember(List<Member> members) {
+		this.members = members;
 	}
 	
 	
 }
+

@@ -9,12 +9,18 @@
 	</select>
 	<select id="getProduct2" parameterType="com.shop.main.product.ProductSelector" resultType="com.shop.main.product.Product">
 		select * from (
-		select rownum as rn, product_name, product_price, product_img 
+		select rownum as rn, product_number, product_stock, category_code, product_name, product_price, product_img 
 		from (select * from product where product_name like '%'||#{search}||'%'))
 		where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
-	
 	<insert id="productReg" parameterType="com.shop.main.product.Product" >
 		insert into product values (product_seq.nextval, #{category_code}, #{product_name}, #{product_price}, #{product_stock}, #{product_img})
 	</insert>
+	<delete id="productDel" parameterType="com.shop.main.product.Product">
+		delete from product where product_number = #{product_number}
+	</delete>
+	<update id="productModify" parameterType="com.shop.main.product.Product">
+		update product set product_name = #{product_name}, product_price = #{product_price}, product_stock = #{product_stock}
+		where product_number = #{product_number}
+	</update>
 </mapper>

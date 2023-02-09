@@ -8,11 +8,18 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.shop.main.SiteOption;
+
 @Service
 public class MemberDAO {
 
+	private int allMemberCount;
+	
 	@Autowired
 	private SqlSession ss;
+	
+	@Autowired
+	private SiteOption so3;
 
 	// 로그인  --성현
 	public void login(Member m, HttpServletRequest req) {
@@ -120,33 +127,72 @@ public class MemberDAO {
 		}
 	}
 	
+	/* 회원 목록 */
+
 	// 회원 불러오기
-		public void listMember(Member inputM, HttpServletRequest req) {
-				List<Member> load = ss.getMapper(MemberMapper.class).getMember(inputM);
-				req.setAttribute("list", load);
+	//public void listMember(Member inputM, HttpServletRequest req) {
+	//		List<Member> load = ss.getMapper(MemberMapper.class).getMember(inputM);
+	//		req.setAttribute("list", load);
+	//}
+	
+	// 회원 count
+	public void countAllMember() {
+		allMemberCount = ss.getMapper(MemberMapper.class).getAllMemberCount();
+	}
+	
+	// 회원 목록 불러오기
+	public void getMember1(Member m, int page, HttpServletRequest req) {
+		
+		
+		req.setAttribute("curPage", page);
+		
+		String search = (String) req.getSession().getAttribute("search");
+		String type = req.getParameter("type");
+		
+		int memberCount = 0;
+		if(search == null) {
+			memberCount = allMemberCount;
+			search = "";
+		} else {
+			MemberSelector mSel2 = new MemberSelector(search, 0, 0);
+			memberCount = ss.getMapper(MemberMapper.class).getSearchMemberCount(mSel2); 
 		}
 		
-		// 회원 검색하기
-//		public void findMember(Member inputM, HttpServletRequest req) {
-//			String search = (String) req.getSession().getAttribute("search"); // 검색어
-//			if (search == null) { // 전체조회
-//				search = "";
-//			} else { // 검색
-//				MemberSelector mSel = new MemberSelector(search);
-//			}
-//	
-//			MemberSelector mSel2 = new MemberSelector(search);
-//	
-//			List<Member> load = ss.getMapper(MemberMapper.class).searchMember(mSel2);
-//			req.setAttribute("list", load);
-//		}
+		int allPageCount = (int) Math.ceil((double) memberCount / so3.getMemberPerPage());
+		req.setAttribute("allPageCount", allPageCount);
 		
-//		public void searchMemClear(HttpServletRequest req) {
-//			req.getSession().setAttribute("search", null);
-//		}
-//		
-//		public void searchMember(HttpServletRequest req) {
-//			String search = req.getParameter("search");
-//			req.getSession().setAttribute("search", search);
-//		}
+		int start = (page - 1) * so3.getMemberPerPage() + 1;
+		int end = (page == allPageCount) ? memberCount : start + so3.getMemberPerPage() - 1;
+		
+		MemberSelector mSel = new MemberSelector(search, start, end);
+		List<Member> members = null;
+		if (type == null || type .equals("all")) {
+			members = ss.getMapper(MemberMapper.class).getMember1(mSel);
+		} else if (type.equals("m_name")) {
+			m.setM_name(search);
+			members = ss.getMapper(MemberMapper.class).getMember2(mSel);
+		} else if (type.equals("m_address")) {
+			m.setM_address(search);
+			members = ss.getMapper(MemberMapper.class).getMember3(mSel);
+		} else if (type.equals("m_grade")) {
+			m.setM_grade(search);
+			members = ss.getMapper(MemberMapper.class).getMember4(mSel);
+		} else if (type.equals("m_sex")) {
+			m.setM_sex(search);
+			members = ss.getMapper(MemberMapper.class).getMember5(mSel);
+		} 
+		
+		req.setAttribute("members", members);
+	} 
+	
+	// 회원 검색 초기화
+	public void searchClear(HttpServletRequest req) {
+		req.getSession().setAttribute("search", null);
+	}
+	
+	// 회원검색
+	public void searchMember(HttpServletRequest req) {
+		String search = req.getParameter("search");
+		req.getSession().setAttribute("search", search);
+	}
 }
