@@ -13,6 +13,7 @@ insert into s_member values('asdf', 'asdfasdf', '테스트', '테스트 주소',
 insert into s_member values('qwer', 'qwerqwer', '매니저', '테스트 주소', 'admin', '남자');
 insert into s_member values('zxcv', 'zxcvzxcv', '매니저', '테스트 주소', 'bronze', '남자');
 select * from s_member;
+select * from s_member order by m_name DESC;
 drop table s_member cascade constraint purge;
 ==========================================================================================================================
 -- 상품 카테고리
@@ -42,7 +43,10 @@ create table product(
 )
 
 create sequence product_seq;
-insert into product values(product_seq.nextval,1,'반팔',10000,100,'xxx.png');
+insert into product values(product_seq.nextval,1,'나이키',132456,123,'NikeGX.png');
+insert into product values(product_seq.nextval,1,'우주',123456,23,'space.jpg');
+insert into product values(product_seq.nextval,1,'라떼',12345,321,'latte.png');
+insert into product values(product_seq.nextval,1,'커피',1234431,333,'coffee.png');
 drop sequence product_seq;
 select * from product order by product_number;
 drop table product cascade constraint purge;
@@ -203,7 +207,7 @@ company_name,
 country_id,
 company_introduce
 from company_member
-order by num;
+order by company_number;
 create sequence company_member_seq
   INCREMENT BY 1
     START WITH 1

@@ -55,6 +55,16 @@ function regProduct() {
 	location.href = "product.reg";
 }
 
+// 상품 수정
+function productInfo(){
+	location.href = "product.Information";
+}
+
+// 상품 수정 나가기
+function productOut(){
+	location.href="productList.go";
+}
+
 //등록 버튼
 //function companyReg() {
 //	location.href = "companyEnroll.do"
