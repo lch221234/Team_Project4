@@ -28,7 +28,6 @@
 				<br>
 				<b>${sessionScope.p_c.category_name }</b>
 				<br>-->
-			<b>${r }</b>
 		</form>
 		<c:forEach var="c_n" items="${p_c }">
 			<b>${c_n.category_name }</b>

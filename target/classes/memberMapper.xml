@@ -18,6 +18,18 @@
 		select * from s_member
     </select>
 	<select id="searchMember" resultType="com.shop.main.member.MemberSelector" parameterType="com.shop.main.member.MemberSelector">
-		select * from s_member where m_id like '%'||#{search}||'%' and m_address like '%'||#{search}||'%' and m_sex like '%'||#{search}||'%'
+		select * from s_member where order by m_name DESC
+		<where>
+			<if test="type=='name'">
+				and m_name like '%'||#{search}||'%'
+			</if>
+			<if test="type=='address'">
+				and m_address like '%'||#{search}||'%'
+			</if>
+			<if test="type=='sex'">
+				and m_sex like '%'||#{search}||'%'
+			</if>
+			order by m_name DESC
+		</where> 
     </select>
 </mapper>

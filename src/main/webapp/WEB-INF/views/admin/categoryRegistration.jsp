@@ -84,6 +84,11 @@
 					</div>
 					<input type="button" value="등록하기" onclick="openChild();">
 					<div class="append_Categories"></div>
+						<c:forEach var="c_n" items="${p_c }">
+							<b>${c_n.category_name }</b>
+								<img src = resources/img/recycle_bin.png width = 20 height = 20 onclick="delCategory(${c_n.category_code});">
+							<br>
+						</c:forEach>
 				</div>
 				<div class="clearfix"></div>
 			</div>

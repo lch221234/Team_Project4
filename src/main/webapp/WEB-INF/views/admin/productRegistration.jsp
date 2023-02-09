@@ -53,7 +53,7 @@
 					<input class="product_stock" name="p_s" autocomplete="off" placeholder="상품 재고"> 
 				</div>
 				<div class = product_imgBox>
-					<img src="" style = "width: 150px; height: 150px;" >
+					<img src="resources/img/empty.png" style = "width: 150px; height: 150px;" >
 					<input class="product_img" name="p_i" type="file">	
 				</div>
 				<button>등록하기</button>

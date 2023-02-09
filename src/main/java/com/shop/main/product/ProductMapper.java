@@ -7,7 +7,8 @@ public interface ProductMapper {
 	public abstract int productReg(Product p);
 	public abstract int getAllProductCount();
 	public abstract int getSearchProductCount(ProductSelector pSel);
-//	public abstract List<Product> getSearchProduct(ProductSelector pSel);
+	public abstract int productDel(Product p);
+	public abstract int productModify(Product p);
 	
 
 }
