@@ -23,7 +23,7 @@
 				<div>${ps.product_name }</div>
 				<div>${ps.product_price }</div>
 				<div>${ps.product_stock }</div>
-				<div><img src="resources/img/product/${ps.product_img }" style="width: 150px; height: 150px;"></div>
+				<div>${ps.product_img }</div>
 				<div>-----------------------------</div>
 			</c:forEach>
 		</div>

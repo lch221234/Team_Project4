@@ -10,12 +10,13 @@
 	</insert>
 	<!-- 업체 목록 -->
 	<select id="companylist"
-		resultType="com.shop.main.company.Company">
+		resultType="com.shop.main.company.Company"
+		parameterType="com.shop.main.company.Company">
 		select company_number,
 		company_name,
 		country_id,
 		company_introduce
 		from company_member
-		order by company_number;
+		order by company_number
 	</select>
 </mapper>

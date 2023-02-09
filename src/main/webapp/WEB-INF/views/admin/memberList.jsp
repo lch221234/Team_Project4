@@ -34,7 +34,7 @@
 					</tr>
 					<c:forEach var='li' items="${list}">
 						<tr>
-							<td>${li.m_id}</td>
+							<td><a href="admin.member.info.go">${li.m_id}</a></td>
 							<td>${li.m_name}</td>
 							<td>${li.m_address}</td>
 							<td>${li.m_grade}</td>
