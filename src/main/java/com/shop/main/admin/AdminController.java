@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.shop.main.TokenManager;
 import com.shop.main.company.Company;
 import com.shop.main.company.CompanyDAO;
 import com.shop.main.member.Member;
@@ -34,7 +35,6 @@ public class AdminController {
 		isFirstReq = true;
 	}
 		
-	
 	//메인화면 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
 	public String goAdmin() {
@@ -54,11 +54,10 @@ public class AdminController {
 	//상품목록 이동
 	@RequestMapping(value = "productList.go", method = RequestMethod.GET)
 	public String goProductList(HttpServletRequest req) {
-//		if (isFirstReq) {
-//		pDAO.countAllProduct();
-//		isFirstReq = false;
-//	}
-
+		if (isFirstReq) {
+		pDAO.countAllProduct();
+		isFirstReq = false;
+	}
 	pDAO.getProduct2(1, req);
 	return "admin/productList";
 	}
@@ -78,6 +77,10 @@ public class AdminController {
 	//회원관리 이동
 	@RequestMapping(value = "memberList.go", method = RequestMethod.GET)
 	public String goMemberList(Member m, HttpServletRequest req) {
+		if(isFirstReq) {
+			mDAO.countAllMember();
+			isFirstReq = false;
+		}
 		mDAO.getMember1(m, 1, req);
 		return "admin/memberList";
 	}

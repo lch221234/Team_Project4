@@ -26,7 +26,7 @@ public class ProductController {
 		isFirstReq = true;
 	}
 	
-	// 상품목록
+/* 상품목록
 	@RequestMapping(value = "/product.go", method = RequestMethod.GET)
 	public String product(HttpServletRequest req) {
 		if (isFirstReq) {
@@ -39,7 +39,7 @@ public class ProductController {
 		TokenManager.tokenManager(req);
 		return "admin/productList";
 	}
-	
+*/
 	//상품등록 이동
 	@RequestMapping(value = "/product.reg", method = RequestMethod.POST)
 	public String regProduct(Product p, HttpServletRequest req) {
