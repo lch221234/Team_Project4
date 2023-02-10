@@ -35,6 +35,7 @@ public class AdminController {
 		isFirstReq = true;
 	}
 		
+	
 	//메인화면 이동
 	@RequestMapping(value = "admin.go", method = RequestMethod.GET)
 	public String goAdmin() {
