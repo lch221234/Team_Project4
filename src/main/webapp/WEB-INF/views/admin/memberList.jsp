@@ -32,9 +32,9 @@
 						<td>등급</td>
 						<td>성별</td>
 					</tr>
-					<c:forEach var='li' items="${list}">
+					<c:forEach var='li' items="${members}"> <!-- el명 변경 - 성신 -->
 						<tr>
-							<td><a href="admin.member.info.go">${li.m_id}</a></td>
+							<td>${li.m_id}</td>
 							<td>${li.m_name}</td>
 							<td>${li.m_address}</td>
 							<td>${li.m_grade}</td>
@@ -43,17 +43,38 @@
 					</c:forEach>
 				</table>
 			</div>
-			<form action="memberList.go">
-				<select name="ch1">
-					<option value="menu">::보기::</option>
-					<option value="name">이름</option>
-					<option value="address">주소</option>
-					<option value="sex">성별</option>
-				</select> <input type="text" name="search"> <input type="submit"
-					value="검색하기">
+		
+	<!-- 회원목록 페이지 이동 - 성신 -->	
+		<c:if test="${curPage != 1 }">
+			<div id="vocL">
+				<span onclick="MemberPageChange(${curPage -1});"
+					style="cursor: pointer;">&lt; Prev</span>
+			</div>
+			
+		</c:if>
+		<c:if test="${curPage != allPageCount }">
+			<div id="vocR">
+				<span onclick="MemberPageChange(${curPage + 1});"
+					style="cursor: pointer;">Next &gt;</span>
+			</div>
+		</c:if>	
+	
+	<!-- 회원 검색 - 성신 -->
+		<c:if test="${sessionScope.loginMember != null }">
+			<form action="member.search" name="memberSearchForm" method="post">
+				<select name="type">
+					<option value="all">::보기::</option>
+					<option value="m_name">이름</option>
+					<option value="m_address">주소</option>
+					<option value="m_grade">등급</option>
+					<option value="m_sex">성별</option>
+				</select>
+				<input type="text" name="search" autocomplete="off" maxlength="20" placeholder="회원 검색">
+				<!-- <input type="button" style="cursor: pointer; width: 50px; height: 20px;">  -->
+				<button>검색</button>
 			</form>
-			<!-- DB에서 이름과 등급으로 검색된 멤버들 결과 가져오기 -->
-			<!-- 멤버리스트 불러온 곳에서 검색된 결과 보여주고 싶음  -->
+		</c:if>
+		
 	</div>
 		</div>
 	</div>

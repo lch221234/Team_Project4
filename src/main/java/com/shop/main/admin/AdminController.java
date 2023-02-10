@@ -77,19 +77,10 @@ public class AdminController {
 	}
 	//회원관리 이동
 	@RequestMapping(value = "memberList.go", method = RequestMethod.GET)
-	public String gomemberList(Member inputM, HttpServletRequest req) {
-//		mDAO.searchMemClear(req);
-		mDAO.listMember(inputM, req);
+	public String goMemberList(Member m, HttpServletRequest req) {
+		mDAO.getMember1(m, 1, req);
 		return "admin/memberList";
 	}
-	
-	// 회원검색 결과
-//	@RequestMapping(value = "memberList.go", method = RequestMethod.GET)
-//	public String memberSearch(Member inputM, HttpServletRequest req) {
-//		mDAO.searchMember(req); 
-//		mDAO.listMember(inputM, req);
-//		return "admin/memberList";
-//	}
 	
 //	// child.jsp 팝업창 띄우기
 //	@RequestMapping("/admin/child")

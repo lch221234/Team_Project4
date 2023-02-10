@@ -1,35 +1,68 @@
 package com.shop.main.member;
 
 public class MemberSelector {
-	private String type;
 	private String search;
+	private int start;
+	private int end;
 
+
+	
 	public MemberSelector() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MemberSelector(String type, String search) {
+
+	
+
+
+	public MemberSelector(String search, int start, int end) {
 		super();
-		this.type = type;
 		this.search = search;
+		this.start = start;
+		this.end = end;
+
 	}
 
-	public String getType() {
-		return type;
-	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
+
+
 
 	public String getSearch() {
 		return search;
 	}
 
+
 	public void setSearch(String search) {
 		this.search = search;
 	}
+
+
+	public int getStart() {
+		return start;
+	}
+
+
+	public void setStart(int start) {
+		this.start = start;
+	}
+
+
+	public int getEnd() {
+		return end;
+	}
+
+
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
+
+	 
 	
 	
-	// 회원목록에서 검색한 회원 불러오려고 만들었습니다. (02.01) 장창호
+	
+	
+
+	
+	
 }
