@@ -47,7 +47,7 @@ function regCategory() {
 
 // 카테고리 삭제하기
 function delCategory(no) {
-	location.href = "admin.delCategory?c_n="+no;
+	location.href = "admin.delCategory?category_code="+no;
 }
 
 // 상품 등록하기

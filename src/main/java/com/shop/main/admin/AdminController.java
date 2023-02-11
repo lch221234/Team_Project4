@@ -59,7 +59,9 @@ public class AdminController {
 		pDAO.countAllProduct();
 		isFirstReq = false;
 	}
+	pDAO.searchClearPD(req);
 	pDAO.getProduct2(1, req);
+	TokenManager.tokenManager(req);
 	return "admin/productList";
 	}
 	//업체등록 이동

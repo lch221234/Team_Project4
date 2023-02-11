@@ -69,4 +69,9 @@
 		<beans:property name="memberPerPage" value="5"></beans:property>
 	</beans:bean>
 	
+	<beans:bean id="so4" class="com.shop.main.SiteOption">
+		<beans:property name="productInfoPerPage" value="8"></beans:property>
+	</beans:bean>
+	
+	
 </beans:beans>

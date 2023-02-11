@@ -39,14 +39,14 @@ create table product(
 	product_name varchar2(50 char) not null,
 	product_price number(9) not null,
 	product_stock number(5) not null, -- 재고
-	product_img varchar2(300 char)not null -- img 추가
+	product_img blob not null -- img 추가 blob로 변경
 )
 
 create sequence product_seq;
-insert into product values(product_seq.nextval,1,'나이키',132456,123,'NikeGX.png');
-insert into product values(product_seq.nextval,1,'우주',123456,23,'space.jpg');
-insert into product values(product_seq.nextval,1,'라떼',12345,321,'latte.png');
-insert into product values(product_seq.nextval,1,'커피',1234431,333,'coffee.png');
+--insert into product values(product_seq.nextval,1,'나이키',132456,123,'NikeGX.png');
+--insert into product values(product_seq.nextval,1,'우주',123456,23,'space.jpg');
+--insert into product values(product_seq.nextval,1,'라떼',12345,321,'latte.png');
+--insert into product values(product_seq.nextval,1,'커피',1234431,333,'coffee.png');
 drop sequence product_seq;
 select * from product order by product_number;
 drop table product cascade constraint purge;
