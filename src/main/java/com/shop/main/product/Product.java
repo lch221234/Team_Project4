@@ -8,14 +8,14 @@ public class Product {
 	private String product_name;
 	private BigDecimal product_price;
 	private BigDecimal product_stock;
-	private String product_img;
+	private byte[] product_img;
 	
 	public Product() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Product(BigDecimal product_number, BigDecimal category_code, String product_name, BigDecimal product_price,
-			BigDecimal product_stock, String product_img) {
+			BigDecimal product_stock, byte[] product_img) {
 		super();
 		this.product_number = product_number;
 		this.category_code = category_code;
@@ -65,11 +65,11 @@ public class Product {
 		this.product_stock = product_stock;
 	}
 
-	public String getProduct_img() {
+	public byte[] getProduct_img() {
 		return product_img;
 	}
 
-	public void setProduct_img(String product_img) {
+	public void setProduct_img(byte[] product_img) {
 		this.product_img = product_img;
 	}
 	

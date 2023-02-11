@@ -84,11 +84,6 @@ function productPageChange(page){
 	location.href = "product.page.change?p=" + page;
 }
 
-// 상품 정보 page
-function productInfoPageChange(page){
-	location.href = "productInfoPage.change?p="+page;
-}
-
 //회원목록 page
 function MemberPageChange(page){
 	location.href = "member.page.change?p=" + page;

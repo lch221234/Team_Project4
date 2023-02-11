@@ -19,11 +19,7 @@ public class ProductCategoryDAO {
 	// 카테고리 삭제
 	public void categoryDel(ProductCategory pc, HttpServletRequest req) {
 		try {
-			if (ss.getMapper(ProductCategoryMapper.class).categoryDel(pc)==1) {
-				req.setAttribute("r", "성공");
-			} else {
-				req.setAttribute("r", "tlfvo");
-			}
+			ss.getMapper(ProductCategoryMapper.class).categoryDel(pc);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
