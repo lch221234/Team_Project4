@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shop.main.product.ProductMapper">
 	<select id="getAllProductCount" resultType="java.lang.Integer">
-		select * from product order by product_number
+		select count(*) from product order by product_number
 	</select>
 	<select id="getSearchProductCount" parameterType="com.shop.main.product.ProductSelector" resultType="java.lang.Integer">
 		select count(*) from product where product_name like '%'||#{search}||'%'
