@@ -12,10 +12,19 @@ public interface MemberMapper {
 
 	public abstract int delete(Member m);
 
+	/* 관리자 회원목록 */
+	
 	// 회원목록 회원 불러오기
-	public abstract List<Member> getMember(Member m);
+	//public abstract List<Member> getMember(Member m);
+	
+	public abstract List<Member> getMember1 (MemberSelector mSel);
+	public abstract List<Member> getMember2 (MemberSelector mSel);
+	public abstract List<Member> getMember3 (MemberSelector mSel);
+	public abstract List<Member> getMember4 (MemberSelector mSel);
+	public abstract List<Member> getMember5 (MemberSelector mSel);
 
-	// 회원목록 회원 검색하기
-	public abstract List<Member> searchMember(MemberSelector mSel2);
+	public abstract int getAllMemberCount();
+	
+	public abstract int getSearchMemberCount(MemberSelector mSel);
 
 }

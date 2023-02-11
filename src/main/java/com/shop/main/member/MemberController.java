@@ -11,11 +11,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.shop.main.TokenManager;
+
 @Controller
 public class MemberController {
 	
 	@Autowired
 	private MemberDAO mDAO;
+	
+	private boolean isFirstReq;
+	
+	public MemberController() {
+		isFirstReq = true;
+	}
 	
 	@RequestMapping(value = "join", method = RequestMethod.GET)
 	public String joinGet(Locale locale, Model model) {
@@ -86,16 +94,38 @@ public class MemberController {
 		return "main";
 	}	
 		
-//	// 여기서부터  네이버로그인 callback (shin)
-//	
-//	
-//	@RequestMapping(value="callBack", method=RequestMethod.GET)	
-//	public String callBack(){
-//		return "member/callBack";
-//	}
-//	
-//	
-
+	/* 회원 목록 */
+	@RequestMapping(value = "/memberlist.go", method = RequestMethod.GET)
+	public String member(Member m, HttpServletRequest req) {
+		if (isFirstReq) {
+			mDAO.countAllMember();
+			isFirstReq = false;
+		}
+		mDAO.loginChk(req);
+		mDAO.searchClear(req);
+		mDAO.getMember1(m, 1, req);
+		TokenManager.tokenManager(req);
+		return "admin/memberList";
+	}
+	
+	@RequestMapping(value = "/member.search", method = RequestMethod.POST)
+	public String memberSearch(Member m, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		mDAO.searchMember(req);
+		mDAO.getMember1(m, 1, req);
+		TokenManager.tokenManager(req);
+		return "admin/memberList";
+	}
+	
+	@RequestMapping(value = "/member.page.change", method = RequestMethod.GET)
+	public String memberPageChange(Member m, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		int p = Integer.parseInt(req.getParameter("p"));
+		mDAO.getMember1(m, p, req);
+		TokenManager.tokenManager(req);
+		return "admin/memberList";
+	}
+	
 	
 	
 }

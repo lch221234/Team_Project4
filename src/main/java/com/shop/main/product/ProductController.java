@@ -26,7 +26,7 @@ public class ProductController {
 		isFirstReq = true;
 	}
 	
-	// 상품목록
+/* 상품목록
 	@RequestMapping(value = "/product.go", method = RequestMethod.GET)
 	public String product(HttpServletRequest req) {
 		if (isFirstReq) {
@@ -39,7 +39,7 @@ public class ProductController {
 		TokenManager.tokenManager(req);
 		return "admin/productList";
 	}
-	
+*/
 	//상품등록 이동
 	@RequestMapping(value = "/product.reg", method = RequestMethod.POST)
 	public String regProduct(Product p, HttpServletRequest req) {
@@ -57,6 +57,16 @@ public class ProductController {
 		return "admin/productList";
 	}
 	
+	
+	@RequestMapping(value = "/product.Infosearch", method = RequestMethod.POST)
+	public String productInfoSearch(Product p, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		pDAO.searchProduct2(req);
+		pDAO.getSearchProuct(1, req);
+		TokenManager.tokenManager(req);
+		return "admin/productInfo";
+	}
+	
 	// 이건 페이지 잘 넘어가집니다
 	@RequestMapping(value = "/product.page.change", method = RequestMethod.GET)
 	public String productPageChange(HttpServletRequest req) {
@@ -67,32 +77,46 @@ public class ProductController {
 		return "admin/productList";
 	}
 	
+	@RequestMapping(value = "/productInfoPage.change", method = RequestMethod.GET)
+	public String productInfoPageChange(HttpServletRequest req) {
+		mDAO.loginChk(req);
+		int p = Integer.parseInt(req.getParameter("p"));
+		pDAO.getSearchProuct(p, req);
+		TokenManager.tokenManager(req);
+		return "admin/productInfo";
+	}
+	
+	
 	@RequestMapping(value = "/product.Information", method = RequestMethod.GET)
 	public String productInfo(HttpServletRequest req) {
-		mDAO.loginChk(req);
-		pDAO.getProduct2(1, req);
+		if (isFirstReq) {
+			pDAO.countAllProducts();
+			isFirstReq = false;
+		}
+		pDAO.searchClearPD(req);
+		pDAO.getSearchProuct(1, req);
 		TokenManager.tokenManager(req);
 		return "admin/productInfo";
 	}
 	
-	@RequestMapping(value = "product.delete")
+	@RequestMapping(value = "product.delete", method = RequestMethod.GET)
 	public String productDelete(Product p, HttpServletRequest req) {
 		mDAO.loginChk(req);
-		pDAO.getProduct2(1, req);
+		pDAO.getSearchProuct(1, req);
 		pDAO.ProductDel(p, req);
-		pDAO.getProduct2(1, req);
+		pDAO.getSearchProuct(1, req);
 		TokenManager.tokenManager(req);
 		return "admin/productInfo";
 	}
 	
-	@RequestMapping(value = "product.update")
-	public String productUpdate(Product p, HttpServletRequest req) {
-		mDAO.loginChk(req);
-		pDAO.getProduct2(1, req);
-		pDAO.ProductUpdate(p, req);
-		pDAO.getProduct2(1, req);
-		TokenManager.tokenManager(req);
-		return "admin/productInfo";
-	}
+//	@RequestMapping(value = "product.update")
+//	public String productUpdate(Product p, HttpServletRequest req) {
+//		mDAO.loginChk(req);
+//		pDAO.getProduct2(1, req);
+//		pDAO.ProductUpdate(p, req);
+//		pDAO.getProduct2(1, req);
+//		TokenManager.tokenManager(req);
+//		return "admin/productInfo";
+//	}
 	
 }

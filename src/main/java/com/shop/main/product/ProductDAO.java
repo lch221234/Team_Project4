@@ -1,9 +1,7 @@
 package com.shop.main.product;
 
-import java.io.File;
-import java.net.URLDecoder;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,12 +17,16 @@ import com.shop.main.SiteOption;
 @Service
 public class ProductDAO {
 	private int allProductCount;
+	private int allProductCounts;
 	
 	@Autowired
 	private SqlSession ss;
 	
 	@Autowired 
 	private SiteOption so2;
+	
+	@Autowired
+	private SiteOption so4;
 	
 	// 상품 등록	
 	public void ProductReg(Product p, HttpServletRequest req) {
@@ -50,9 +52,9 @@ public class ProductDAO {
 //			p.setProduct_price(Integer.parseInt(req.getParameter("p_p").trim()));
 //			p.setProduct_stock(Integer.parseInt(req.getParameter("p_s").trim()));
 			p.setProduct_name(mr.getParameter("p_n")); 
-			p.setCategory_code(Integer.parseInt(mr.getParameter("p_c_c")));  // 실패 Nullpointerexception
-			p.setProduct_price(Integer.parseInt(mr.getParameter("p_p")));
-			p.setProduct_stock(Integer.parseInt(mr.getParameter("p_s")));
+			p.setCategory_code(new BigDecimal(mr.getParameter("p_c_c")));  // 실패 Nullpointerexception
+			p.setProduct_price(new BigDecimal(mr.getParameter("p_p")));
+			p.setProduct_stock(new BigDecimal(mr.getParameter("p_s")));
 			
 			String p_img = mr.getFilesystemName("p_i");
 			String p_img_kor = URLEncoder.encode(p_img, "utf-8").replace("+", "");
@@ -70,9 +72,17 @@ public class ProductDAO {
 		allProductCount = ss.getMapper(ProductMapper.class).getAllProductCount();
 	}
 	
+	public void countAllProducts() {
+		allProductCounts = ss.getMapper(ProductMapper.class).getAllProductCount();
+	}
+	
 	// 상품 검색
 	public void searchProduct(HttpServletRequest req) {
 		req.getSession().setAttribute("search", req.getParameter("search"));
+	}
+	// 상품 검색
+	public void searchProduct2(HttpServletRequest req) {
+		req.getSession().setAttribute("search2", req.getParameter("productSearch"));
 	}
 	
 	// 상품 검색 초기화
@@ -103,52 +113,59 @@ public class ProductDAO {
 		
 		req.setAttribute("productsss", products);
 	}
-//	// 상품 삭제 -- 삭제되긴 하는데 전체삭제나 선택으로 2개이상 삭제는 x
+	
+// 상품 수정 삭제 하는곳에서 검색하기
+	public void getSearchProuct(int page, HttpServletRequest req) {
+		req.setAttribute("curPage2", page);
+		String search = (String) req.getSession().getAttribute("search2");
+		int productCount = 0;
+		if (search == null) {
+			productCount = allProductCount;
+			search = "";
+		} else {
+			ProductSelector pSel2 = new ProductSelector(search, 0, 0);
+			productCount = ss.getMapper(ProductMapper.class).getSearchProductCount(pSel2);
+		}
+		int allProductCount = (int) Math.ceil((double) productCount / so4.getProductInfoPerPage());
+		req.setAttribute("allProductInfoCount", allProductCount);
+		
+		int start = (page -1) * so4.getProductInfoPerPage() + 1;
+		int end = (page == allProductCount) ? productCount : start + so4.getProductInfoPerPage() -1;
+		ProductSelector pSel = new ProductSelector(search, start, end);
+		List<Product> products = ss.getMapper(ProductMapper.class).getProduct2(pSel);
+		req.setAttribute("productssss", products);
+	}
+	
+//	// 상품 삭제
 	public void ProductDel(Product p, HttpServletRequest req) {
 		try {
-//			String[] productArr = req.getParameterValues("RowCheck");
-//			int [] productArray = new int[productArr.length];
-//			for (int i = 0; i < productArr.length; i++) {
-//				productArray[i] = Integer.parseInt(productArr[i]);
-//			}
-//			for (int i = 0; i < productArray.length; i++) {
-//				ss.getMapper(ProductMapper.class).productDel(productArray);
-//			}
-//			p.setProduct_number(Integer.parseInt(productArr));
-//			int i = 0;
-//			while (i < allProductCount) {
-//				p.setProduct_number(Integer.parseInt(req.getParameter("RowCheck")));
-//				ss.getMapper(ProductMapper.class).productDel(p);
-//			}
-			p.setProduct_number(Integer.parseInt(req.getParameter("RowCheck")));
-			ss.getMapper(ProductMapper.class).productDel(p);
-//				String d_p_i = p.getProduct_img();
-//				d_p_i = URLDecoder.decode(d_p_i, "utf-8");
-//				
-//				String path = req.getSession().getServletContext().getRealPath("resources/img");
-//				new File(path + "/" + d_p_i).delete();
+			String [] value = req.getParameterValues("RowCheck");
+			if (value != null) {
+				for (String s : value) {
+					p.setProduct_number(new BigDecimal(s));
+					if (ss.getMapper(ProductMapper.class).productDel(p) == 1) {
+						allProductCount--;
+					}
+				}
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 //	// 상품 수정 -- 미완성(사진 고민중)
-	public void ProductUpdate(Product p, HttpServletRequest req) {
-		try {
-			p.setProduct_number(Integer.parseInt(req.getParameter("RowCheck")));
-			p.setCategory_code(Integer.parseInt(req.getParameter("category_code")));
-			p.setProduct_name(req.getParameter("product_name"));
-			p.setCategory_code(Integer.parseInt(req.getParameter("product_price")));
-			p.setCategory_code(Integer.parseInt(req.getParameter("product_stock")));
-//			System.out.println(req.getParameter("RowCheck"));
-//			System.out.println(req.getParameter("category_code"));
-//			System.out.println(req.getParameter("product_name"));
-//			System.out.println(req.getParameter("product_price"));
-//			System.out.println(req.getParameter("product_stock"));
-			ss.getMapper(ProductMapper.class).productModify(p);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	public void ProductUpdate(Product p, HttpServletRequest req) {
+//		try {
+//			String [] p_n = req.getParameterValues("product_name");
+//			if (p_n != null) {
+//				for (String s : p_n) {
+//					p.setProduct_name(s);
+//				}
+//			}
+//			ss.getMapper(ProductMapper.class).productModify(p);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 	
 }

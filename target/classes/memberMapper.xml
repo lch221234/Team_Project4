@@ -13,11 +13,86 @@
 	<delete id="delete" parameterType="com.shop.main.member.Member">
 		delete from s_member where m_id = #{m_id}
 	</delete>
-	<!-- 02.01 회원조회 하기 위해 회원 불러오기, 검색하기 장창호 -->
-	<select id="getMember" resultType="com.shop.main.member.Member" parameterType="com.shop.main.member.Member">
-		select * from s_member
-    </select>
-	<select id="searchMember" resultType="com.shop.main.member.MemberSelector" parameterType="com.shop.main.member.MemberSelector">
-		select * from s_member where m_id like '%'||#{search}||'%' and m_address like '%'||#{search}||'%' and m_sex like '%'||#{search}||'%'
-    </select>
+	
+	<!-- 회원목록(말머리검색) - 성신 -->
+	<select id="getAllMemberCount" resultType="java.lang.Integer">
+		select count(*) from s_member
+	</select>
+	<select id="getSearchMemberCount"
+		parameterType="com.shop.main.member.MemberSelector"
+		resultType="java.lang.Integer">
+		select count(*) from s_member 
+			where (m_name like '%'||#{search}||'%' 
+				or m_address like '%'||#{search}||'%'
+				or m_sex like '%'||#{search}||'%')
+	</select>
+	
+ 	<select id="getMember1"
+	resultType="com.shop.main.member.Member"
+	parameterType="com.shop.main.member.MemberSelector">
+	select * from (
+		select rownum as rn, m_id, m_name, m_address, m_grade, m_sex
+			from (
+			select * from s_member 
+				where m_name like '%'||#{search}||'%'
+					or m_address like '%'||#{search}||'%' 
+					or m_grade like '%'||#{search}||'%' 
+					or m_sex like '%'||#{search}||'%')
+					order by m_name) 
+		where rn &gt;= #{start} and rn &lt;= #{end}
+		
+	</select>
+	
+	<select id="getMember2"
+	resultType="com.shop.main.member.Member"
+	parameterType="com.shop.main.member.MemberSelector">
+	select * from (
+		select rownum as rn, m_id, m_name, m_address, m_grade, m_sex
+			from (
+			select * from s_member 
+				where m_name like '%'||#{search}||'%')
+				order by m_name) 
+		where rn &gt;= #{start} and rn &lt;= #{end}
+		
+	</select>
+	
+	<select id="getMember3"
+	resultType="com.shop.main.member.Member"
+	parameterType="com.shop.main.member.MemberSelector">
+	select * from (
+		select rownum as rn, m_id, m_name, m_address, m_grade, m_sex
+			from (
+			select * from s_member 
+				where m_address like '%'||#{search}||'%')
+				order by m_name) 
+		where rn &gt;= #{start} and rn &lt;= #{end}
+		
+	</select>
+	
+	<select id="getMember4"
+	resultType="com.shop.main.member.Member"
+	parameterType="com.shop.main.member.MemberSelector">
+	select * from (
+		select rownum as rn, m_id, m_name, m_address, m_grade, m_sex
+			from (
+			select * from s_member 
+				where m_grade like '%'||#{search}||'%')
+				order by m_name) 
+		where rn &gt;= #{start} and rn &lt;= #{end}
+		
+	</select>
+
+	<select id="getMember5"
+	resultType="com.shop.main.member.Member"
+	parameterType="com.shop.main.member.MemberSelector">
+	select * from (
+		select rownum as rn, m_id, m_name, m_address, m_grade, m_sex
+			from (
+			select * from s_member 
+				where m_sex like '%'||#{search}||'%')
+				order by m_name) 
+		where rn &gt;= #{start} and rn &lt;= #{end}
+		
+	</select>
+	
 </mapper>

@@ -12,36 +12,6 @@
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/do.js"></script>
 <script type="text/javascript" src="resources/js/do_jQuery.js"></script>
-<script type="text/javascript">
-<!--$(function(){
-	$.getJSON("admin.getCategory",function(p_c){
-		nums = 0;
-		$.each(p_c.productCategory,function(i,p_c){ 
-			let div = $("<div class = \"append_Category\"></div>").text(p_c.category_name);
-			$(".append_Categories").append(div);
-			nums = p_c.category_code;
-			console.log(i + '번째 ' +nums);
-		}); 
-			$(".append_Category").append(" <img class=\"delete_category\" src =\"resources/img/recycle_bin.png\" width = \"20\" height = \"20\"  >");
-			
-			// num = p_c.productCategory[0].category_code;
-			// console.log(num);
-		$(".delete_category").click(function(){
-			alert(nums);
-			//alert(p_c.productCategory[0].category_code);    
-			
-			 //alert(num);
-			 
-			 //alert("${p_c}");
-			 //alert(p_c);
-			// alert("p_c");
-			 
-			//location.href = "admin.delCategory?c_n="+nums;
-			
-		}); 
-	});
-}); -->
-</script>
 </head>
 <body>
 	<div class="wrapper">

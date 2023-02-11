@@ -35,6 +35,7 @@ public class ProductCategoryController {
 	@RequestMapping(value = "admin.delCategory", method = RequestMethod.GET)
 	public String DelCategory(ProductCategory pc, HttpServletRequest req) {
 		pcDAO.categoryDel(pc, req);
+		pcDAO.getAllCategory(req);
 		return "admin/categoryRegistration";
 	}
 		

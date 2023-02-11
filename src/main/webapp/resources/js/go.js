@@ -47,7 +47,7 @@ function regCategory() {
 
 // 카테고리 삭제하기
 function delCategory(no) {
-	location.href = "admin.delCategory?c_n="+no;
+	location.href = "admin.delCategory?category_code="+no;
 }
 
 // 상품 등록하기
@@ -76,17 +76,29 @@ function productOut(){
 //		location.href = "companyList.go"
 //}
 
+
+/* page */
+
 //상품 page
 function productPageChange(page){
 	location.href = "product.page.change?p=" + page;
 }
 
+// 상품 정보 page
+function productInfoPageChange(page){
+	location.href = "productInfoPage.change?p="+page;
+}
 
-/*voc */
+//회원목록 page
+function MemberPageChange(page){
+	location.href = "member.page.change?p=" + page;
+}
+
+/* voc */
 
 //voc 수정
 function vocMsgUpdate(no, txt) {
-	txt = prompt("문의하실 내용을 적어주세요", txt);
+	txt = prompt("문의글 수정하실 내용을 적어주세요", txt);
 	if (txt != null && txt.length > 0 && txt.length < 500) {
 		location.href = "voc.update?v_no=" + no + "&v_txt=" + txt;
 	}
@@ -94,7 +106,7 @@ function vocMsgUpdate(no, txt) {
 
 //voc 삭제
 function vocMsgDelete(no) {
-	if (confirm("글을 삭제하시겠습니까?")) {
+	if (confirm("문의글을 삭제하시겠습니까?")) {
 		location.href = "voc.delete?v_no=" + no;
 	}
 }
@@ -107,7 +119,7 @@ function vocPageChange(page) {
 
 //댓글 수정
 function vocReplyUpdate(no, txt) {
-	txt = prompt("문의하실 내용을 적어주세요", txt);
+	txt = prompt("댓글 수정하실 내용을 적어주세요", txt);
 	if (txt != null && txt.length > 0 && txt.length < 500) {
 		location.href = "voc.reply.update?vr_no=" + no + "&vr_txt=" + txt;
 	}
