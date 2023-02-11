@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shop.main.product.ProductMapper">
+	<select id="getAllProductCount" resultType="java.lang.Integer">
+		select count(*) from product order by product_number
+	</select>
+	<select id="getSearchProductCount" parameterType="com.shop.main.product.ProductSelector" resultType="java.lang.Integer">
+		select count(*) from product where product_name like '%'||#{search}||'%'
+	</select>
+	<select id="getProduct2" parameterType="com.shop.main.product.ProductSelector" resultType="com.shop.main.product.Product">
+		select * from (
+		select rownum as rn, product_number, product_stock, category_code, product_name, product_price, product_img 
+		from (select * from product where product_name like '%'||#{search}||'%'))
+		where rn &gt;= #{start} and rn &lt;= #{end}
+	</select>
+	<insert id="productReg" parameterType="com.shop.main.product.Product" >
+		insert into product values (product_seq.nextval, #{category_code}, #{product_name}, #{product_price}, #{product_stock}, #{product_img})
+	</insert>
+	<delete id="productDel" parameterType="com.shop.main.product.Product">
+		delete from product where product_number = #{product_number}
+	</delete>
+	<update id="productModify" parameterType="com.shop.main.product.Product">
+		update product set product_name = #{product_name}, product_price = #{product_price}, product_stock = #{product_stock}
+		where product_number = #{product_number}
+	</update>
+</mapper>

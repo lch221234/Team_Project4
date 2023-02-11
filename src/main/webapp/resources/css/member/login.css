@@ -106,6 +106,22 @@
     margin : auto;
 }
 
+/* 로그인 실패시 경고글 */
+.login_warn{
+    margin-top: 30px;
+    text-align: center;
+    color : red;
+}
+
+/* 로그인 비밀번호 이미지 */
+.login_eye_img{
+	width:40px;
+	height:40px;
+	top : 500px;
+	left : 1200px;
+	position: absolute;
+}
+
 /* float 속성 해제 */
 .clearfix{
 	clear: both;

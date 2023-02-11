@@ -28,8 +28,8 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
-			value="jdbc:oracle:thin:@192.168.75.65:1521:xe" />
-		<beans:property name="username" value="lee" />
+			value="jdbc:oracle:thin:@192.168.35.225:1521:xe" />
+		<beans:property name="username" value="shin" />
 		<beans:property name="password" value="1" />
 	</beans:bean>
 
@@ -44,6 +44,10 @@
 		<beans:property name="mapperLocations">
 			<beans:list>
 				<beans:value>classpath:memberMapper.xml</beans:value>
+				<beans:value>classpath:productCategoryMapper.xml</beans:value>
+				<beans:value>classpath:productMapper.xml</beans:value>
+				<beans:value>classpath:companyMapper.xml</beans:value>
+				<beans:value>classpath:VOCMapper.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>
@@ -52,5 +56,17 @@
 		<beans:constructor-arg name="sqlSessionFactory"
 			ref="sqlSessionFactory" />
 	</beans:bean>
-
+	
+	<beans:bean id="so" class="com.shop.main.SiteOption">
+		<beans:property name="vocMsgPerPage" value="5"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="so2" class="com.shop.main.SiteOption">
+		<beans:property name="productPerPage" value="5"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="so3" class="com.shop.main.SiteOption">
+		<beans:property name="memberPerPage" value="5"></beans:property>
+	</beans:bean>
+	
 </beans:beans>
