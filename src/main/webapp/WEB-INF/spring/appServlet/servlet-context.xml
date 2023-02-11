@@ -69,4 +69,13 @@
 		<beans:property name="memberPerPage" value="5"></beans:property>
 	</beans:bean>
 	
+	<beans:bean id="so4" class="com.shop.main.SiteOption"> <!-- 현재 등록이 안돼서 페이지 이동되는 것을 확인하기 위해 value값 줄여둠 -->
+		<beans:property name="productInfoPerPage" value="5"></beans:property>
+	</beans:bean>
+	
+	<beans:bean id="so5" class="com.shop.main.SiteOption">
+		<beans:property name="companyPerPage" value="5"></beans:property>
+	</beans:bean>
+	
+	
 </beans:beans>

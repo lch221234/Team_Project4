@@ -166,7 +166,7 @@ public class MemberDAO {
 		
 		MemberSelector mSel = new MemberSelector(search, start, end);
 		List<Member> members = null;
-		if (type == null || type .equals("all")) {
+		if (type == null || type.equals("all")) {
 			members = ss.getMapper(MemberMapper.class).getMember1(mSel);
 		} else if (type.equals("m_name")) {
 			m.setM_name(search);

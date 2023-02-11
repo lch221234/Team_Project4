@@ -59,7 +59,9 @@ public class AdminController {
 		pDAO.countAllProduct();
 		isFirstReq = false;
 	}
+	pDAO.searchClearPD(req);
 	pDAO.getProduct2(1, req);
+	TokenManager.tokenManager(req);
 	return "admin/productList";
 	}
 	//업체등록 이동
@@ -69,10 +71,15 @@ public class AdminController {
 	}
 	//업체목록 이동
 	@RequestMapping(value = "companyList.go", method = RequestMethod.GET)
-	public String gocompanyList(Company c, HttpServletRequest req){
-//		List<Company> list = CompanyMapper.companylist(); //오류나서 주석
-//		m.addAttribute("list", CompanyMapper.companylist());
-		cDAO.listCompany(c, req);
+	public String goCompanyList(Company c, HttpServletRequest req){
+		if (isFirstReq) {
+			cDAO.countAllCompany();
+			isFirstReq = false;
+		}
+		//mDAO.loginChk(req);
+		cDAO.searchClear(req);
+		cDAO.getCompany1(c, 1, req);
+		TokenManager.tokenManager(req);
 		return "admin/companyList";
 	}
 	//회원관리 이동
@@ -82,7 +89,10 @@ public class AdminController {
 			mDAO.countAllMember();
 			isFirstReq = false;
 		}
+		mDAO.loginChk(req);
+		mDAO.searchClear(req);
 		mDAO.getMember1(m, 1, req);
+		TokenManager.tokenManager(req);
 		return "admin/memberList";
 	}
 	

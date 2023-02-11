@@ -30,7 +30,7 @@
 							<th class="th_column_3">등록 국가</th>
 							<th class="th_column_4">업체 소개</th>
 						</tr>
-						<c:forEach items="${list}" var="list">
+						<c:forEach var="list"  items="${companies}" >  <!-- el명 변경 - 성신 -->
 							<tr>
 								<td>${list.company_number}</td>
 								<td><a href="company.info.go">${list.company_name}</a></td>
@@ -40,14 +40,33 @@
 						</c:forEach>
 					</table>
 				</div>
-				<form action="companyList.go">
-					<select name="">
-						<option value="menu">::보기::</option>
-						<option value="name">이름</option>
-						<option value="country">국가</option>
-					</select> <input type="text" name="search"> <input type="submit"
-						value="검색하기">
-				</form>
+				
+	<!-- 업체목록 페이지 이동 - 성신 -->			
+		<c:if test="${curPage != 1 }">
+			<div id="vocL">
+				<span onclick="CompanyPageChange(${curPage -1});"
+					style="cursor: pointer;">&lt; Prev </span>
+			</div>
+		</c:if>
+		<c:if test="${curPage != allPageCount }">
+			<div id="vocR">
+				<span onclick="CompanyPageChange(${curPage +1});"
+					style="cursor: pointer;">Next &gt;</span>
+			</div>
+		</c:if>
+		
+	<!-- 업체 검색 - 성신 -->
+		<c:if test="${sessionScope.loginMember != null }">
+			<form action="company.search" name="companySearchForm" method="post">
+				<select name="type">
+					<option value="all">::보기::</option>
+					<option value="company_name">이름</option>
+					<option value="country_id">국가</option>
+				</select>
+				<input type="text" name="search" autocomplete="off" maxlength="20" placeholder="업체 검색">
+				<button>검색</button>
+			</form>
+		</c:if>
 			</div>
 		</div>
 	</div>

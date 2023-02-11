@@ -65,17 +65,35 @@ function modifyProduct(){
 }
 $(function(){
 	$(".modifyProduct").click(function(){
-		$("form").attr("action","product.update");
+		$(".infoForm").attr("action","product.update");
 	});
 	$(".deleteProduct").click(function(){
-		$("form").attr("action","product.delete");
+		$(".infoForm").attr("action","product.delete");
 	});
 });
 </script>
 </head>
 <body>
-	<form>
-	<input type="button" value="나가기" onclick="productOut();">
+	<!-- 커서 스타일 추가 - 성신 (스타일은 span만 가능, div는 불가) - 확인하면 지우기(거슬리는 빨간줄 나옴) -->
+	<div> 
+	<input type="button" value="나가기" onclick="productOut();"> 
+	<c:if test="${curPage2 != 1 }">
+		<div>
+			<span onclick="productInfoPageChange(${curPage2 - 1 });" style="cursor: pointer;">&lt;</span>
+		</div>
+	</c:if>
+	<c:if test="${curPage2 != allProductCount }">
+		<div>
+			<span onclick="productInfoPageChange(${curPage2 + 1 });" style="cursor: pointer;">&gt;</span>
+		</div>
+	</c:if>
+	<form action="product.Infosearch" method="POST">
+		<div>
+			<input name="productSearch" autocomplete="off">
+			<button>찾기</button>
+		</div>
+	</form>
+	<form class="infoForm">
 		<table>
 			<tr>
 				<th><input id="allCheck" type="checkBox" name="allCheck"></th>
@@ -85,19 +103,19 @@ $(function(){
 				<th>수량</th>
 				<th>이미지</th>
 			</tr>
-			<c:forEach var="ps" items="${productsss }">
+			<c:forEach var="pss" items="${productssss }">
 				<tr>
 					<td><input name="RowCheck" type="checkBox"
-						value="${ps.product_number }"></td>
+						value="${pss.product_number }"></td>
 					<td><input autocomplete="off" name="product_name"
-						value="${ps.product_name }"></td>
+						value="${pss.product_name }"></td>
 					<td><input autocomplete="off" name="category_code" readonly="readonly"
-						value="${ps.category_code }"></td>
+						value="${pss.category_code }"></td>
 					<td><input autocomplete="off" name="product_price"
-						value="${ps.product_price }"></td>
+						value="${pss.product_price }"></td>
 					<td><input autocomplete="off" name="product_stock"
-						value="${ps.product_stock }"></td>
-					<td><img src="resources/img/product/${ps.product_img }"
+						value="${pss.product_stock }"></td>
+					<td><img src="resources/img/product/${pss.product_img }"
 						style="width: 150px; height: 150px;"><br>
 					<!-- <input name="product_img" type="file"></td> -->
 				</tr>
@@ -106,5 +124,6 @@ $(function(){
 		<button class="modifyProduct" onclick="modifyProduct();">수정</button>
 		<button class="deleteProduct" onclick="deleteProduct();">선택삭제</button> 
 	</form>
+	</div>
 </body>
 </html>
