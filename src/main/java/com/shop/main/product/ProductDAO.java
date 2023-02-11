@@ -1,9 +1,11 @@
 package com.shop.main.product;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Arrays;
+import java.util.Base64;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,10 +55,16 @@ public class ProductDAO {
 			p.setCategory_code(Integer.parseInt(mr.getParameter("p_c_c")));  // 실패 Nullpointerexception
 			p.setProduct_price(Integer.parseInt(mr.getParameter("p_p")));
 			p.setProduct_stock(Integer.parseInt(mr.getParameter("p_s")));
+			File img = mr.getFile("p_i");
+			if (img == null) {
+				// 예외처리
+			}
+			byte[] imgBytes = new byte[(int) img.length()];
+			FileInputStream stream = new FileInputStream(img);
+			stream.read(imgBytes);
+			stream.close();
 			
-			String p_img = mr.getFilesystemName("p_i");
-			String p_img_kor = URLEncoder.encode(p_img, "utf-8").replace("+", "");
-			p.setProduct_img(p_img_kor);
+			p.setProduct_img(imgBytes);
 			
 			ss.getMapper(ProductMapper.class).productReg(p);
 			
