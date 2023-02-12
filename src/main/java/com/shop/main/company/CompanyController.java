@@ -19,6 +19,12 @@ public class CompanyController {
 	@Autowired
 	private MemberDAO mDAO;
 	
+	private boolean isFirstReq;
+	
+	public CompanyController() {
+		isFirstReq = true;
+	}
+	
 	// 업체등록 이동
 	@RequestMapping(value = "companyEnroll.do", method = RequestMethod.GET)
 	public String goCompanyRegistration(Company c, HttpServletRequest req) {
@@ -41,6 +47,10 @@ public class CompanyController {
 	//업체목록 검색
 	@RequestMapping(value = "/company.search", method = RequestMethod.POST)
 	public String companySearch(Company c, HttpServletRequest req) {
+		if (isFirstReq) {
+			cDAO.countAllCompany();
+			isFirstReq = false;
+		}
 		mDAO.loginChk(req);
 		cDAO.searchCompany(req);
 		cDAO.getCompany1(c, 1, req);
