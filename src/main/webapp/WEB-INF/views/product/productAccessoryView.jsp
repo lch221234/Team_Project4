@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쇼핑몰</title>
+<title>악세서리</title>
 <link rel="stylesheet" href="resources/css/main.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
@@ -102,8 +102,13 @@
 				</ul>
 			</div>
 			<div class="content_area">
-				<!-- 메인제품 구역 -->
-				<h1>쇼핑몰 메인 옷 평점 순으로 나열</h1>
+				<!-- 악세서리제품 구역 -->
+				<h1>상품 사진</h1>
+				<h1>상품 이름</h1>
+				<h1>상품 가격</h1>
+				<h1>상품 재고</h1>
+				<h1>구매하기 버튼</h1>
+				<h1>장바구니 버튼</h1>
 			</div>
 			<!-- 하단 영역 -->
 			<div class="bottom_nav">

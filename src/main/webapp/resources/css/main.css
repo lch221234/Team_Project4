@@ -117,7 +117,16 @@
 	font-family: "a";
 	width: 100%;
 	height: 70px;
-	background-color: purple;
+	background-color: #8EC0E4;
+}
+
+.navi_bar_area .menulist li {
+	list-style: none;
+	float: left;
+	padding: 15px 145px 0 45px;
+	font-size : 30px;
+	font-weight: 900;
+	cursor: pointer;
 }
 
 /* 쇼핑몰 메인 제품 목록  */
