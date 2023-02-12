@@ -32,7 +32,8 @@
 				<!--
 				여기 밑에를 img나오게 base64로 출력하게해야함
 				-->
-				<div><img src=" resources/img/product/${ps.product_img }" style="width: 150px; height: 150px;"></div>
+				<div><img src="data:image/jpeg;base64,${ps.product_img_base64}"
+                  style="width: 150px; height: 150px;"></div>
 				<div>-----------------------------</div>
 			</c:forEach>
 		</div>

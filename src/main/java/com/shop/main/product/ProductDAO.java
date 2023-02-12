@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
@@ -107,28 +108,32 @@ public class ProductDAO {
 		}
 		
 		// 검색한 상품 가져오기
-		public void getProduct2(int page, HttpServletRequest req) {
-			req.setAttribute("curPage", page);
-			int productCount = 0;
-			String search = (String) req.getSession().getAttribute("search");
-			if (search == null) {
-				productCount = allProductCount;
-				search = "";
-			} else {
-				ProductSelector pSel2 = new ProductSelector(search, 0, 0);
-				productCount = ss.getMapper(ProductMapper.class).getSearchProductCount(pSel2);
-			}
-			int allPageCount = (int) Math.ceil((double) productCount / so2.getProductPerPage());
-			req.setAttribute("allProductCount", allPageCount);
-			
-			int start = (page - 1) * so2.getProductPerPage() + 1;
-			int end = (page == allPageCount) ? productCount : start + so2.getProductPerPage() - 1;
-			
-			ProductSelector pSel = new ProductSelector(search, start, end);
-			List<Product> products = ss.getMapper(ProductMapper.class).getProduct2(pSel);
-			
-			req.setAttribute("productsss", products);
-		}
+		   public void getProduct2(int page, HttpServletRequest req) {
+		      req.setAttribute("curPage", page);
+		      int productCount = 0;
+		      String search = (String) req.getSession().getAttribute("search");
+		      if (search == null) {
+		         productCount = allProductCount;
+		         search = "";
+		      } else {
+		         ProductSelector pSel2 = new ProductSelector(search, 0, 0);
+		         productCount = ss.getMapper(ProductMapper.class).getSearchProductCount(pSel2);
+		      }
+		      int allPageCount = (int) Math.ceil((double) productCount / so2.getProductPerPage());
+		      req.setAttribute("allProductCount", allPageCount);
+
+		      int start = (page - 1) * so2.getProductPerPage() + 1;
+		      int end = (page == allPageCount) ? productCount : start + so2.getProductPerPage() - 1;
+
+		      ProductSelector pSel = new ProductSelector(search, start, end);
+		      List<Product> products = ss.getMapper(ProductMapper.class).getProduct2(pSel);
+		      List<ProductWrap> productWraps = new ArrayList<ProductWrap>(products.size());
+		      for (Product p : products) {
+		         productWraps.add(new ProductWrap(p));
+		      }
+
+		      req.setAttribute("productsss", productWraps);
+		   }
 		
 	// 상품 수정 삭제 하는곳에서 검색하기
 		public void getSearchProuct(int page, HttpServletRequest req) {
