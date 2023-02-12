@@ -8,7 +8,7 @@
 		values(company_member_seq.nextval, #{company_name},
 		#{country_id},#{company_introduce})
 	</insert>
-	<!-- 업체 목록 -->
+	<!-- 업체 목록
 	<select id="companylist"
 		resultType="com.shop.main.company.Company"
 		parameterType="com.shop.main.company.Company">
@@ -18,5 +18,58 @@
 		company_introduce
 		from company_member
 		order by company_number
+	</select>  -->
+	
+	
+	<!-- 업체목록(말머리검색) - 성신 -->
+	<select id="getAllCompanyCount" resultType="java.lang.Integer">
+		select count(*) from company_member
 	</select>
+	
+	<select id="getSearchCompanyCount"
+		parameterType="com.shop.main.company.CompanySelector"
+		resultType="java.lang.Integer">
+		select count(*) from company_member
+			where (company_name like '%'||#{search}||'%' 
+				or country_id like '%'||#{search}||'%')
+	</select>
+	
+	<select id="getCompany1"
+		parameterType="com.shop.main.company.CompanySelector"
+		resultType="com.shop.main.company.Company">
+		select * from (
+		 select rownum as rn, company_number, company_name, country_id, company_introduce
+		 	from (
+		 	select * from company_member
+		 		where company_name like '%'||#{search}||'%' 
+				or country_id like '%'||#{search}||'%'))
+		where rn &gt; = #{start} and rn &lt; = #{end}
+	</select>
+	
+	<select id="getCompany2"
+		parameterType="com.shop.main.company.CompanySelector"
+		resultType="com.shop.main.company.Company">
+		select * from (
+		 select rownum as rn, company_number, company_name, country_id, company_introduce
+		 	from (
+		 	select * from company_member
+		 		where company_name like '%'||#{search}||'%'))
+		where rn &gt; = #{start} and rn &lt; = #{end}
+	</select>
+	
+	<select id="getCompany3"
+		parameterType="com.shop.main.company.CompanySelector"
+		resultType="com.shop.main.company.Company">
+		select * from (
+		 select rownum as rn, company_number, company_name, country_id, company_introduce
+		 	from (
+		 	select * from company_member
+		 		where country_id like '%'||#{search}||'%'))
+		where rn &gt; = #{start} and rn &lt; = #{end}
+	</select>
+	
+	
+	
+	
+	
 </mapper>

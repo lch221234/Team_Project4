@@ -74,12 +74,18 @@ $(function(){
 </script>
 </head>
 <body>
-	<input type="button" value="나가기" onclick="productOut();">
+	<!-- 커서 스타일 추가 - 성신 (스타일은 span만 가능, div는 불가) - 확인하면 지우기(거슬리는 빨간줄 나옴) -->
+	<div> 
+	<input type="button" value="나가기" onclick="productOut();"> 
 	<c:if test="${curPage2 != 1 }">
-		<div onclick="productInfoPageChange(${curPage2 -1})">&lt;</div>
+		<div>
+			<span onclick="productInfoPageChange(${curPage2 - 1 });" style="cursor: pointer;">&lt;</span>
+		</div>
 	</c:if>
 	<c:if test="${curPage2 != allProductCount }">
-		<div onclick="productInfoPageChange(${curPage2 +1})">&gt;</div>
+		<div>
+			<span onclick="productInfoPageChange(${curPage2 + 1 });" style="cursor: pointer;">&gt;</span>
+		</div>
 	</c:if>
 	<form action="product.Infosearch" method="POST">
 		<div>
@@ -118,5 +124,6 @@ $(function(){
 		<button class="modifyProduct" onclick="modifyProduct();">수정</button>
 		<button class="deleteProduct" onclick="deleteProduct();">선택삭제</button> 
 	</form>
+	</div>
 </body>
 </html>

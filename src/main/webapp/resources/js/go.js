@@ -77,17 +77,7 @@ function productOut(){
 //}
 
 
-/* page */
 
-//상품 page
-function productPageChange(page){
-	location.href = "product.page.change?p=" + page;
-}
-
-//회원목록 page
-function MemberPageChange(page){
-	location.href = "member.page.change?p=" + page;
-}
 
 /* voc */
 
@@ -127,3 +117,26 @@ function vocReplyDelete(no) {
 	}
 }
 
+
+/* page */
+
+//상품 page
+function productPageChange(page){
+	location.href = "product.page.change?p=" + page;
+}
+
+//상품수정 page 추가 - 성신
+function productInfoPageChange(page){
+	location.href = "productInfo.page.change?p=" + page;
+}
+
+
+//회원목록 page
+function MemberPageChange(page){
+	location.href = "member.page.change?p=" + page;
+}
+
+// 업체목록 page
+function CompanyPageChange(page) {
+	location.href = "company.page.change?p=" + page;
+}

@@ -39,7 +39,7 @@
 					or m_grade like '%'||#{search}||'%' 
 					or m_sex like '%'||#{search}||'%')
 					order by m_name) 
-		where rn &gt;= #{start} and rn &lt;= #{end}
+		where rn &gt; = #{start} and rn &lt;= #{end}
 		
 	</select>
 	
@@ -52,7 +52,7 @@
 			select * from s_member 
 				where m_name like '%'||#{search}||'%')
 				order by m_name) 
-		where rn &gt;= #{start} and rn &lt;= #{end}
+		where rn &gt; = #{start} and rn &lt;= #{end}
 		
 	</select>
 	
@@ -65,7 +65,7 @@
 			select * from s_member 
 				where m_address like '%'||#{search}||'%')
 				order by m_name) 
-		where rn &gt;= #{start} and rn &lt;= #{end}
+		where rn &gt; = #{start} and rn &lt;= #{end}
 		
 	</select>
 	
@@ -78,7 +78,7 @@
 			select * from s_member 
 				where m_grade like '%'||#{search}||'%')
 				order by m_name) 
-		where rn &gt;= #{start} and rn &lt;= #{end}
+		where rn &gt; = #{start} and rn &lt;= #{end}
 		
 	</select>
 
@@ -91,7 +91,7 @@
 			select * from s_member 
 				where m_sex like '%'||#{search}||'%')
 				order by m_name) 
-		where rn &gt;= #{start} and rn &lt;= #{end}
+		where rn &gt; = #{start} and rn &lt;= #{end}
 		
 	</select>
 	

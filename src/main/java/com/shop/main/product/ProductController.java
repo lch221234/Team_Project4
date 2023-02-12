@@ -26,7 +26,7 @@ public class ProductController {
 		isFirstReq = true;
 	}
 	
-/* 상품목록*/
+/* 상품목록
 	@RequestMapping(value = "/product.go", method = RequestMethod.GET)
 	public String product(HttpServletRequest req) {
 		if (isFirstReq) {
@@ -39,7 +39,7 @@ public class ProductController {
 		TokenManager.tokenManager(req);
 		return "admin/productList";
 	}
-
+*/
 	//상품등록 이동
 	@RequestMapping(value = "/product.reg", method = RequestMethod.POST)
 	public String regProduct(Product p, HttpServletRequest req) {
@@ -77,7 +77,7 @@ public class ProductController {
 		return "admin/productList";
 	}
 	
-	@RequestMapping(value = "/productInfoPage.change", method = RequestMethod.GET)
+	@RequestMapping(value = "/productInfo.page.change", method = RequestMethod.GET)	// value값 오타 수정 - 성신
 	public String productInfoPageChange(HttpServletRequest req) {
 		mDAO.loginChk(req);
 		int p = Integer.parseInt(req.getParameter("p"));
@@ -93,7 +93,7 @@ public class ProductController {
 			pDAO.countAllProducts();
 			isFirstReq = false;
 		}
-		pDAO.searchClearPD(req);
+		pDAO.searchClearPD2(req);	// 따로 만들어야 수정페이지 나갔다가 다시 수정페이지 돌아왔을 때 검색 초기화가 됨 -> DAO - 성신
 		pDAO.getSearchProuct(1, req);
 		TokenManager.tokenManager(req);
 		return "admin/productInfo";

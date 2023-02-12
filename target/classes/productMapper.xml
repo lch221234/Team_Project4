@@ -4,6 +4,9 @@
 	<select id="getAllProductCount" resultType="java.lang.Integer">
 		select count(*) from product order by product_number
 	</select>
+	<select id="getAllProductCounts" resultType="java.lang.Integer">	<!-- 마이바티스에서도 새로 추가하고 -->
+		select count(*) from product order by product_number
+	</select>
 	<select id="getSearchProductCount" parameterType="com.shop.main.product.ProductSelector" resultType="java.lang.Integer">
 		select count(*) from product where product_name like '%'||#{search}||'%'
 	</select>

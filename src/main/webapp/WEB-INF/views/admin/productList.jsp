@@ -21,7 +21,7 @@
 		<div class="admin_content_subject">
 			<span>상품 목록</span>
 		</div>
-
+		
 		<div>
 			<input type="button" onclick="productInfo();" value="수정|삭제">
 		</div>
@@ -29,20 +29,21 @@
 			<c:forEach var="ps" items="${productsss }">
 				<div>${ps.product_name }</div>
 				<div>${ps.product_price }</div>
-				<div>
-					<img src="data:image/jpeg;base64,${ps.product_img_base64}"
-						style="width: 150px; height: 150px;">
-				</div>
+				<!--
+				여기 밑에를 img나오게 base64로 출력하게해야함
+				-->
+				<div><img src="data:image/jpeg;base64,${ps.product_img_base64}"
+                  style="width: 150px; height: 150px;"></div>
 				<div>-----------------------------</div>
 			</c:forEach>
 		</div>
 		<div>
-			<form action="product.search" method="post">
+			  <form action="product.search" method="post">
 				<input autocomplete="off" name="search">
 				<button>검색</button>
-			</form>
+			</form> 
 		</div>
-		<c:if test="${curPage != 1 }">
+ 		<c:if test="${curPage != 1 }">
 			<div id="vocL">
 				<span onclick="productPageChange(${curPage - 1});"
 					style="cursor: pointer;">&lt; Prev</span>
@@ -54,8 +55,8 @@
 				<span onclick="productPageChange(${curPage + 1});"
 					style="cursor: pointer;">Next &gt;</span>
 			</div>
-		</c:if>
-	</div>
+		</c:if> 
+	</div>  
 	<%@include file="../includes/admin/footer.jsp"%>
 </body>
 </html>
