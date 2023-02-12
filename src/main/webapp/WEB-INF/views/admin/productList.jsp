@@ -29,16 +29,6 @@
 			<c:forEach var="ps" items="${productsss }">
 				<div>${ps.product_name }</div>
 				<div>${ps.product_price }</div>
-				<!--
-				ps.product_img (blob) - 바이너리 데이터
-				현재 이미지 byte[]가 들어가있음.
-				img에 base64를 통해 이미지를 그리는 친구가 존재하는데
-				byte[] -> base64 (string)으로 인코딩해서
-				태그를 추가해서 그려주면 짜잔하고 나옴
-				여기까지 같이 할래 아니면 너가 이따 해볼래? 저기 밑에부분만 바꾸면되는거여?
-				src="" <- 수정됨 그러면 내가 이거 해보려면 base64검색해보고 적용해보면되는건가?
-				String string = Base64.getEncoder().encodeToString(ps.product_img);
-				-->
 				<div>
 					<img src="data:image/jpeg;base64,${ps.product_img_base64}"
 						style="width: 150px; height: 150px;">

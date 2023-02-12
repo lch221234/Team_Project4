@@ -40,8 +40,8 @@
 					<div class="form_section_content">
 						<select name="country_id" class="country_id">
 							<option value="" selected>=== 선택 ===</option><!-- none 대신 공백으로 변경 (02/02) 찬호 -->
-							<option value="01">국내</option>
-							<option value="02">국외</option>
+							<option value="국내">국내</option>
+							<option value="국외">국외</option>
 						</select>
 					</div>
 				</div>
