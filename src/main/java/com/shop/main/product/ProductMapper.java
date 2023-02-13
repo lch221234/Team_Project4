@@ -15,6 +15,7 @@ public interface ProductMapper {
 	public abstract List<Product> getShoes();
 	public abstract List<Product> getCap();
 	public abstract List<Product> getAccessory();
+	public abstract List<Product> getAllCategories();
 	
 
 }

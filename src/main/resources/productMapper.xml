@@ -41,4 +41,7 @@
 	<select id="getAccessory" resultType="com.shop.main.product.Product">
 		select * from product where category_code = 5
 	</select>
+	<select id="getAllCategories" resultType="com.shop.main.product.Product">
+		select * from product
+	</select>
 </mapper>

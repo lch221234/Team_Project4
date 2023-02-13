@@ -31,7 +31,7 @@ public class productlistController {
 	/*전체상품*/
 	@RequestMapping(value = "productAll.go", method = RequestMethod.GET)
 	public String productAllGet(HttpServletRequest req) {
-		pDAO.getProduct2(1, req);
+		pDAO.getAllCategories(req);
 		return "/product/productAll";
 	}
 	

@@ -195,6 +195,16 @@ public class ProductDAO {
 //		}
 		
 		// 카테고리별 상품 가져오기
+		public void getAllCategories(HttpServletRequest req) {
+			List<Product> products = ss.getMapper(ProductMapper.class).getAllCategories();
+			List<ProductWrap> productWraps = new ArrayList<ProductWrap>(products.size());
+			for (Product p : products) {
+				productWraps.add(new ProductWrap(p));
+			}
+			req.setAttribute("getAll", productWraps);
+			
+		}
+		
 		public void getTop(HttpServletRequest req) {
 			try {
 				List<Product> products = ss.getMapper(ProductMapper.class).getTop();

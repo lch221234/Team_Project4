@@ -104,15 +104,14 @@
 			<div class="content_area">
 				<!-- 하의제품 구역 -->
 				<h1><a href="productBottom.view">상품 사진</a></h1>
-				<div class="flex-container" style="display: flex;">
-					<div class="flex-container wrap" style="flex-wrap: wrap;">
+				<div class="flex-container space-between" style="display: flex; justify-content: space-between; flex-wrap: wrap;"  >
 						<c:forEach var="g_b" items="${getBottom }">
 							<div><img src="data:image/jpeg;base64,${g_b.product_img_base64}"
-						style="width: 150px; height: 150px;"></div>
-							<div>${g_b.product_name }</div>
-							<div>${g_b.product_price }</div>
+						style="width: 230px; height: 230px;"><br>
+						${g_b.product_name }<br>
+						${g_b.product_price }
+						</div><br>
 						</c:forEach>
-					</div>
 				</div>
 			</div>
 			<!-- 하단 영역 -->
