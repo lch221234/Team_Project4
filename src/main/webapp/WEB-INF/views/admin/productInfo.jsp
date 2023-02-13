@@ -100,6 +100,7 @@ $(function(){
 				<th>이름</th>
 				<th>카테고리 코드</th>
 				<th>가격</th>
+				<th>회사넘버</th>
 				<th>수량</th>
 				<th>이미지</th>
 			</tr>
@@ -113,9 +114,11 @@ $(function(){
 						value="${pss.category_code }"></td>
 					<td><input autocomplete="off" name="product_price"
 						value="${pss.product_price }"></td>
+					<td><input autocomplete="off" name="company_number"
+						value="${pss.company_number }"></td>
 					<td><input autocomplete="off" name="product_stock"
 						value="${pss.product_stock }"></td>
-					<td><img src="resources/img/product/${pss.product_img }"
+					<td><img src="data:image/jpeg;base64,${pss.product_img_base64}"
 						style="width: 150px; height: 150px;"><br>
 					<!-- <input name="product_img" type="file"></td> -->
 				</tr>

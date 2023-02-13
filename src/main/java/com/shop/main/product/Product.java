@@ -7,6 +7,7 @@ public class Product {
 	private BigDecimal category_code;
 	private String product_name;
 	private BigDecimal product_price;
+	private BigDecimal company_number;
 	private BigDecimal product_stock;
 	private byte[] product_img;
 	
@@ -15,12 +16,13 @@ public class Product {
 	}
 
 	public Product(BigDecimal product_number, BigDecimal category_code, String product_name, BigDecimal product_price,
-			BigDecimal product_stock, byte[] product_img) {
+			BigDecimal company_number, BigDecimal product_stock, byte[] product_img) {
 		super();
 		this.product_number = product_number;
 		this.category_code = category_code;
 		this.product_name = product_name;
 		this.product_price = product_price;
+		this.company_number = company_number;
 		this.product_stock = product_stock;
 		this.product_img = product_img;
 	}
@@ -55,6 +57,14 @@ public class Product {
 
 	public void setProduct_price(BigDecimal product_price) {
 		this.product_price = product_price;
+	}
+
+	public BigDecimal getCompany_number() {
+		return company_number;
+	}
+
+	public void setCompany_number(BigDecimal company_number) {
+		this.company_number = company_number;
 	}
 
 	public BigDecimal getProduct_stock() {

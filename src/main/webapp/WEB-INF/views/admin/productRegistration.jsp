@@ -50,6 +50,9 @@
 					<input class="product_price" name="p_p" autocomplete="off" placeholder="상품 가격"> 
 				</div>
 				<div>
+					<input class="company_number" name="c_n" autocomplete="off" placeholder="회사 넘버"> 
+				</div>
+				<div>
 					<input class="product_stock" name="p_s" autocomplete="off" placeholder="상품 재고"> 
 				</div>
 				<div class = product_imgBox>

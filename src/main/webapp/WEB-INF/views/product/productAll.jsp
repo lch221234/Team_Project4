@@ -104,8 +104,15 @@
 			<div class="content_area">
 				<!-- 메인제품 구역 -->
 				<h1><a href="productAll.view">상품 사진</a></h1>
-				<h1>상품 이름</h1>
-				<h1>상품 가격</h1>
+				<div class="flex-container space-between" style="display: flex; justify-content: space-between" >
+						<c:forEach var="p_a" items="${productsss }">
+							<div><img src="data:image/jpeg;base64,${p_a.product_img_base64}"
+						style="width: 150px; height: 150px;"><br>
+						${p_a.product_name }<br>
+						${p_a.product_price }
+						</div><br>
+						</c:forEach>
+				</div>
 			</div>
 			<!-- 하단 영역 -->
 			<div class="bottom_nav">

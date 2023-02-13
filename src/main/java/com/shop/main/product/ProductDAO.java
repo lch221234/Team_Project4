@@ -60,6 +60,7 @@ public class ProductDAO {
 			p.setProduct_name(mr.getParameter("p_n")); 
 			p.setCategory_code(new BigDecimal(mr.getParameter("p_c_c")));  // 실패 Nullpointerexception
 			p.setProduct_price(new BigDecimal(mr.getParameter("p_p")));
+			p.setCompany_number(new BigDecimal(mr.getParameter("c_n")));
 			p.setProduct_stock(new BigDecimal(mr.getParameter("p_s")));
 			File img = mr.getFile("p_i");
 			if (img == null) {
@@ -154,7 +155,11 @@ public class ProductDAO {
 			int end = (page == allProductCount) ? productCount : start + so4.getProductInfoPerPage() -1;
 			ProductSelector pSel = new ProductSelector(search, start, end);
 			List<Product> products = ss.getMapper(ProductMapper.class).getProduct2(pSel);
-			req.setAttribute("productssss", products);
+			List<ProductWrap> productWrapss = new ArrayList<ProductWrap>(products.size());
+			for (Product p : products) {
+				productWrapss.add(new ProductWrap(p));
+			}
+			req.setAttribute("productssss", productWrapss);
 		}
 		
 //		// 상품 삭제
@@ -188,6 +193,77 @@ public class ProductDAO {
 //				e.printStackTrace();
 //			}
 //		}
+		
+		// 카테고리별 상품 가져오기
+		public void getTop(HttpServletRequest req) {
+			try {
+				List<Product> products = ss.getMapper(ProductMapper.class).getTop();
+				List<ProductWrap> productWraps = new ArrayList<ProductWrap>(products.size());
+			      for (Product p : products) {
+			         productWraps.add(new ProductWrap(p));
+			      }
+
+			      req.setAttribute("getTop", productWraps);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public void getBottom(HttpServletRequest req) {
+			try {
+				List<Product> products = ss.getMapper(ProductMapper.class).getBottom();
+				List<ProductWrap> productWraps = new ArrayList<ProductWrap>(products.size());
+			      for (Product p : products) {
+			         productWraps.add(new ProductWrap(p));
+			      }
+
+			      req.setAttribute("getBottom", productWraps);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public void getShoes(HttpServletRequest req) {
+			try {
+				List<Product> products = ss.getMapper(ProductMapper.class).getShoes();
+				List<ProductWrap> productWraps = new ArrayList<ProductWrap>(products.size());
+			      for (Product p : products) {
+			         productWraps.add(new ProductWrap(p));
+			      }
+
+			      req.setAttribute("getShoes", productWraps);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public void getCap(HttpServletRequest req) {
+			try {
+				List<Product> products = ss.getMapper(ProductMapper.class).getCap();
+				List<ProductWrap> productWraps = new ArrayList<ProductWrap>(products.size());
+			      for (Product p : products) {
+			         productWraps.add(new ProductWrap(p));
+			      }
+
+			      req.setAttribute("getCap", productWraps);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		public void getAccessory(HttpServletRequest req) {
+			try {
+				List<Product> products = ss.getMapper(ProductMapper.class).getAccessory();
+				List<ProductWrap> productWraps = new ArrayList<ProductWrap>(products.size());
+			      for (Product p : products) {
+			         productWraps.add(new ProductWrap(p));
+			      }
+
+			      req.setAttribute("getAccessory", productWraps);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 	}
 	

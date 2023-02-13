@@ -7,7 +7,7 @@ public class ProductWrap extends Product {
 
    public ProductWrap(Product product) {
       super(product.getProduct_number(), product.getCategory_code(), product.getProduct_name(),
-            product.getProduct_price(), product.getProduct_stock(), null);
+            product.getProduct_price(), product.getCompany_number(), product.getProduct_stock(), null);
 
       byte[] imgBytes = product.getProduct_img();
       if (imgBytes == null) {

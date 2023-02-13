@@ -12,12 +12,12 @@
 	</select>
 	<select id="getProduct2" parameterType="com.shop.main.product.ProductSelector" resultType="com.shop.main.product.Product">
 		select * from (
-		select rownum as rn, product_number, product_stock, category_code, product_name, product_price, product_img 
+		select rownum as rn, product_number, product_stock, category_code, product_name, product_price, company_number, product_img 
 		from (select * from product where product_name like '%'||#{search}||'%'))
 		where rn &gt;= #{start} and rn &lt;= #{end}
 	</select>
 	<insert id="productReg" parameterType="com.shop.main.product.Product" >
-		insert into product values (product_seq.nextval, #{category_code}, #{product_name}, #{product_price}, #{product_stock}, #{product_img})
+		insert into product values (product_seq.nextval, #{category_code}, #{product_name}, #{product_price}, #{company_number}, #{product_stock}, #{product_img})
 	</insert>
 	<delete id="productDel" parameterType="com.shop.main.product.Product">
 		delete from product where product_number = #{product_number}
@@ -26,4 +26,19 @@
 		update product set product_name = #{product_name}, product_price = #{product_price}, product_stock = #{product_stock}
 		where product_number = #{product_number}
 	</update>
+	<select id="getTop" resultType="com.shop.main.product.Product">
+		select * from product where category_code = 1
+	</select>
+	<select id="getBottom" resultType="com.shop.main.product.Product">
+		select * from product where category_code = 2
+	</select>
+	<select id="getShoes" resultType="com.shop.main.product.Product">
+		select * from product where category_code = 3
+	</select>
+	<select id="getCap" resultType="com.shop.main.product.Product">
+		select * from product where category_code = 4
+	</select>
+	<select id="getAccessory" resultType="com.shop.main.product.Product">
+		select * from product where category_code = 5
+	</select>
 </mapper>

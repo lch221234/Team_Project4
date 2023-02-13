@@ -23,12 +23,14 @@ create table product_category(
 )
 
 create sequence product_category_seq;
-insert into product_category values(product_category_seq.nextval, 'NEW ARRIVAL');
 insert into product_category values(product_category_seq.nextval, 'TOP');
-insert into product_category values(product_category_seq.nextval, 'OUTER');
-insert into product_category values(product_category_seq.nextval, 'PANTS');
+insert into product_category values(product_category_seq.nextval, 'BOTTOM');
+insert into product_category values(product_category_seq.nextval, 'SHOES');
+insert into product_category values(product_category_seq.nextval, 'CAP');
+insert into product_category values(product_category_seq.nextval, 'ACCESSORY');
 drop sequence product_category_seq;
 select * from product_category order by category_code;
+select * from product_category where category_code=1;
 drop table product_category cascade constraint purge;
 ==========================================================================================================================
 -- 상품
@@ -38,12 +40,14 @@ create table product(
 	constraint fk_product foreign key(category_code) references product_category(category_code) on delete cascade,
 	product_name varchar2(50 char) not null,
 	product_price number(9) not null,
+	company_number number(5) not null,
+	constraint fk_product1 foreign key(company_number) references company_member(company_number) on delete cascade,
 	product_stock number(5) not null, -- 재고
 	product_img blob not null -- img 추가 blob로 변경
 )
 
 create sequence product_seq;
---insert into product values(product_seq.nextval,1,'나이키',132456,123,'NikeGX.png');
+--insert into product values(product_seq.nextval,5,'나이키',132456,1,123);
 --insert into product values(product_seq.nextval,1,'우주',123456,23,'space.jpg');
 --insert into product values(product_seq.nextval,1,'라떼',12345,321,'latte.png');
 --insert into product values(product_seq.nextval,1,'커피',1234431,333,'coffee.png');

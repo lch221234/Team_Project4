@@ -13,9 +13,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shop.main.TokenManager;
 import com.shop.main.member.MemberDAO;
+import com.shop.main.product.Product;
+import com.shop.main.product.ProductDAO;
 
 @Controller
 public class productlistController {
+	
+	@Autowired
+	private ProductDAO pDAO;
 	
 	private boolean isFirstReq;
 	
@@ -25,37 +30,43 @@ public class productlistController {
 	
 	/*전체상품*/
 	@RequestMapping(value = "productAll.go", method = RequestMethod.GET)
-	public String productAllGet(Locale locale, Model model) {
+	public String productAllGet(HttpServletRequest req) {
+		pDAO.getProduct2(1, req);
 		return "/product/productAll";
 	}
 	
 	/*상의상품*/
 	@RequestMapping(value = "productTop.go", method = RequestMethod.GET)
-	public String productTopGet(Locale locale, Model model) {
+	public String productTopGet(HttpServletRequest req) {
+		pDAO.getTop(req);
 		return "/product/productTop";
 	}
 	
 	/*하의상품*/
 	@RequestMapping(value = "productBottom.go", method = RequestMethod.GET)
-	public String productBottomGet(Locale locale, Model model) {
+	public String productBottomGet(HttpServletRequest req) {
+		pDAO.getBottom(req);
 		return "/product/productBottom";
 	}
 	
 	/*신발상품*/
 	@RequestMapping(value = "productShoes.go", method = RequestMethod.GET)
-	public String productShoesGet(Locale locale, Model model) {
+	public String productShoesGet(HttpServletRequest req) {
+		pDAO.getShoes(req);
 		return "/product/productShoes";
 	}
 	
 	/*모자상품*/
 	@RequestMapping(value = "productHeadwear.go", method = RequestMethod.GET)
-	public String productHeadwearGet(Locale locale, Model model) {
+	public String productHeadwearGet(HttpServletRequest req) {
+		pDAO.getCap(req);
 		return "/product/productHeadwear";
 	}
 	
 	/*악세서리상품*/
 	@RequestMapping(value = "productAccessory.go", method = RequestMethod.GET)
-	public String productAccessoryGet(Locale locale, Model model) {
+	public String productAccessoryGet(HttpServletRequest req) {
+		pDAO.getAccessory(req);
 		return "/product/productAccessory";
 	}
 	
@@ -79,7 +90,8 @@ public class productlistController {
 	
 	/*신발상품 상세보기*/
 	@RequestMapping(value = "productShoes.view", method = RequestMethod.GET)
-	public String productShoesViewGet(Locale locale, Model model) {
+	public String productShoesViewGet(Product p, HttpServletRequest req) {
+		
 		return "/product/productShoesView";
 	}
 	

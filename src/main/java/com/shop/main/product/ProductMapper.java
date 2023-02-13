@@ -10,6 +10,11 @@ public interface ProductMapper {
 	public abstract int getSearchProductCount(ProductSelector pSel);
 	public abstract int productDel(Product p);
 	public abstract int productModify(Product p);
+	public abstract List<Product> getTop();
+	public abstract List<Product> getBottom();
+	public abstract List<Product> getShoes();
+	public abstract List<Product> getCap();
+	public abstract List<Product> getAccessory();
 	
 
 }

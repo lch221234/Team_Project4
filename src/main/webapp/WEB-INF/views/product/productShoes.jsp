@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,8 +104,16 @@
 			<div class="content_area">
 				<!-- 신발제품 구역 -->
 				<h1><a href="productShoes.view">상품 사진</a></h1>
-				<h1>상품 이름</h1>
-				<h1>상품 가격</h1>
+				<div class="flex-container" style="display: flex;">
+					<div class="flex-container wrap" style="flex-wrap: wrap;">
+						<c:forEach var="gs" items="${getShoes }">
+							<div><img src="data:image/jpeg;base64,${gs.product_img_base64}"
+						style="width: 150px; height: 150px;"></div>
+							<div>${gs.product_name }</div>
+							<div>${gs.product_price }</div>
+						</c:forEach>
+					</div>
+				</div>
 			</div>
 			<!-- 하단 영역 -->
 			<div class="bottom_nav">
