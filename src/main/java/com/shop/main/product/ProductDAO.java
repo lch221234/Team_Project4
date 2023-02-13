@@ -154,7 +154,11 @@ public class ProductDAO {
 			int end = (page == allProductCount) ? productCount : start + so4.getProductInfoPerPage() -1;
 			ProductSelector pSel = new ProductSelector(search, start, end);
 			List<Product> products = ss.getMapper(ProductMapper.class).getProduct2(pSel);
-			req.setAttribute("productssss", products);
+			List<ProductWrap> productWrapss = new ArrayList<ProductWrap>(products.size());
+	         for (Product p : products) {
+	            productWrapss.add(new ProductWrap(p));
+	         }
+	         req.setAttribute("productssss", productWrapss);
 		}
 		
 //		// 상품 삭제

@@ -115,7 +115,7 @@ $(function(){
 						value="${pss.product_price }"></td>
 					<td><input autocomplete="off" name="product_stock"
 						value="${pss.product_stock }"></td>
-					<td><img src="resources/img/product/${pss.product_img }"
+					<td><img src="data:image/jpeg;base64,${pss.product_img_base64}"
 						style="width: 150px; height: 150px;"><br>
 					<!-- <input name="product_img" type="file"></td> -->
 				</tr>
