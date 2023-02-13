@@ -118,7 +118,7 @@
 						<img src="resources/img/Logo.png">
 					</div>
 					<div class="bottom_right">
-						(주) H2mall 대표이사 : Team4조 <br> 사업자등록번호 : 210-81-65986 <br>
+						(주) T1mall 대표이사 : Team1조 <br> 사업자등록번호 : 210-81-65986 <br>
 						대표전화 : 1644-7583(발신자 부담전화) <br> 평일 AM 09:30 ~ PM 17:00<br>
 						점심시간 전화상담가능 · 주말&공휴일 휴무 · 배송문의 2시 이후<br> <br>
 						COPYRIGHT(C) <strong>https://github.com/lch221234/Team_Project4</strong>

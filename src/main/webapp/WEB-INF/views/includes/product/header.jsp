@@ -1,34 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>쇼핑몰</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="resources/css/main.css">
-<script type="text/javascript" src="resources/js/jQuery.js"></script>
-<script type="text/javascript" src="resources/js/go.js"></script>
+<title>Insert title here</title>
 </head>
 <body>
-	<script>
-		window.onscroll = function() {
-			scrollFunction()
-		};
-
-		function scrollFunction() {
-			if (document.body.scrollTop > 250
-					|| document.documentElement.scrollTop > 250) {
-				document.getElementById("navi_scorll_area").style.top = "0";
-			} else {
-				document.getElementById("navi_scorll_area").style.top = "-70px";
-			}
-		}
-	</script>
-
-	<div class="wrapper">
+<div class="wrapper">
 		<!-- 화면 전체 div -->
 		<div class="wrap">
 			<!-- 화면  -->
@@ -106,64 +85,5 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
-			<div class="navi_bar_area">
-				<!--  메뉴네비 -->
-				<ul class="menulist">
-					<li><a href="productAll.go">전체상품</a></li>
-					<li><a href="productTop.go">상의</a></li>
-					<li><a href="productBottom.go">하의</a></li>
-					<li><a href="productShoes.go">신발</a></li>
-					<li><a href="productHeadwear.go">모자</a></li>
-					<li><a href="productAccessory.go">악세서리</a></li>
-				</ul>
-			</div>
-			<div class="navi_scorll_area" id="navi_scorll_area">
-				<!--  메뉴네비 -->
-				<a href="productAll.go">전체상품</a> <a href="productTop.go">상의</a> <a
-					href="productBottom.go">하의</a> <a href="productShoes.go">신발</a> <a
-					href="productHeadwear.go">모자</a> <a href="productAccessory.go">악세서리</a>
-			</div>
-			<div class="content_area">
-				<!-- 메인제품 구역 -->
-				<h1>쇼핑몰 메인 옷 평점 순으로 나열</h1>
-			</div>
-			<!-- 하단 영역 -->
-			<div class="bottom_nav">
-				<div class="bottom_nav_container">
-					<ul>
-						<li>회사소개</li>
-						<span class="line">|</span>
-						<li>이용약관</li>
-						<span class="line">|</span>
-						<li><a href="voc.go">고객센터</a></li>
-						<span class="line">|</span>
-						<li>광고문의</li>
-						<span class="line">|</span>
-						<li>채용정보</li>
-						<span class="line">|</span>
-					</ul>
-				</div>
-			</div>
-			<!-- class="bottom_nav" -->
-
-			<div class="bottom">
-				<div class="bottom_container">
-
-					<div class="bottom_left">
-						<img src="resources/img/Logo.png">
-					</div>
-					<div class="bottom_right">
-						(주) T1mall 대표이사 : Team1조 <br> 사업자등록번호 : 210-81-65986 <br>
-						대표전화 : 1644-7583(발신자 부담전화) <br> 평일 AM 09:30 ~ PM 17:00<br>
-						점심시간 전화상담가능 · 주말&공휴일 휴무 · 배송문의 2시 이후<br> <br>
-						COPYRIGHT(C) <strong>https://github.com/lch221234/Team_Project4</strong>
-						ALL RIGHTS RESERVED.
-					</div>
-					<div class="clearfix"></div>
-				</div>
-			</div>
-			<!-- class="bottom" -->
-		</div>
-	</div>
 </body>
 </html>
