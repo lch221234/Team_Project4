@@ -120,6 +120,30 @@
 	background-color: #8EC0E4;
 }
 
+.navi_scorll_area {
+	font-family: "a";
+	position : fixed;
+	top : -90px;
+	width: 100%;
+	transition: top 0.3s;
+	background-color: #8EC0E4;
+}
+
+.navi_scorll_area a {
+	font-family: "a";
+	list-style: none;
+	float: left;
+	padding: 15px 145px 0 45px;
+	font-size : 30px;
+	font-weight: 900;
+	cursor: pointer;
+}
+
+.navi_scorll_area a:hover{
+	background-color: #D4F4FA;
+	color : red;
+}
+
 .navi_bar_area .menulist li {
 	list-style: none;
 	float: left;
