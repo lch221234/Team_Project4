@@ -51,39 +51,45 @@
 	height: 100%;
 	float: left;
 }
-.search_wrap{
+
+.search_wrap {
 	width: 100%;
-    height: 100%;
+	height: 100%;
 }
-#searchForm{
+
+#searchForm {
 	width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.search_input{
-    display: flex;
-    height: 30%;
-    width: 80%;	
+
+.search_input {
+	display: flex;
+	height: 30%;
+	width: 80%;
 }
-.search_input select{
+
+.search_input select {
 	width: 20%;
-    text-align: center;
-    font-size: 15px;	
+	text-align: center;
+	font-size: 15px;
 }
-.search_input input{
-    margin-left: 10px;
-    width: 57%;	
-    font-size: 18px;
-    padding-left: 2%;
-}
-.search_btn{
+
+.search_input input {
 	margin-left: 10px;
-    width: 17%;
-    border-radius: 14px;
-    font-size: 17px;
-    font-weight: 600;	
+	width: 57%;
+	font-size: 18px;
+	padding-left: 2%;
+}
+
+.search_btn {
+	margin-left: 10px;
+	width: 17%;
+	border-radius: 14px;
+	font-size: 17px;
+	font-weight: 600;
 }
 /* 로그인 버튼 영역 */
 .login_area {
@@ -122,11 +128,12 @@
 
 .navi_scorll_area {
 	font-family: "a";
-	position : fixed;
-	top : -90px;
-	width: 100%;
-	transition: top 0.3s;
+	position: fixed;
+	top: -90px;
+	width: auto;
+	height: 70px; transition : top 0.3s;
 	background-color: #8EC0E4;
+	transition: top 0.3s;
 }
 
 .navi_scorll_area a {
@@ -134,21 +141,21 @@
 	list-style: none;
 	float: left;
 	padding: 15px 145px 0 45px;
-	font-size : 30px;
+	font-size: 30px;
 	font-weight: 900;
 	cursor: pointer;
 }
 
-.navi_scorll_area a:hover{
+.navi_scorll_area a:hover {
 	background-color: #D4F4FA;
-	color : red;
+	color: red;
 }
 
 .navi_bar_area .menulist li {
 	list-style: none;
 	float: left;
 	padding: 15px 145px 0 45px;
-	font-size : 30px;
+	font-size: 30px;
 	font-weight: 900;
 	cursor: pointer;
 }
@@ -157,7 +164,7 @@
 .content_area {
 	font-family: "a";
 	width: 100%;
-	height: 1000px;
+	height: 1800px;
 }
 
 /* 홈페이지 하단 목록  */
@@ -307,6 +314,52 @@ a {
 	margin-left: 150px;
 	margin-top: 30px;
 	line-height: 200%
+}
+
+.buy_btn {
+	font-weight: bold;
+	text-decoration: none;
+	font-family: "a";
+	margin: 30px 0px 30px 0px;
+	-webkit-box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 4px 0px;
+	background: linear-gradient(#b6f3f4, #87e9ec);
+	text-indent: 0px;
+	line-height: 0px;
+	border-radius: 3px;
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 30px;
+	color: #4b8587;
+	width: 100%;
+	height: 300px;
+	padding: 13px;
+	text-shadow: #adfffe 0px 1px 0px;
+	border-color: #98d7ce;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.buy_btn:active {
+	box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 0 0px;
+	o-box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 0 0px;
+	-moz-box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 0 0px;
+	-webkit-box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 0 0px;
+	position: relative;
+	top: 4px
+}
+
+.buy_btn:hover {
+	background: #87e9ec;
+	background: -o-linear-gradient(90deg, #87e9ec, #b6f3f4);
+	background: -moz-linear-gradient(center top, #87e9ec 5%, #b6f3f4 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #87e9ec
+		), color-stop(1, #b6f3f4));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87e9ec',
+		endColorstr='#b6f3f4');
+	background: -webkit-linear-gradient(#87e9ec, #b6f3f4);
+	background: -ms-linear-gradient(#87e9ec, #b6f3f4);
+	background: linear-gradient(#87e9ec, #b6f3f4);
 }
 
 /* float 속성 해제 */

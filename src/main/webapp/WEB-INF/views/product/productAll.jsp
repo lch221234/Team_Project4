@@ -84,7 +84,7 @@
 			</div>
 		</div>
 		<c:if test="${sessionScope.loginMember != null }">
-			<button onclick="productBuy();">BUY NOW</button>
+			<button onclick="productBuy();" class="buy_btn">BUY NOW</button>
 			<b>${r }</b>
 		</c:if>
 	</form>
