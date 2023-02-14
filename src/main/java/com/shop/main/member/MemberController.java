@@ -80,7 +80,6 @@ public class MemberController {
 		mDAO.loginChk(req);
 		mDAO.divideAddress(req);
 		mDAO.update(m, req);
-		mDAO.logOut(req);  // 로그아웃 안하면 main.jsp에 수정 전 정보로 표시돼서  다시 로그인 하도록 자동 로그아웃 설정했습니다  --성현
 		return "main";
 	}
 	
