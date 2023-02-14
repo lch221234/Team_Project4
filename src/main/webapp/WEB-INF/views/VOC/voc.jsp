@@ -96,7 +96,7 @@
 								<fmt:formatDate value="${vm.v_when }" type="both"
 									dateStyle="long" timeStyle="short" />
 							</div>
-							<div>${vm.v_txt }</div>
+							<div class="vmtxt">${vm.v_txt }</div>
 
 							<!-- 댓글 -->
 							<div id="vmReplyArea">

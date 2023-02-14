@@ -87,7 +87,8 @@ $(function(){
 		<!-- 업체수정 목록 - 성신 -->
 
 		<div>
-			<input type="button" value="나가기" onclick="companyOut();">
+			<input type="button" class="out_btn" value="나가기"
+				onclick="companyOut();">
 			<c:if test="${curPage6  != 1 }">
 				<div>
 					<span onclick="companyInfoPageChange(${curPage6 - 1 });"
@@ -102,41 +103,42 @@ $(function(){
 			</c:if>
 			<form action="company.Infosearch" method="POST">
 				<div>
-					<input name="companyInfoSearch" autocomplete="off">
-					<button>검색</button>
+					<input name="companyInfoSearch" class="companyInfoSearch"
+						autocomplete="off">
+					<button class="search_btn">검색</button>
 				</div>
-				
+
 			</form>
-			
-				<!-- 넘버 이름 국가 소개 -->
-				<form class="infoForm">
-					<table>
+
+			<!-- 넘버 이름 국가 소개 -->
+			<form class="infoForm">
+				<table class="company_table">
+					<tr>
+						<th><input id="allCheck" type="checkBox" name="allCheck"></th>
+						<th>업체명</th>
+						<th>국가</th>
+						<th>업체소개</th>
+					</tr>
+					<c:forEach var="ci" items="${companyInfos }">
 						<tr>
-							<th><input id="allCheck" type="checkBox" name="allCheck"></th>
-							<th>업체명</th>
-							<th>국가</th>
-							<th>업체소개</th>
+
+							<td><input name="RowCheck" type="checkBox"
+								value="${ci.company_number }"></td>
+							<td><input autocomplete="off" name="company_name"
+								class="company_name" value="${ci.company_name }"></td>
+							<td><input autocomplete="off" name="country_id"
+								class="country_id" value="${ci.country_id }"></td>
+							<td><input autocomplete="off" name="company_introduce"
+								class="company_introduce" value="${ci.company_introduce }"></td>
 						</tr>
-						<c:forEach var="ci" items="${companyInfos }">
-							<tr>
-							
-								<td><input name="RowCheck" type="checkBox"
-									value="${ci.company_number }"></td>
-								<td><input autocomplete="off" name="company_name"
-									value="${ci.company_name }"></td>
-								<td><input autocomplete="off" name="country_id"
-									value="${ci.country_id }"></td>
-								<td><input autocomplete="off" name="company_introduce"
-									value="${ci.company_introduce }"></td>
-							</tr>
-						</c:forEach>	
-					</table>
-					<button class="modifyCompany" onclick="modifyCompany();">수정</button>
-					<button class="deleteCompany" onclick="deleteCompany();">선택삭제</button>
-				</form>
-			</div>
+					</c:forEach>
+				</table>
+				<button class="modifyCompany" onclick="modifyCompany();">수정</button>
+				<button class="deleteCompany" onclick="deleteCompany();">선택삭제</button>
+			</form>
 		</div>
-		
-		<%@include file="../includes/admin/footer.jsp"%>
+	</div>
+
+	<%@include file="../includes/admin/footer.jsp"%>
 </body>
 </html>
