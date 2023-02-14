@@ -11,21 +11,21 @@
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript">
-function productBuy(){
-	var productArr = new Array();
-	var list = $("input[name='product_price']");
-	for (var i = 0; i < list.length; i++) {
-		if (list[i].checked) {
-			productArr.push(list[i].value);
+	function productBuy() {
+		var productArr = new Array();
+		var list = $("input[name='product_price']");
+		for (var i = 0; i < list.length; i++) {
+			if (list[i].checked) {
+				productArr.push(list[i].value);
+			}
+		}
+		if (productArr.length == 0) {
+			alert('선택된 상품이 없습니다');
+			return false;
+		} else {
+			var chk = confirm("정말 구매하시겠습니까?");
 		}
 	}
-	if (productArr.length == 0) {
-		alert('선택된 상품이 없습니다');
-		return false;
-	} else {
-		var chk = confirm("정말 구매하시겠습니까?");
-	}
-}
 </script>
 </head>
 <body>
@@ -56,33 +56,36 @@ function productBuy(){
 		</ul>
 	</div>
 	<form action="productCap.Buy">
-	<div class="content_area">
-		<!-- 메인제품 구역 -->
-		<div class="flex-container space-between"
-			style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-			<c:forEach var="g_c" items="${getCap }">
+		<div class="content_area">
+			<!-- 메인제품 구역 -->
+			<div class="flex-container space-between"
+				style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+				<c:forEach var="g_c" items="${getCap }">
+					<div>
+						<img src="data:image/jpeg;base64,${g_c.product_img_base64}"
+							style="width: 230px; height: 230px;"><br>
+						${g_c.product_name } <input name="product_price"
+							value="${g_c.product_price }" type="checkbox">
+						<div>
+							<input readonly="readonly" value="${g_c.product_price }"
+								style="border: none; outline: none;">
+						</div>
+					</div>
+					<br>
+				</c:forEach>
 				<div>
-					<img src="data:image/jpeg;base64,${g_c.product_img_base64}"
-						style="width: 230px; height: 230px;"><br>
-					${g_c.product_name }
-					<input name="product_price" value="${g_c.product_price }" type="checkbox">
-					<div><input readonly="readonly" value="${g_c.product_price }" style="border:none; outline: none; "></div>
-				</div>
-				<br>
-			</c:forEach>
-			<div>
 					<input name="getId" type="hidden"
 						value="${sessionScope.loginMember.m_id }"> <input
 						name="have_money" type="hidden"
 						value="${sessionScope.loginMember.m_money }"> <input
 						name="have_point" type="hidden"
-						value="${sessionScope.loginMember.m_point }"> 
+						value="${sessionScope.loginMember.m_point }">
 				</div>
+			</div>
 		</div>
-	</div>
-	<c:if test="${sessionScope.loginMember != null }">
-		<button onclick="productBuy();">BUY NOW</button>
-	</c:if>
+		<c:if test="${sessionScope.loginMember != null }">
+			<button onclick="productBuy();" class="buy_btn">BUY NOW</button>
+		</c:if>
 	</form>
 	<div class="navi_scorll_area" id="navi_scorll_area">
 		<!--  메뉴네비 -->
