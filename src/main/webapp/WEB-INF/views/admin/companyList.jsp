@@ -19,6 +19,11 @@
 		<div class="admin_content_subject">
 			<span>업체 목록</span>
 		</div>
+		
+		<div>
+			<input type="button" onclick="companyInfo();" value="수정|삭제">
+		</div>
+		
 		<div class="author_table_wrap">
 			<div class="form_section">
 				<div class="form_section">
@@ -42,15 +47,15 @@
 				</div>
 				
 	<!-- 업체목록 페이지 이동 - 성신 -->			
-		<c:if test="${curPage != 1 }">
+		<c:if test="${curPage5 != 1 }">
 			<div id="vocL">
-				<span onclick="CompanyPageChange(${curPage -1});"
+				<span onclick="companyPageChange(${curPage5 - 1});"
 					style="cursor: pointer;">&lt; Prev </span>
 			</div>
 		</c:if>
-		<c:if test="${curPage != allPageCount }">
+		<c:if test="${curPage5 != allPageCount }">
 			<div id="vocR">
-				<span onclick="CompanyPageChange(${curPage +1});"
+				<span onclick="companyPageChange(${curPage5 + 1});"
 					style="cursor: pointer;">Next &gt;</span>
 			</div>
 		</c:if>
@@ -63,7 +68,7 @@
 					<option value="company_name">이름</option>
 					<option value="country_id">국가</option>
 				</select>
-				<input type="text" name="search" autocomplete="off" maxlength="20" placeholder="업체 검색">
+				<input type="text" name="companySearch" autocomplete="off" maxlength="20" placeholder="업체 검색">
 				<button>검색</button>
 			</form>
 		</c:if>

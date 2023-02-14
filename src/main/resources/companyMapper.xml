@@ -68,6 +68,19 @@
 		where rn &gt; = #{start} and rn &lt; = #{end}
 	</select>
 	
+	<select id="getAllCompanyCounts" resultType="java.lang.Integer">
+		select count(*) from company_member
+	</select>
+	
+	<delete id="companyDel" parameterType="com.shop.main.company.Company">
+		delete from company_member where company_number = #{company_number}
+	</delete>
+	
+	<update id="companyModify" parameterType="com.shop.main.company.Company">
+		update company_member set company_name = #{company_name}, country_id = #{country_id}, company_introduce = #{company_introduce}
+		where company_number = #{company_number}
+	</update>
+	
 	
 	
 	

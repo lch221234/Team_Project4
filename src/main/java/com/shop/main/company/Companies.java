@@ -2,7 +2,7 @@ package com.shop.main.company;
 
 import java.util.List;
 
-public class Companies {
+public class Companies extends Company {
 	
 	private List<Company> companies;
 	

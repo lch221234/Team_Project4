@@ -65,6 +65,18 @@ function productOut(){
 	location.href="productList.go";
 }
 
+// 업체 수정
+function companyInfo(){
+	location.href = "company.Information";
+}
+
+// 업체 수정 나가기
+function companyOut(){
+	location.href="companyList.go";
+}
+
+
+
 //등록 버튼
 //function companyReg() {
 //	location.href = "companyEnroll.do"
@@ -132,11 +144,16 @@ function productInfoPageChange(page){
 
 
 //회원목록 page
-function MemberPageChange(page){
+function memberPageChange(page){
 	location.href = "member.page.change?p=" + page;
 }
 
 // 업체목록 page
-function CompanyPageChange(page) {
+function companyPageChange(page) {
 	location.href = "company.page.change?p=" + page;
+}
+
+// 업체수정 page
+function companyInfoPageChange(page){
+	location.href = "companyInfo.page.change?p=" + page;
 }

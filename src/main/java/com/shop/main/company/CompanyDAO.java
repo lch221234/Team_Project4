@@ -1,8 +1,10 @@
 package com.shop.main.company;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,12 +15,16 @@ import com.shop.main.SiteOption;
 public class CompanyDAO {
 	
 	private int allCompanyCount;
+	private int allCompanyCounts;
 
 	@Autowired
 	private SqlSession ss;
 	
 	@Autowired
 	private SiteOption so5;
+	
+	@Autowired
+	private SiteOption so6;
 
 	// 업체 등록
 	public void companyReg(Company c, HttpServletRequest req) {
@@ -44,14 +50,17 @@ public class CompanyDAO {
 		allCompanyCount = ss.getMapper(CompanyMapper.class).getAllCompanyCount();
 	}
 	
+
+	
 	// 업체목록 불러오기
 	public void getCompany1(Company c, int page, HttpServletRequest req) {
-		req.setAttribute("curPage", page);
 		
-		int companyCount = 0;
-		
+		req.setAttribute("curPage5", page);
+				
 		String search = (String) req.getSession().getAttribute("search");
 		String type = req.getParameter("type");
+
+		int companyCount = 0;
 		
 		if (search == null) {
 			companyCount = allCompanyCount;
@@ -68,7 +77,7 @@ public class CompanyDAO {
 		int end = (page == allPageCount) ? companyCount : start + so5.getCompanyPerPage() -1;
 		
 		CompanySelector cSel = new CompanySelector(search, start, end);
-		List<Company> companies = ss.getMapper(CompanyMapper.class).getCompany1(cSel);	// 왜 null이지
+		List<Company> companies = null;	// 왜 null이지
 		if (type == null || type.equals("all")) {
 			companies = ss.getMapper(CompanyMapper.class).getCompany1(cSel);
 		} else if (type.equals("company_name")) {
@@ -88,9 +97,67 @@ public class CompanyDAO {
 	
 	// 업체 검색
 	public void searchCompany(HttpServletRequest req) {
-		String search = req.getParameter("search");
+		String search = req.getParameter("companySearch");
 		req.getSession().setAttribute("search", search);
+	}
+	
+	/* 수정업체목록 */
+	
+	// 수정업체 검색
+	public void searchCompany2(HttpServletRequest req) {
+		req.getSession().setAttribute("search2", req.getParameter("companyInfoSearch"));
+	}
+	
+	// 수정업체 초기화
+	public void searchClear2(HttpServletRequest req) {
+		req.getSession().setAttribute("search2", null);
+	}
+	
+	// 수정업체 count
+	public void countAllCompanies() {
+		allCompanyCounts = ss.getMapper(CompanyMapper.class).getAllCompanyCounts();
+	}
+	
+	public void getSearchCompany(Company c, int page, HttpServletRequest req) {
 		
+		req.setAttribute("curPage6", page);
+		
+		String search = (String) req.getSession().getAttribute("search2");
+		
+		int companyCounts = 0;
+		
+		if (search == null) {
+			companyCounts = allCompanyCounts;
+			search = "";
+		} else {
+			CompanySelector cSel2 = new CompanySelector(search, 0, 0);
+			companyCounts = ss.getMapper(CompanyMapper.class).getSearchCompanyCount(cSel2);
+		}
+		int allPageCount = (int) Math.ceil((double) companyCounts / so6.getCompanyInfoPerPage());
+		req.setAttribute("allPageCount", allPageCount);
+		
+		int start = (page -1) * so6.getCompanyInfoPerPage() + 1;
+		int end = (page == allPageCount) ? companyCounts : start + so6.getCompanyInfoPerPage() -1;
+		
+		CompanySelector cSel = new CompanySelector(search, start, end);
+		List<Company> companies = ss.getMapper(CompanyMapper.class).getCompany1(cSel);
+		req.setAttribute("companyInfos", companies);
+	}
+	
+	public void CompanyDel(Company c, HttpServletRequest req) {
+		try {
+			String[] value = req.getParameterValues("RowCheck");
+			if (value != null) {
+				for (String s : value) {
+					c.setCompany_number(new BigDecimal(s));
+					if (ss.getMapper(CompanyMapper.class).companyDel(c) == 1) {
+						allCompanyCount--;
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	

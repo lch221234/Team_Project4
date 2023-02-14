@@ -28,8 +28,8 @@
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url"
-			value="jdbc:oracle:thin:@192.168.75.65:1521:xe" />
-		<beans:property name="username" value="lee" />
+			value="jdbc:oracle:thin:@192.168.35.225:1521:xe" />
+		<beans:property name="username" value="shin" />
 		<beans:property name="password" value="1" />
 	</beans:bean>
 
@@ -75,6 +75,10 @@
 	
 	<beans:bean id="so5" class="com.shop.main.SiteOption">
 		<beans:property name="companyPerPage" value="5"></beans:property>
+	</beans:bean>
+	
+		<beans:bean id="so6" class="com.shop.main.SiteOption">
+		<beans:property name="companyInfoPerPage" value="5"></beans:property>
 	</beans:bean>
 	
 	

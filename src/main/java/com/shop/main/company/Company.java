@@ -1,8 +1,10 @@
 package com.shop.main.company;
 
+import java.math.BigDecimal;
+
 public class Company {
 	/* 업체 아이디 */
-	private int company_number;
+	private BigDecimal company_number;
 
 	/* 업체 이름 */
 	private String company_name;
@@ -17,7 +19,7 @@ public class Company {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Company(int company_number, String company_name, String country_id, String company_introduce) {
+	public Company(BigDecimal company_number, String company_name, String country_id, String company_introduce) {
 		super();
 		this.company_number = company_number;
 		this.company_name = company_name;
@@ -25,11 +27,11 @@ public class Company {
 		this.company_introduce = company_introduce;
 	}
 
-	public int getCompany_number() {
+	public BigDecimal getCompany_number() {
 		return company_number;
 	}
 
-	public void setCompany_number(int company_number) {
+	public void setCompany_number(BigDecimal company_number) {
 		this.company_number = company_number;
 	}
 
@@ -56,6 +58,8 @@ public class Company {
 	public void setCompany_introduce(String company_introduce) {
 		this.company_introduce = company_introduce;
 	}
+
+
 
 	
 	
