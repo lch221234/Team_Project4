@@ -19,6 +19,8 @@ import org.springframework.stereotype.Service;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.shop.main.SiteOption;
+import com.shop.main.member.Member;
+import com.shop.main.member.MemberMapper;
 
 @Service
 public class ProductDAO {
@@ -162,6 +164,23 @@ public class ProductDAO {
 			req.setAttribute("productssss", productWrapss);
 		}
 		
+		public void productBuy(Member m, Product p, HttpServletRequest req) {
+			BigDecimal money = new BigDecimal(req.getParameter("have_money"));
+			int money2 = Integer.parseInt(req.getParameter("have_money"));
+			int payment_money = 0;
+			try {
+				String [] price = req.getParameterValues("");
+				if (price != null) {
+					for (String s : price) {
+						payment_money+= Integer.parseInt(s);
+					}
+					m.setM_money(new BigDecimal(money2- (payment_money)));
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 //		// 상품 삭제
 		public void ProductDel(Product p, HttpServletRequest req) {
 			try {
@@ -179,20 +198,20 @@ public class ProductDAO {
 			}
 		}
 		
-//		// 상품 수정 -- 미완성(사진 고민중)
-//		public void ProductUpdate(Product p, HttpServletRequest req) {
-//			try {
-//				String [] p_n = req.getParameterValues("product_name");
-//				if (p_n != null) {
-//					for (String s : p_n) {
-//						p.setProduct_name(s);
-//					}
-//				}
-//				ss.getMapper(ProductMapper.class).productModify(p);
-//			} catch (Exception e) {
-//				e.printStackTrace();
-//			}
-//		}
+		// 상품 수정 -- 미완성(사진 고민중)
+		public void ProductUpdate(Product p, HttpServletRequest req) {
+			try {
+				p.setProduct_number(new BigDecimal(req.getParameter("RowCheck")));
+				p.setProduct_name(req.getParameter("product_name"));
+				p.setCategory_code(new BigDecimal(req.getParameter("category_code")));
+				p.setProduct_price(new BigDecimal(req.getParameter("product_price")));
+				p.setProduct_stock(new BigDecimal(req.getParameter("product_stock")));
+				
+				ss.getMapper(ProductMapper.class).productModify(p);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 		
 		// 카테고리별 상품 가져오기
 		public void getAllCategories(HttpServletRequest req) {
@@ -202,7 +221,7 @@ public class ProductDAO {
 				productWraps.add(new ProductWrap(p));
 			}
 			req.setAttribute("getAll", productWraps);
-			
+				
 		}
 		
 		public void getTop(HttpServletRequest req) {

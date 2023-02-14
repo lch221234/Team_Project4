@@ -160,6 +160,18 @@ public class CompanyDAO {
 		}
 	}
 	
+	public void CompanyUpdate(Company c, HttpServletRequest req) {
+		try {
+			c.setCompany_number(new BigDecimal(req.getParameter("RowCheck")));
+			c.setCompany_name(req.getParameter("company_name"));
+			c.setCountry_id(req.getParameter("country_id"));
+			c.setCompany_introduce(req.getParameter("company_introduce"));
+			
+			ss.getMapper(CompanyMapper.class).companyModify(c);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	
 	

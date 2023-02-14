@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.shop.main.TokenManager;
 import com.shop.main.member.MemberDAO;
+import com.shop.main.product.Product;
 
 @Controller
 public class CompanyController {
@@ -31,17 +32,6 @@ public class CompanyController {
 		return "admin/companyRegistration";
 	}
 	
-	//업체목록 수정
-	@RequestMapping(value = "company.info.go", method = RequestMethod.GET)
-	public String goInfo(HttpServletRequest req) {
-		return "admin/companyUpdate";
-	}
-	
-	//업체목록 수정완료
-	@RequestMapping(value = "company.update", method = RequestMethod.POST)
-	public String companyUpdate(Company c, HttpServletRequest req) {
-		return "admin/companyList";
-	}
 	
 	//업체목록 검색
 	@RequestMapping(value = "/company.search", method = RequestMethod.POST)
@@ -104,7 +94,15 @@ public class CompanyController {
 		return "admin/companyInfo";
 	}
 	
-	
+	@RequestMapping(value = "company.update")
+	public String companyUpdate(Company c, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		cDAO.getCompany1(c, 1, req);
+		cDAO.CompanyUpdate(c, req);
+		cDAO.getSearchCompany(c, 1, req);
+		TokenManager.tokenManager(req);
+		return "admin/companyInfo";
+	}
 	
 	
 	
