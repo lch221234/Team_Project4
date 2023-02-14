@@ -331,6 +331,22 @@ ul {
 	background: -ms-linear-gradient(#87e9ec, #b6f3f4);
 	background: linear-gradient(#87e9ec, #b6f3f4);
 }
+
+.vmReplyID {
+	margin: 20px 20px 20px 20px;
+}
+
+.vmOwner {
+	margin: 20px 20px 20px 20px;
+}
+
+.vmDate {
+	margin: 20px 20px 20px 20px;
+}
+
+.vmtxt {
+	margin: 20px 20px 20px 20px;
+}
 /* float 속성 해제 */
 .clearfix {
 	clear: both;

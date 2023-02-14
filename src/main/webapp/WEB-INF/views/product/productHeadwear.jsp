@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>모자</title>
-<link rel="stylesheet" href="resources/css/main.css">
+<link rel="stylesheet" href="resources/css/product.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript">
