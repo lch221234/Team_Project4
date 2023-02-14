@@ -89,6 +89,7 @@
 						<!-- &nbsp; 띄어쓰기 -->
 						<input name="gender_radio" type="radio" value="남자">&nbsp;&nbsp;남성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input name="gender_radio" type="radio" value="여자">&nbsp;&nbsp;여성
+						<input type="hidden" name="member_grade" value="${sessionScope.loginMember.m_grade }">
 					</div>
 				</div>
 				<div class="money_wrap">

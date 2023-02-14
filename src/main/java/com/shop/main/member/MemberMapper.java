@@ -9,6 +9,8 @@ public interface MemberMapper {
 	public abstract int signup(Member m);
 
 	public abstract int update(Member m);
+	
+	public abstract int updateMoney(Member m);
 
 	public abstract int delete(Member m);
 

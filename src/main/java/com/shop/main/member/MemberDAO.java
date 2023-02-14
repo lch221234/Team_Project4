@@ -1,5 +1,6 @@
 package com.shop.main.member;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -109,8 +110,13 @@ public class MemberDAO {
 			m.setM_name(req.getParameter("user_input"));
 			m.setM_address(u_m_address);
 			m.setM_sex(req.getParameter("gender_radio"));
+			m.setM_grade(req.getParameter("member_grade"));
+			m.setM_money(new BigDecimal(req.getParameter("money_input")));
+			m.setM_point(new BigDecimal(req.getParameter("point_input")));
 			
-			ss.getMapper(MemberMapper.class).update(m);
+			if (ss.getMapper(MemberMapper.class).update(m)==1) {
+				req.getSession().setAttribute("loginMember", m);
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();

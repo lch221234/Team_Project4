@@ -164,17 +164,36 @@ public class ProductDAO {
 			req.setAttribute("productssss", productWrapss);
 		}
 		
-		public void productBuy(Member m, Product p, HttpServletRequest req) {
-			BigDecimal money = new BigDecimal(req.getParameter("have_money"));
-			int money2 = Integer.parseInt(req.getParameter("have_money"));
+		public void productBuy(Member m, HttpServletRequest req) {
+			int money = Integer.parseInt(req.getParameter("have_money"));
 			int payment_money = 0;
+			double get_point = Double.parseDouble(req.getParameter("have_point"));
 			try {
-				String [] price = req.getParameterValues("");
+				String [] price = req.getParameterValues("product_price");
 				if (price != null) {
 					for (String s : price) {
 						payment_money+= Integer.parseInt(s);
+						get_point+= Integer.parseInt(s)*0.1;
 					}
-					m.setM_money(new BigDecimal(money2- (payment_money)));
+					int result = (money - payment_money);
+						if (result >=0) {
+							Member m2 = (Member)req.getSession().getAttribute("loginMember");
+							m.setM_id(req.getParameter("getId"));
+							m.setM_pw(m2.getM_pw());
+							m.setM_name(m2.getM_name());
+							m.setM_address(m2.getM_address());
+							m.setM_sex(m2.getM_sex());
+							m.setM_grade(m2.getM_grade());
+							m.setM_money(new BigDecimal(money-(payment_money)));
+							m.setM_point(new BigDecimal(get_point));
+							if (ss.getMapper(MemberMapper.class).update(m)==1) {
+								req.getSession().setAttribute("loginMember", m);
+						}	
+					} else if (result < 0) {
+						req.setAttribute("r", "잔액부족");
+					}
+				} else if (price == null) {
+					System.out.println("null");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

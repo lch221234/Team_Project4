@@ -11,7 +11,7 @@ create table s_member(
 	m_point number(9) not null
 )
 
-insert into s_member values('asdf', 'asdfasdf', '테스트', '테스트 주소', 'bronze', '남자', 1000000, 0);
+insert into s_member values('asdf', 'asdfasdf', '테스트', '테스트 주소!asdf!asdf', 'bronze', '남자', 1000000, 0);
 insert into s_member values('qwer', 'qwerqwer', '매니저', '테스트 주소', 'admin', '남자', 1000000, 0);
 select * from s_member;
 select * from s_member order by m_name DESC;
