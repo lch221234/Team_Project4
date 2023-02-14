@@ -18,10 +18,11 @@
 	<div class="wrapper">
 
 		<div class="wrap">
-		<!-- form 추가한부분 -->
-			<form action="member.SuccessLogin" method="post" name="login_form" onsubmit="return loginck();">
+			<!-- form 추가한부분 -->
+			<form action="member.SuccessLogin" method="post" name="login_form"
+				onsubmit="return loginck();">
 				<div class="logo_wrap">
-					<span>쇼핑몰</span>
+					<span>T1몰</span>
 				</div>
 				<div class="login_wrap">
 					<div class="id_wrap">아이디</div>
@@ -32,14 +33,16 @@
 					</div>
 					<div class="pw_wrap">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_iput" name="pw_input" id="pw_input" type="password"
-							autocomplete="off" placeholder="비밀번호">
-							<img alt="눈 닫음" src="resources/img/eye-close.png" class="login_eye_img" name="login_eye_img" id= "login_eye_img" onclick="eyeImgLogin();">
+						<input class="pw_iput" name="pw_input" id="pw_input"
+							type="password" autocomplete="off" placeholder="비밀번호"> <img
+							alt="눈 닫음" src="resources/img/eye-close.png"
+							class="login_eye_img" name="login_eye_img" id="login_eye_img"
+							onclick="eyeImgLogin();">
 						<!-- 추가(shin) -->
 						<!-- img 추가 및 설정 (1/13) 찬호 -->
 					</div>
 					<c:if test="${result != '1' }">
-					<div class="login_warn">${result }</div>
+						<div class="login_warn">${result }</div>
 					</c:if>
 					<!-- 찬호님 코드 수정 (01/16) 장창호 -->
 					<!-- 기존에 찬호님 주석에 오류가 나서 지워뒀습니다. -->

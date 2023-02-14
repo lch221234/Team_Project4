@@ -19,11 +19,12 @@
 		<div class="admin_content_subject">
 			<span>업체 목록</span>
 		</div>
-		
+
 		<div>
-			<input type="button" onclick="companyInfo();" value="수정|삭제">
+			<input type="button" onclick="companyInfo();" value="수정|삭제"
+				class="info_btn">
 		</div>
-		
+
 		<div class="author_table_wrap">
 			<div class="form_section">
 				<div class="form_section">
@@ -35,7 +36,8 @@
 							<th class="th_column_3">등록 국가</th>
 							<th class="th_column_4">업체 소개</th>
 						</tr>
-						<c:forEach var="list"  items="${companies}" >  <!-- el명 변경 - 성신 -->
+						<c:forEach var="list" items="${companies}">
+							<!-- el명 변경 - 성신 -->
 							<tr>
 								<td>${list.company_number}</td>
 								<td><a href="company.info.go">${list.company_name}</a></td>
@@ -45,33 +47,36 @@
 						</c:forEach>
 					</table>
 				</div>
-				
-	<!-- 업체목록 페이지 이동 - 성신 -->			
-		<c:if test="${curPage5 != 1 }">
-			<div id="vocL">
-				<span onclick="companyPageChange(${curPage5 - 1});"
-					style="cursor: pointer;">&lt; Prev </span>
-			</div>
-		</c:if>
-		<c:if test="${curPage5 != allPageCount }">
-			<div id="vocR">
-				<span onclick="companyPageChange(${curPage5 + 1});"
-					style="cursor: pointer;">Next &gt;</span>
-			</div>
-		</c:if>
-		
-	<!-- 업체 검색 - 성신 -->
-		<c:if test="${sessionScope.loginMember != null }">
-			<form action="company.search" name="companySearchForm" method="post">
-				<select name="type">
-					<option value="all">::보기::</option>
-					<option value="company_name">이름</option>
-					<option value="country_id">국가</option>
-				</select>
-				<input type="text" name="companySearch" autocomplete="off" maxlength="20" placeholder="업체 검색">
-				<button>검색</button>
-			</form>
-		</c:if>
+
+				<!-- 업체목록 페이지 이동 - 성신 -->
+				<c:if test="${curPage5 != 1 }">
+					<div id="vocL">
+						<span onclick="companyPageChange(${curPage5 - 1});"
+							style="cursor: pointer;">&lt; Prev </span>
+					</div>
+				</c:if>
+				<c:if test="${curPage5 != allPageCount }">
+					<div id="vocR">
+						<span onclick="companyPageChange(${curPage5 + 1});"
+							style="cursor: pointer;">Next &gt;</span>
+					</div>
+				</c:if>
+
+				<!-- 업체 검색 - 성신 -->
+				<c:if test="${sessionScope.loginMember != null }">
+					<form action="company.search" name="companySearchForm"
+						method="post">
+						<div class="search_input">
+							<select name="type">
+								<option value="all">::보기::</option>
+								<option value="company_name">이름</option>
+								<option value="country_id">국가</option>
+							</select> <input type="text" name="companySearch" autocomplete="off"
+								maxlength="20" placeholder="업체 검색">
+							<button class="search_btn">검색</button>
+						</div>
+					</form>
+				</c:if>
 			</div>
 		</div>
 	</div>

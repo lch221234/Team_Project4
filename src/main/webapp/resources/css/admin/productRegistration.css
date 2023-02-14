@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
+@font-face {
+	font-family: "a";
+	src: url("chilgok.ttf"); /* 폰트 칠곡체 */
+}
+
 * {
+	font-family: "a";
 	margin: 0;
 	padding: 0;
 }
@@ -120,7 +126,7 @@ ul {
 .admin_content_wrap {
 	width: 80%;
 	float: left;
-	min-height: 700px;/*고정값에서 최소 높이 설정 유동적으로 변경(1/31)찬호*/
+	min-height: 700px; /*고정값에서 최소 높이 설정 유동적으로 변경(1/31)찬호*/
 }
 
 /* 관리자 컨텐츠 제목 영역 */
@@ -199,6 +205,107 @@ ul {
 	margin-left: 150px;
 	margin-top: 30px;
 	line-height: 200%
+}
+
+.category_code {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 95%;
+	height: 30px;
+	font-size: 18px;
+	padding-left: 2%;
+	text-align: center;
+}
+
+.product_name {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 95%;
+	height: 30px;
+	font-size: 18px;
+	padding-left: 2%;
+	text-align: center;
+}
+
+.product_price {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 95%;
+	height: 30px;
+	font-size: 18px;
+	padding-left: 2%;
+	text-align: center;
+}
+
+.company_number {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 95%;
+	height: 30px;
+	font-size: 18px;
+	padding-left: 2%;
+	text-align: center;
+}
+
+.product_stock {
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 95%;
+	height: 30px;
+	font-size: 18px;
+	padding-left: 2%;
+	text-align: center;
+}
+
+.reg_btn {
+	font-weight: bold;
+	text-decoration: none;
+	font-family: "a";
+	margin: 20px 255px 30px 295px;
+	-webkit-box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 4px 0px;
+	background: linear-gradient(#b6f3f4, #87e9ec);
+	text-indent: 0px;
+	line-height: 0px;
+	border-radius: 3px;
+	text-align: center;
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 30px;
+	color: #4b8587;
+	width: 300px;
+	height: 45px;
+	padding: 13px;
+	text-shadow: #adfffe 0px 1px 0px;
+	border-color: #98d7ce;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.reg_btn:active {
+	box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 0 0px;
+	o-box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 0 0px;
+	-moz-box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 0 0px;
+	-webkit-box-shadow: inset #ffffff 0px 1px 1px -1px, #4b9aa1 0px 0 0px;
+	position: relative;
+	top: 4px
+}
+
+.reg_btn:hover {
+	background: #87e9ec;
+	background: -o-linear-gradient(90deg, #87e9ec, #b6f3f4);
+	background: -moz-linear-gradient(center top, #87e9ec 5%, #b6f3f4 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #87e9ec
+		), color-stop(1, #b6f3f4));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#87e9ec',
+		endColorstr='#b6f3f4');
+	background: -webkit-linear-gradient(#87e9ec, #b6f3f4);
+	background: -ms-linear-gradient(#87e9ec, #b6f3f4);
+	background: linear-gradient(#87e9ec, #b6f3f4);
 }
 
 /* float 속성 해제 */

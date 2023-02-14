@@ -39,27 +39,34 @@
 			<span>상품 등록</span>
 		</div>
 		<div>
-			<form action="product.reg" enctype="multipart/form-data" name = "product_regForm" method="post" onsubmit="productRegCheck();">
+			<form action="product.reg" enctype="multipart/form-data"
+				name="product_regForm" method="post" onsubmit="productRegCheck();">
 				<div>
-					<input class="category_code" name="p_c_c" autocomplete="off" autofocus="autofocus" placeholder="카테고리 코드" maxlength="1">  
-				</div>
-				<div>
-					<input class="product_name" name="p_n" autocomplete="off" placeholder="상품 이름"> 
-				</div>
-				<div>
-					<input class="product_price" name="p_p" autocomplete="off" placeholder="상품 가격"> 
+					<input class="category_code" name="p_c_c" autocomplete="off"
+						autofocus="autofocus" placeholder="카테고리 코드" maxlength="1">
 				</div>
 				<div>
-					<input class="company_number" name="c_n" autocomplete="off" placeholder="회사 넘버"> 
+					<input class="product_name" name="p_n" autocomplete="off"
+						placeholder="상품 이름">
 				</div>
 				<div>
-					<input class="product_stock" name="p_s" autocomplete="off" placeholder="상품 재고"> 
+					<input class="product_price" name="p_p" autocomplete="off"
+						placeholder="상품 가격">
 				</div>
-				<div class = product_imgBox>
-					<img src="resources/img/empty.png" style = "width: 150px; height: 150px;" >
-					<input class="product_img" name="p_i" type="file">	
+				<div>
+					<input class="company_number" name="c_n" autocomplete="off"
+						placeholder="회사 넘버">
 				</div>
-				<button>등록하기</button>
+				<div>
+					<input class="product_stock" name="p_s" autocomplete="off"
+						placeholder="상품 재고">
+				</div>
+				<div class=product_imgBox>
+					<img src="resources/img/empty.png"
+						style="width: 150px; height: 150px;"> <input
+						class="product_img" name="p_i" type="file">
+				</div>
+				<button class='reg_btn'>등록하기</button>
 			</form>
 		</div>
 	</div>
