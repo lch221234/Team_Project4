@@ -198,7 +198,7 @@ public class ProductDAO {
 			}
 		}
 		
-//		// 상품 수정 -- 미완성(사진 고민중)
+		// 상품 수정 -- 미완성(사진 고민중)
 		public void ProductUpdate(Product p, HttpServletRequest req) {
 			try {
 				p.setProduct_number(new BigDecimal(req.getParameter("RowCheck")));
