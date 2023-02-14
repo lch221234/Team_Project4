@@ -10,6 +10,11 @@
 <link rel="stylesheet" href="resources/css/main.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript">
+$(function(){
+	alert('headwear');
+});
+</script>
 </head>
 <body>
 	<script>

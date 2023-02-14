@@ -6,12 +6,13 @@ create table s_member(
 	m_name varchar2(10 char) not null,
 	m_address varchar2(200 char) not null,
 	m_grade varchar2(10 char)not null,
-	m_sex varchar2(10 char)not null
+	m_sex varchar2(10 char)not null,
+	m_money number(9) not null,
+	m_point number(9) not null
 )
 
-insert into s_member values('asdf', 'asdfasdf', '테스트', '테스트 주소', 'bronze', '남자');
-insert into s_member values('qwer', 'qwerqwer', '매니저', '테스트 주소', 'admin', '남자');
-insert into s_member values('zxcv', 'zxcvzxcv', '매니저', '테스트 주소', 'bronze', '남자');
+insert into s_member values('asdf', 'asdfasdf', '테스트', '테스트 주소', 'bronze', '남자', 1000000, 0);
+insert into s_member values('qwer', 'qwerqwer', '매니저', '테스트 주소', 'admin', '남자', 1000000, 0);
 select * from s_member;
 select * from s_member order by m_name DESC;
 drop table s_member cascade constraint purge;

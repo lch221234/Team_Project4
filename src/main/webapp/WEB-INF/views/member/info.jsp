@@ -91,6 +91,18 @@
 						<input name="gender_radio" type="radio" value="여자">&nbsp;&nbsp;여성
 					</div>
 				</div>
+				<div class="money_wrap">
+					<div class="money">돈</div>
+					<div>
+						<input name="money_input" readonly="readonly" value="${sessionScope.loginMember.m_money }">
+					</div>
+				</div>
+				<div class="money_wrap">
+					<div class="point">포인트</div>
+					<div>
+						<input name="point_input" readonly="readonly" value="${sessionScope.loginMember.m_point }">
+					</div>
+				</div>
 				<!-- div 떨어져있어서 수정 및 목적 알아볼수있게 클래스명 수정 (1/24) 찬호 -->
 				<div class="button_wrap">
 				<div class="button_click">
