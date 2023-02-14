@@ -56,12 +56,13 @@
 						<div>
 							<form action="voc.search" name="vocSearchForm"
 								onsubmit="return vocSearchCheck();" method="post">
-								<div id="vocSearch">
-									<input name="search" maxlength="10" autocomplete="off"
-										placeholder="검색어를 입력하세요">
+
+								<div id="vocSearch" class="vocSearch">
+									<input name="search" class="search" maxlength="10"
+										autocomplete="off" placeholder="검색어를 입력하세요">
 								</div>
 								<div>
-									<button>검색</button>
+									<button class="search_btn">검색</button>
 								</div>
 							</form>
 							<!-- 질문하기 css추가용으로 추가 (02.06) -찬호 -->
@@ -75,9 +76,9 @@
 									onsubmit="return vocWriteCheck();" method="post">
 									<input name="token" value="${token }" type="hidden">
 									<div id="vocWrite">
-										<span><textarea name="v_txt" placeholder="글을 입력하세요"
-												maxlength="500"></textarea></span> <span><button>등록</button>
-										</span>
+										<span><textarea name="v_txt" class="v_txt"
+												placeholder="글을 입력하세요" maxlength="500"></textarea></span> <span><button
+												class="reg_btn">등록</button> </span>
 									</div>
 								</form>
 							</div>

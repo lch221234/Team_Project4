@@ -1,6 +1,12 @@
 @charset "UTF-8";
 
+@font-face {
+	font-family: "a";
+	src: url("chilgok.ttf"); /* 폰트 칠곡체 */
+}
+
 * {
+	font-family: "a";
 	margin: 0;
 	padding: 0;
 }
@@ -120,7 +126,7 @@ ul {
 .admin_content_wrap {
 	width: 80%;
 	float: left;
-	min-height: 700px;/*고정값에서 최소 높이 설정 유동적으로 변경(1/31)찬호*/
+	min-height: 700px; /*고정값에서 최소 높이 설정 유동적으로 변경(1/31)찬호*/
 }
 
 /* 관리자 컨텐츠 제목 영역 */
