@@ -149,7 +149,7 @@ public class ProductDAO {
 				productCount = ss.getMapper(ProductMapper.class).getSearchProductCount(pSel2);
 			}
 			int allProductCount = (int) Math.ceil((double) productCount / so4.getProductInfoPerPage());
-			req.setAttribute("allProductInfoCount", allProductCount);
+			req.setAttribute("allProductCount", allProductCount);
 			
 			int start = (page -1) * so4.getProductInfoPerPage() + 1;
 			int end = (page == allProductCount) ? productCount : start + so4.getProductInfoPerPage() -1;

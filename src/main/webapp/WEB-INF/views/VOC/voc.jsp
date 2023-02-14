@@ -58,10 +58,10 @@
 								onsubmit="return vocSearchCheck();" method="post">
 								<div id="vocSearch">
 									<input name="search" maxlength="10" autocomplete="off"
-										placeholder="찾기">
+										placeholder="검색어를 입력하세요">
 								</div>
 								<div>
-									<button>찾기</button>
+									<button>검색</button>
 								</div>
 							</form>
 							<!-- 질문하기 css추가용으로 추가 (02.06) -찬호 -->
@@ -89,7 +89,7 @@
 					</div>
 					<!-- 문의글 -->
 					<c:forEach var="vm" items="${msgs }">
-						<div id="vm" style="box-shadow: 5px 5px 5px ${vm.v_color};">
+						<div id="vm" style="box-shadow: 0px 0px 1px ${vm.v_color};">
 							<div class="vmOwner" align="center" style="color: ${vm.v_color};">${vm.m_id }</div>
 							<div class="vmDate" align="right">
 								<fmt:formatDate value="${vm.v_when }" type="both"

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품 수정/삭제 페이지</title>
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/do_jQuery.js"></script>
@@ -79,18 +79,18 @@ $(function(){
 	<input type="button" value="나가기" onclick="productOut();"> 
 	<c:if test="${curPage2 != 1 }">
 		<div>
-			<span onclick="productInfoPageChange(${curPage2 - 1 });" style="cursor: pointer;">&lt;</span>
+			<span onclick="productInfoPageChange(${curPage2 - 1 });" style="cursor: pointer;">&lt; Prev</span>
 		</div>
 	</c:if>
 	<c:if test="${curPage2 != allProductCount }">
 		<div>
-			<span onclick="productInfoPageChange(${curPage2 + 1 });" style="cursor: pointer;">&gt;</span>
+			<span onclick="productInfoPageChange(${curPage2 + 1 });" style="cursor: pointer;">Next &gt;</span>
 		</div>
 	</c:if>
 	<form action="product.Infosearch" method="POST">
 		<div>
 			<input name="productSearch" autocomplete="off">
-			<button>찾기</button>
+			<button>검색</button>
 		</div>
 	</form>
 	<form class="infoForm">
@@ -100,7 +100,6 @@ $(function(){
 				<th>이름</th>
 				<th>카테고리 코드</th>
 				<th>가격</th>
-				<th>회사넘버</th>
 				<th>수량</th>
 				<th>이미지</th>
 			</tr>

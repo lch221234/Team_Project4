@@ -47,14 +47,14 @@
 	<!-- 회원목록 페이지 이동 - 성신 -->	
 		<c:if test="${curPage != 1 }">
 			<div id="vocL">
-				<span onclick="MemberPageChange(${curPage -1});"
+				<span onclick="memberPageChange(${curPage -1});"
 					style="cursor: pointer;">&lt; Prev</span>
 			</div>
 			
 		</c:if>
 		<c:if test="${curPage != allPageCount }">
 			<div id="vocR">
-				<span onclick="MemberPageChange(${curPage + 1});"
+				<span onclick="memberPageChange(${curPage + 1});"
 					style="cursor: pointer;">Next &gt;</span>
 			</div>
 		</c:if>	

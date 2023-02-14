@@ -7,19 +7,21 @@ public class SiteOption {
 	private int MemberPerPage;
 	private int ProductInfoPerPage;
 	private int CompanyPerPage;
+	private int CompanyInfoPerPage;
 
 public SiteOption() {
 	// TODO Auto-generated constructor stub
 }
 
-public SiteOption(int vocMsgPerPage, int productPerPage, int memberPerPage, int productInfoPerPage,
-		int companyPerPage) {
+public SiteOption(int vocMsgPerPage, int productPerPage, int memberPerPage, int productInfoPerPage, int companyPerPage,
+		int companyInfoPerPage) {
 	super();
 	this.vocMsgPerPage = vocMsgPerPage;
 	ProductPerPage = productPerPage;
 	MemberPerPage = memberPerPage;
 	ProductInfoPerPage = productInfoPerPage;
 	CompanyPerPage = companyPerPage;
+	CompanyInfoPerPage = companyInfoPerPage;
 }
 
 public int getVocMsgPerPage() {
@@ -61,6 +63,15 @@ public int getCompanyPerPage() {
 public void setCompanyPerPage(int companyPerPage) {
 	CompanyPerPage = companyPerPage;
 }
+
+public int getCompanyInfoPerPage() {
+	return CompanyInfoPerPage;
+}
+
+public void setCompanyInfoPerPage(int companyInfoPerPage) {
+	CompanyInfoPerPage = companyInfoPerPage;
+}
+
 
 
 	

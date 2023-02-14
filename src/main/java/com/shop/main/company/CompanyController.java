@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.shop.main.TokenManager;
-import com.shop.main.member.Member;
 import com.shop.main.member.MemberDAO;
 
 @Controller
@@ -47,10 +46,6 @@ public class CompanyController {
 	//업체목록 검색
 	@RequestMapping(value = "/company.search", method = RequestMethod.POST)
 	public String companySearch(Company c, HttpServletRequest req) {
-		if (isFirstReq) {
-			cDAO.countAllCompany();
-			isFirstReq = false;
-		}
 		mDAO.loginChk(req);
 		cDAO.searchCompany(req);
 		cDAO.getCompany1(c, 1, req);
@@ -67,4 +62,54 @@ public class CompanyController {
 		TokenManager.tokenManager(req);
 		return "admin/companyList";
 	}
+	
+	
+	@RequestMapping(value = "company.Infosearch", method = RequestMethod.POST)
+	public String companyInfoSearch(Company c, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		cDAO.searchCompany2(req);
+		cDAO.getSearchCompany(c, 1, req);
+		TokenManager.tokenManager(req);
+		return "admin/companyInfo";
+	}
+	
+	@RequestMapping(value = "companyInfo.page.change", method = RequestMethod.GET)
+	public String companyInfoPageChange(Company c, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		int p = Integer.parseInt(req.getParameter("p"));
+		cDAO.getSearchCompany(c, p, req);
+		TokenManager.tokenManager(req);
+		return "admin/companyInfo";
+	}
+	
+	@RequestMapping(value = "company.Information", method = RequestMethod.GET)
+	public String companyInfo(Company c, HttpServletRequest req) {
+		if (isFirstReq) {
+			cDAO.countAllCompanies();
+			isFirstReq = false;
+		}
+		cDAO.searchClear2(req);
+		cDAO.getSearchCompany(c, 1, req);
+		TokenManager.tokenManager(req);
+		return "admin/companyInfo";
+	}
+	
+	@RequestMapping(value = "company.delete", method = RequestMethod.GET)
+	public String companyDelete(Company c, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		cDAO.getSearchCompany(c, 1, req);
+		cDAO.CompanyDel(c, req);
+		cDAO.getSearchCompany(c, 1, req);
+		TokenManager.tokenManager(req);
+		return "admin/companyInfo";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

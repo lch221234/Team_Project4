@@ -14,8 +14,12 @@ public interface CompanyMapper {
 	public abstract List<Company> getCompany3 (CompanySelector cSel);
 	
 	public abstract int getAllCompanyCount();
+	public abstract int getAllCompanyCounts();
 	
 	public abstract int getSearchCompanyCount(CompanySelector cSel);
+	
+	public abstract int companyDel(Company c);
+	public abstract int companyModify(Company c);
 	
 	
 }
