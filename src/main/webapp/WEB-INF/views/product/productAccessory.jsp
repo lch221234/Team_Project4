@@ -86,6 +86,7 @@
 		<c:if test="${sessionScope.loginMember != null }">
 			<button onclick="productBuy();" class="buy_btn">BUY NOW</button>
 		</c:if>
+
 	</form>
 	<div class="navi_scorll_area" id="navi_scorll_area">
 		<!--  메뉴네비 -->
