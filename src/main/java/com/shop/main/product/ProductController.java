@@ -109,14 +109,14 @@ public class ProductController {
 		return "admin/productInfo";
 	}
 	
-//	@RequestMapping(value = "product.update")
-//	public String productUpdate(Product p, HttpServletRequest req) {
-//		mDAO.loginChk(req);
-//		pDAO.getProduct2(1, req);
-//		pDAO.ProductUpdate(p, req);
-//		pDAO.getProduct2(1, req);
-//		TokenManager.tokenManager(req);
-//		return "admin/productInfo";
-//	}
+	@RequestMapping(value = "product.update")
+	public String productUpdate(Product p, HttpServletRequest req) {
+		mDAO.loginChk(req);
+		pDAO.getProduct2(1, req);
+		pDAO.ProductUpdate(p, req);
+		pDAO.getSearchProuct(1, req);
+		TokenManager.tokenManager(req);
+		return "admin/productInfo";
+	}
 	
 }

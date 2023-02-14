@@ -10,6 +10,11 @@
 <link rel="stylesheet" href="resources/css/product.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript">
+$(function(){
+	alert('all');
+});
+</script>
 </head>
 <body>
 	<script>
@@ -51,6 +56,7 @@
 				</div>
 				<br>
 			</c:forEach>
+			<div><input name="have_money" type="hidden" value="${sessionScope.loginMember.m_money }"></div>
 		</div>
 	</div>
 	<div class="navi_scorll_area" id="navi_scorll_area">

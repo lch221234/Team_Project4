@@ -100,6 +100,7 @@ $(function(){
 				<th>이름</th>
 				<th>카테고리 코드</th>
 				<th>가격</th>
+				<th>회사넘버</th>
 				<th>수량</th>
 				<th>이미지</th>
 			</tr>
