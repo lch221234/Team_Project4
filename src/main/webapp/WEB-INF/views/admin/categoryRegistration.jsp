@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/admin/main.css">
+<link rel="stylesheet" href="resources/css/admin/categoryReg.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/do.js"></script>
@@ -82,13 +82,15 @@
 					<div class="admin_content_subject">
 						<span>카테고리 등록</span>
 					</div>
-					<input type="button" value="등록하기" onclick="openChild();">
+					<input type="button" value="등록하기" class="reg_btn"
+						onclick="openChild();">
 					<div class="append_Categories"></div>
-						<c:forEach var="c_n" items="${p_c }">
-							<b>${c_n.category_name }</b>
-								<img src = resources/img/recycle_bin.png width = 20 height = 20 onclick="delCategory(${c_n.category_code});">
-							<br>
-						</c:forEach>
+					<c:forEach var="c_n" items="${p_c }">
+						<b>${c_n.category_name }</b>
+						<img src=resources/img/recycle_bin.png width=20 height=20
+							onclick="delCategory(${c_n.category_code});">
+						<br>
+					</c:forEach>
 				</div>
 				<div class="clearfix"></div>
 			</div>

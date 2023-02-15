@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="resources/css/product.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
+<script type="text/javascript" src="resources/js/goProduct.js"></script>
 <script type="text/javascript">
 	function productBuy() {
 		var productArr = new Array();
@@ -27,6 +28,13 @@
 		}
 	}
 </script>
+<!-- bxslider로 상품 가져오기 (02.13)-장창호 -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
 <body>
 	<script>
