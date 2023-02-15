@@ -34,7 +34,7 @@
 						<c:forEach var='li' items="${members}">
 							<!-- el명 변경 - 성신 -->
 							<tr>
-								<td><a href="admin.member.info.go">${li.m_id}</a></td>
+								<td>${li.m_id}</td>
 								<td>${li.m_name}</td>
 								<td>${li.m_address}</td>
 								<td>${li.m_grade}</td>

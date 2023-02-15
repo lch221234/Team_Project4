@@ -7,12 +7,13 @@
 
 * {
 	font-family: "a";
-	margin: 0;
-	padding: 0;
+	text-decoration: none;
+	margin: 0; /* 외부공간 */
+	padding: 0; /* 내부공간 */
 }
 
-a {
-	text-decoration: none;
+a:visited {
+	color: black;
 }
 
 ul {
@@ -300,10 +301,10 @@ ul {
 }
 
 .admin_content_wrap {
-    width: 80%;
-    float: left;
-    font-size: 50px;
-    min-height: 700px;
+	width: 80%;
+	float: left;
+	font-size: 50px;
+	min-height: 700px;
 }
 /* float 속성 해제 */
 .clearfix {

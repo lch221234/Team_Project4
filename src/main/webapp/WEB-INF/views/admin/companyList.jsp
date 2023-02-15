@@ -40,7 +40,7 @@
 							<!-- el명 변경 - 성신 -->
 							<tr>
 								<td>${list.company_number}</td>
-								<td><a href="company.info.go">${list.company_name}</a></td>
+								<td>${list.company_name}</td>
 								<td>${list.country_id}</td>
 								<td>${list.company_introduce}</td>
 							</tr>
