@@ -7,16 +7,20 @@
 <head>
 <meta charset="UTF-8">
 <title>쇼핑몰</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="resources/css/main.css">
 <script type="text/javascript" src="resources/js/jQuery.js"></script>
 <script type="text/javascript" src="resources/js/go.js"></script>
 <script type="text/javascript" src="resources/js/goProduct.js"></script>
 
 <!-- bxslider로 상품 가져오기 (02.13)-장창호 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
 <body>
 	<script>
@@ -65,17 +69,29 @@
 					<a href="/main"><img src="resources/img/Logo.png"></a>
 				</div>
 				<div class="search_area">
-					<!-- 검색창 -->
-					<div class="search_wrap">
-						<form id="searchForm" action="/search" method="get">
-							<div class="search_input">
-								<select name="type">
-									<option value="P">상품이름</option>
-									<option value="C">업체</option>
-								</select> <input type="text" name="keyword">
-								<button class='btn search_btn'>검 색</button>
-							</div>
-						</form>
+					<div>
+						<ul class="bxslider5">
+							<li><img id="p41" src="resources/img/팀원소개.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/이찬호.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/장창호.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/홍성신.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/홍성현.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/팀원소개.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/이찬호.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/장창호.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/홍성신.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/홍성현.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+						</ul>
 					</div>
 				</div>
 
@@ -91,7 +107,11 @@
 							<div class="login_success_area">
 								<span class="login_grade">회원 :
 									${sessionScope.loginMember.m_name}</span> <span class="login_grade">등급
-									: ${sessionScope.loginMember.m_grade}</span> <span class="logout"
+									: ${sessionScope.loginMember.m_grade}</span>
+									<span class="login_grade">보유금액 :
+									${sessionScope.loginMember.m_money}</span>
+									<span class="login_grade">보유포인트 :
+									${sessionScope.loginMember.m_point}</span>  <span class="logout"
 									onclick="logout();" style="cursor: pointer;">로그아웃</span> <span
 									class="updateMember" onclick="memberInfo();"
 									style="cursor: pointer;">회원정보</span>

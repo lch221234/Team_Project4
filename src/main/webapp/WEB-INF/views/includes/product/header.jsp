@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="wrapper">
+	<div class="wrapper">
 		<!-- 화면 전체 div -->
 		<div class="wrap">
 			<!-- 화면  -->
@@ -38,17 +38,29 @@
 					<a href="/main"><img src="resources/img/Logo.png"></a>
 				</div>
 				<div class="search_area">
-					<!-- 검색창 -->
-					<div class="search_wrap">
-						<form id="searchForm" action="/search" method="get">
-							<div class="search_input">
-								<select name="type">
-									<option value="P">상품이름</option>
-									<option value="C">업체</option>
-								</select> <input type="text" name="keyword">
-								<button class='btn search_btn'>검 색</button>
-							</div>
-						</form>
+					<div>
+						<ul class="bxslider5">
+							<li><img id="p41" src="resources/img/팀원소개.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/이찬호.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/장창호.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/홍성신.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/홍성현.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/팀원소개.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/이찬호.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/장창호.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/홍성신.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+							<li><img id="p41" src="resources/img/홍성현.png"
+								style="cursor: pointer; width: 150x; height: 150px;"></li>
+						</ul>
 					</div>
 				</div>
 
@@ -64,7 +76,9 @@
 							<div class="login_success_area">
 								<span class="login_grade">회원 :
 									${sessionScope.loginMember.m_name}</span> <span class="login_grade">등급
-									: ${sessionScope.loginMember.m_grade}</span> <span class="logout"
+									: ${sessionScope.loginMember.m_grade}</span> <span class="login_grade">보유금액
+									: ${sessionScope.loginMember.m_money}</span> <span class="login_grade">보유포인트
+									: ${sessionScope.loginMember.m_point}</span> <span class="logout"
 									onclick="logout();" style="cursor: pointer;">로그아웃</span> <span
 									class="updateMember" onclick="memberInfo();"
 									style="cursor: pointer;">회원정보</span>
