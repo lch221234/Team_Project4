@@ -17,7 +17,9 @@
 </head>
 <body>
 	<div class="wrapper">
-		<form action="member.update" method="post" name="join_form" onsubmit="return userInfoChk();"> <!-- onsubmit 수정했습니다 1.20-- 성현 -->
+		<form action="member.update" method="post" name="join_form"
+			onsubmit="return userInfoChk();">
+			<!-- onsubmit 수정했습니다 1.20-- 성현 -->
 			<div class="wrap">
 				<div class="subjecet">
 					<span>회원정보</span>
@@ -26,28 +28,31 @@
 					<div class="id_name">아이디</div>
 					<div class="id_input_box">
 						<input value="${sessionScope.loginMember.m_id }" class="id_input"
-							name="id_input" readonly="readonly" placeholder="아이디" maxlength="50">  <!-- id는 수정x --성현 -->
+							name="id_input" readonly="readonly" placeholder="아이디"
+							maxlength="50">
+						<!-- id는 수정x --성현 -->
 					</div>
 				</div>
 				<div class="pw_wrap">
 					<div class="pw_name">비밀번호</div>
 					<div class="pw_input_box">
-						<input class="pw_input" autocomplete="off" name="pw_input" id="pw_input" 
-							type="password" value="${sessionScope.loginMember.m_pw }"
-							placeholder="비밀번호" maxlength="20"> <img
-							alt="눈 닫음" src="resources/img/eye-close.png" class="pw_eye_img"
+						<input class="pw_input" autocomplete="off" name="pw_input"
+							id="pw_input" type="password"
+							value="${sessionScope.loginMember.m_pw }" placeholder="비밀번호"
+							maxlength="20"> <img alt="눈 닫음"
+							src="resources/img/eye-close.png" class="pw_eye_img"
 							name="pw_eye_img" id="pw_eye_img" onclick="eyeImgJoinPw();">
 					</div>
 				</div>
 				<div class="pwck_wrap">
 					<div class="pwck_name">비밀번호 확인</div>
 					<div class="pwck_input_box">
-						<input class="pwck_input" autocomplete="off" name="pwck_input" id="pwck_input"
-							type="password" value="${sessionScope.loginMember.m_pw }"
-							 placeholder="비밀번호 확인" maxlength="20">
-						<img alt="눈 닫음" src="resources/img/eye-close.png"
-							class="pwck_eye_img" name="pwck_eye_img" id="pwck_eye_img"
-							onclick="eyeImgJoinPwCk();">
+						<input class="pwck_input" autocomplete="off" name="pwck_input"
+							id="pwck_input" type="password"
+							value="${sessionScope.loginMember.m_pw }" placeholder="비밀번호 확인"
+							maxlength="20"> <img alt="눈 닫음"
+							src="resources/img/eye-close.png" class="pwck_eye_img"
+							name="pwck_eye_img" id="pwck_eye_img" onclick="eyeImgJoinPwCk();">
 					</div>
 				</div>
 				<div class="user_wrap">
@@ -89,26 +94,29 @@
 						<!-- &nbsp; 띄어쓰기 -->
 						<input name="gender_radio" type="radio" value="남자">&nbsp;&nbsp;남성&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input name="gender_radio" type="radio" value="여자">&nbsp;&nbsp;여성
-						<input type="hidden" name="member_grade" value="${sessionScope.loginMember.m_grade }">
+						<input type="hidden" name="member_grade"
+							value="${sessionScope.loginMember.m_grade }">
 					</div>
 				</div>
 				<div class="money_wrap">
-					<div class="money">돈</div>
+					<div class="money" hidden="hidden">돈</div>
 					<div>
-						<input name="money_input" readonly="readonly" value="${sessionScope.loginMember.m_money }">
+						<input name="money_input" hidden="hidden" readonly="readonly"
+							value="${sessionScope.loginMember.m_money }">
 					</div>
 				</div>
 				<div class="money_wrap">
-					<div class="point">포인트</div>
+					<div class="point" hidden="hidden">포인트</div>
 					<div>
-						<input name="point_input" readonly="readonly" value="${sessionScope.loginMember.m_point }">
+						<input name="point_input" hidden="hidden" readonly="readonly"
+							value="${sessionScope.loginMember.m_point }">
 					</div>
 				</div>
 				<!-- div 떨어져있어서 수정 및 목적 알아볼수있게 클래스명 수정 (1/24) 찬호 -->
 				<div class="button_wrap">
-				<div class="button_click">
-					<button class="button_update_wrap">수정</button>
-					<button class="button_delete_wrap" onclick="del();">탈퇴</button>
+					<div class="button_click">
+						<button class="button_update_wrap">수정</button>
+						<button class="button_delete_wrap" onclick="del();">탈퇴</button>
 					</div>
 				</div>
 			</div>
